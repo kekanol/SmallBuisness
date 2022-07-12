@@ -37,6 +37,7 @@
 		EA91F1D2287DE0ED00C11BC3 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA91F1C3287DE0ED00C11BC3 /* Router.swift */; };
 		EA91F1D9287DE52200C11BC3 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA91F1D8287DE52200C11BC3 /* UIApplication+Extensions.swift */; };
 		EA91F1DB287DE7C500C11BC3 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA91F1DA287DE7C500C11BC3 /* UIImage+Extensions.swift */; };
+		EA91F1DF287DF39200C11BC3 /* MainTapeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA91F1DE287DF39200C11BC3 /* MainTapeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		EA91F1C3287DE0ED00C11BC3 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		EA91F1D8287DE52200C11BC3 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		EA91F1DA287DE7C500C11BC3 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		EA91F1DE287DF39200C11BC3 /* MainTapeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTapeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 		EA91F1A6287DE09100C11BC3 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				EA91F1DD287DF37A00C11BC3 /* TapeScreen */,
 				EA91F1BA287DE0EC00C11BC3 /* Auth */,
 				EA91F1B2287DE0EC00C11BC3 /* BaseViews */,
 				EA91F1C0287DE0EC00C11BC3 /* Main */,
@@ -268,6 +271,14 @@
 				EA91F1DA287DE7C500C11BC3 /* UIImage+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EA91F1DD287DF37A00C11BC3 /* TapeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				EA91F1DE287DF39200C11BC3 /* MainTapeViewController.swift */,
+			);
+			path = TapeScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA91F1D0287DE0ED00C11BC3 /* MainScreenRouter.swift in Sources */,
+				EA91F1DF287DF39200C11BC3 /* MainTapeViewController.swift in Sources */,
 				EA91F1B1287DE0D900C11BC3 /* AccountProvider.swift in Sources */,
 				EA91F1CE287DE0ED00C11BC3 /* AuthPresenter.swift in Sources */,
 				EA91F1CA287DE0ED00C11BC3 /* BaseButton.swift in Sources */,

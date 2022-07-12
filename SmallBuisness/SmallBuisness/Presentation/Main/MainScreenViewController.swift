@@ -26,6 +26,7 @@ private extension MainScreenViewController {
 			self.viewControllers = [
 				getTapeScreen(),
 				getSearchScreen(),
+				getNewPostScreen(),
 				getCartScreen(),
 				getProfileScreen()
 			]
@@ -33,7 +34,8 @@ private extension MainScreenViewController {
 			self.viewControllers = [
 				getTapeScreen(),
 				getSearchScreen(),
-				getCartScreen(),
+				getNewPostScreen(),
+				getOrdersScreen(),
 				getProfileScreen()
 			]
 		case .none: break
@@ -59,6 +61,18 @@ private extension MainScreenViewController {
 		nc.tabBarItem = UITabBarItem(
 			title: nil,
 			image: UIImage.magnifyingGlass.withRenderingMode(.alwaysTemplate),
+			selectedImage: nil)
+		nc.tabBarItem.imageInsets = UIEdgeInsets()
+		return nc
+	}
+
+	func getNewPostScreen() -> UIViewController {
+		let nc = CommonNavigationController()
+		let vc = UIViewController()
+		nc.viewControllers = [vc]
+		nc.tabBarItem = UITabBarItem(
+			title: nil,
+			image: UIImage.plusSquare.withRenderingMode(.alwaysTemplate),
 			selectedImage: nil)
 		nc.tabBarItem.imageInsets = UIEdgeInsets()
 		return nc
@@ -95,18 +109,6 @@ private extension MainScreenViewController {
 		nc.tabBarItem = UITabBarItem(
 			title: nil,
 			image: UIImage.bookOpen.withRenderingMode(.alwaysTemplate),
-			selectedImage: nil)
-		nc.tabBarItem.imageInsets = UIEdgeInsets()
-		return nc
-	}
-
-	func getAnalyticsScreen() -> UIViewController {
-		let nc = CommonNavigationController()
-		let vc = UIViewController()
-		nc.viewControllers = [vc]
-		nc.tabBarItem = UITabBarItem(
-			title: nil,
-			image: UIImage.gauge.withRenderingMode(.alwaysTemplate),
 			selectedImage: nil)
 		nc.tabBarItem.imageInsets = UIEdgeInsets()
 		return nc
