@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "HardDrive.png",
+      "filename" : "HardDrive-1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "HardDrive-2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "HardDrive.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

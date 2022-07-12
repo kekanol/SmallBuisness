@@ -14,14 +14,9 @@ final class MainScreenViewController: UITabBarController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.view.backgroundColor = .white
-		self.delegate = self
 		self.tabBar.backgroundColor = .white
 		setupControllers()
 	}
-}
-
-extension MainScreenViewController: UITabBarControllerDelegate {
-	
 }
 
 private extension MainScreenViewController {
@@ -50,9 +45,10 @@ private extension MainScreenViewController {
 		let vc = UIViewController()
 		nc.viewControllers = [vc]
 		nc.tabBarItem = UITabBarItem(
-			title: nil,
+			title: "",
 			image: UIImage.paperPlaneTilt.withRenderingMode(.alwaysTemplate),
 			selectedImage: nil)
+		nc.tabBarItem.imageInsets = UIEdgeInsets()
 		return nc
 	}
 	
@@ -64,6 +60,7 @@ private extension MainScreenViewController {
 			title: nil,
 			image: UIImage.magnifyingGlass.withRenderingMode(.alwaysTemplate),
 			selectedImage: nil)
+		nc.tabBarItem.imageInsets = UIEdgeInsets()
 		return nc
 	}
 	
@@ -75,6 +72,7 @@ private extension MainScreenViewController {
 			title: nil,
 			image: UIImage.cart.withRenderingMode(.alwaysTemplate),
 			selectedImage: nil)
+		nc.tabBarItem.imageInsets = UIEdgeInsets()
 		return nc
 	}
 	
@@ -86,6 +84,7 @@ private extension MainScreenViewController {
 			title: nil,
 			image: UIImage.user.withRenderingMode(.alwaysTemplate),
 			selectedImage: nil)
+		nc.tabBarItem.imageInsets = UIEdgeInsets()
 		return nc
 	}
 
@@ -97,6 +96,7 @@ private extension MainScreenViewController {
 			title: nil,
 			image: UIImage.bookOpen.withRenderingMode(.alwaysTemplate),
 			selectedImage: nil)
+		nc.tabBarItem.imageInsets = UIEdgeInsets()
 		return nc
 	}
 
@@ -108,6 +108,7 @@ private extension MainScreenViewController {
 			title: nil,
 			image: UIImage.gauge.withRenderingMode(.alwaysTemplate),
 			selectedImage: nil)
+		nc.tabBarItem.imageInsets = UIEdgeInsets()
 		return nc
 	}
 }

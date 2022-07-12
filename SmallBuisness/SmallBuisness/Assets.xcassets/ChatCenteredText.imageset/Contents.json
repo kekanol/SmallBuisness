@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "ChatCenteredText.png",
+      "filename" : "ChatCenteredText-1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "ChatCenteredText-2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "ChatCenteredText.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

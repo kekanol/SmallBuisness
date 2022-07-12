@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Gauge.png",
+      "filename" : "Gauge-1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Gauge-2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Gauge.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

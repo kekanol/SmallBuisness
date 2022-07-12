@@ -21,7 +21,11 @@ class LoadingViewController: UIViewController {
     }
 
 	func setLoadConfig() {
+		let rootNC = CommonNavigationController()
+		UIApplication.shared.window?.rootViewController = rootNC
+		UIApplication.shared.window?.makeKeyAndVisible()
 		AccountProvider.shared.setState(.fizik)
+		Router.shared.currentNC = rootNC
 		Router.shared.mainScreenRouter.showMainScreen()
 	}
 }

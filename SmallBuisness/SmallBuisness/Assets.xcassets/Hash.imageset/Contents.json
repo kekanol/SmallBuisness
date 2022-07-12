@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Hash.png",
+      "filename" : "Hash-1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Hash-2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Hash.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

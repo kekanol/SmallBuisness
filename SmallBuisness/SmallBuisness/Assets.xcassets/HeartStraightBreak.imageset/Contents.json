@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "HeartStraightBreak.png",
+      "filename" : "HeartStraightBreak-1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "HeartStraightBreak-2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "HeartStraightBreak.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

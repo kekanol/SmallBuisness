@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "ChatCircle.png",
+      "filename" : "ChatCircle-1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "ChatCircle-2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "ChatCircle.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "CameraSlash.png",
+      "filename" : "CameraSlash-1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "CameraSlash-2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "CameraSlash.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -35,6 +35,8 @@
 		EA91F1D0287DE0ED00C11BC3 /* MainScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA91F1C1287DE0EC00C11BC3 /* MainScreenRouter.swift */; };
 		EA91F1D1287DE0ED00C11BC3 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA91F1C2287DE0EC00C11BC3 /* MainScreenViewController.swift */; };
 		EA91F1D2287DE0ED00C11BC3 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA91F1C3287DE0ED00C11BC3 /* Router.swift */; };
+		EA91F1D9287DE52200C11BC3 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA91F1D8287DE52200C11BC3 /* UIApplication+Extensions.swift */; };
+		EA91F1DB287DE7C500C11BC3 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA91F1DA287DE7C500C11BC3 /* UIImage+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		EA91F1C1287DE0EC00C11BC3 /* MainScreenRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenRouter.swift; sourceTree = "<group>"; };
 		EA91F1C2287DE0EC00C11BC3 /* MainScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		EA91F1C3287DE0ED00C11BC3 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		EA91F1D8287DE52200C11BC3 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
+		EA91F1DA287DE7C500C11BC3 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +207,7 @@
 				EA91F1AB287DE0D900C11BC3 /* Images.swift */,
 				EA91F1AC287DE0D900C11BC3 /* Strings.swift */,
 				EA91F1AA287DE0D800C11BC3 /* UIConstants.swift */,
+				EA91F1DC287DE81400C11BC3 /* Extensions */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -254,6 +259,15 @@
 				EA91F1C2287DE0EC00C11BC3 /* MainScreenViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		EA91F1DC287DE81400C11BC3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EA91F1D8287DE52200C11BC3 /* UIApplication+Extensions.swift */,
+				EA91F1DA287DE7C500C11BC3 /* UIImage+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,8 +416,10 @@
 				EA91F170287DDD7A00C11BC3 /* AppDelegate.swift in Sources */,
 				EA91F1AE287DE0D900C11BC3 /* UIConstants.swift in Sources */,
 				EA91F172287DDD7A00C11BC3 /* SceneDelegate.swift in Sources */,
+				EA91F1DB287DE7C500C11BC3 /* UIImage+Extensions.swift in Sources */,
 				EA91F1D2287DE0ED00C11BC3 /* Router.swift in Sources */,
 				EA91F1C7287DE0ED00C11BC3 /* CommonNavigationController.swift in Sources */,
+				EA91F1D9287DE52200C11BC3 /* UIApplication+Extensions.swift in Sources */,
 				EA91F1C6287DE0ED00C11BC3 /* BaseLabel.swift in Sources */,
 				EA91F1C9287DE0ED00C11BC3 /* BaseView.swift in Sources */,
 				EA91F1D1287DE0ED00C11BC3 /* MainScreenViewController.swift in Sources */,
