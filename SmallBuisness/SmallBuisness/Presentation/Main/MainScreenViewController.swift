@@ -44,7 +44,7 @@ private extension MainScreenViewController {
 	
 	func getTapeScreen() -> UIViewController {
 		let nc = CommonNavigationController()
-		let vc = MainTapeViewController()
+		let vc = MainTapeAssembly.build()
 		nc.viewControllers = [vc]
 		nc.tabBarItem = UITabBarItem(
 			title: "",

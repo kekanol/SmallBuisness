@@ -1,13 +1,18 @@
 //
-//  MainTapeItem.swift
+//  PostCellItem.swift
 //  SmallBuisness
 //
 //  Created by Константин Емельянов on 31.07.2022.
 //
 
-import UIKit
+import Foundation
 
-class MainTapeItem: NSObject {
+final class PostCellItem {
+
+	var post: Post
 	var tapAction: (() -> Void)?
-	var title: String?
+
+	init(post: Post) {
+		self.post = post
+	}
 }

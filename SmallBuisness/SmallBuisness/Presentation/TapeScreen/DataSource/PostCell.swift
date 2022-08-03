@@ -12,10 +12,9 @@ final class PostCell: UICollectionViewCell {
 
 	private let image = UIImageView()
 
-	private var item: PostCellItem
+	private var item: PostCellItem?
 
-	init(frame: CGRect, item: PostCellItem) {
-		self.item = item
+	override init(frame: CGRect) {
 		super.init(frame: frame)
 		setupUI()
 	}
@@ -23,6 +22,10 @@ final class PostCell: UICollectionViewCell {
 	@available(*, unavailable)
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+
+	func configure(with item: PostCellItem) {
+		self.item = item
 	}
 }
 

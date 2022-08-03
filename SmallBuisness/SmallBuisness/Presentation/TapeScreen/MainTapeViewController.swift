@@ -12,14 +12,13 @@ protocol MainTapeViewControllerProtocol: UIViewController {
 	func loadInitialConfiguration()
 
 	func refresh()
-
-	func setItems(_ items: [MainTapeItem])
 }
 
 final class MainTapeViewController: UIViewController {
-	var dataSource: MainTapeDataSourceProtocol?
 
-	private lazy var collection: UICollectionView = {
+	var interactor: MainTapeInteractorProtocol!
+
+	lazy var collection: UICollectionView = {
 		let layout = UICollectionViewFlowLayout()
 		layout.scrollDirection = .vertical
 		let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -55,9 +54,6 @@ private extension MainTapeViewController {
 // MARK: - MainTapeViewControllerProtocol
 
 extension MainTapeViewController: MainTapeViewControllerProtocol {
-	func setItems(_ items: [MainTapeItem]) {
-		dataSource?.setItems(items)
-	}
 
 	func loadInitialConfiguration() {
 
