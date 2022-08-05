@@ -10,11 +10,15 @@ import Foundation
 protocol MainTapeInteractorProtocol {
 	func refresh(isInitial: Bool)
 	func processDidPullToRefresh()
+	func processViewDidAppear()
+	func loadDBPosts()
 }
 
 final class MainTapeInteractor {
 	var presenter: MainTapePresenterProtocol!
 	var service: MainTapeServiceProtocol!
+
+	private var didAppearFirstTime: Bool = true
 }
 
 extension MainTapeInteractor: MainTapeInteractorProtocol {
@@ -34,5 +38,26 @@ extension MainTapeInteractor: MainTapeInteractorProtocol {
 
 	func processDidPullToRefresh() {
 
+	}
+
+	func processViewDidAppear() {
+		if didAppearFirstTime {
+			didAppearFirstTime = false
+			refresh(isInitial: true)
+		}
+	}
+
+	func loadDBPosts() {
+		service.loadPosts { [weak self] posts in
+			guard let self = self else { return }
+			switch posts {
+			case .success(let posts):
+				guard let posts = posts else { return }
+				self.presenter.presentPosts(posts)
+
+			case .failure(_):
+				return
+			}
+		}
 	}
 }

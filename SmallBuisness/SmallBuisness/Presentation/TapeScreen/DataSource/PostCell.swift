@@ -10,7 +10,7 @@ import UIKit
 final class PostCell: UICollectionViewCell {
 	static let reuseIdentifier: String = "\(PostCell.self)"
 
-	private let image = UIImageView()
+	private let view = PostCellViewAssembly.build()
 
 	private var item: PostCellItem?
 
@@ -26,6 +26,7 @@ final class PostCell: UICollectionViewCell {
 
 	func configure(with item: PostCellItem) {
 		self.item = item
+		view.setItem(item)
 	}
 }
 
@@ -33,12 +34,12 @@ final class PostCell: UICollectionViewCell {
 
 private extension PostCell {
 	func setupUI() {
-		[image].forEach {
+		[view].forEach {
 			$0.translatesAutoresizingMaskIntoConstraints = false
 			addSubview($0)
 		}
 
-		image.snp.makeConstraints { make in
+		view.snp.makeConstraints { make in
 			make.leading.trailing.top.bottom.equalToSuperview()
 		}
 	}

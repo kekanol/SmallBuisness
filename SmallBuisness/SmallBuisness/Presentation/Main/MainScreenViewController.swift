@@ -17,6 +17,17 @@ final class MainScreenViewController: UITabBarController {
 		self.tabBar.backgroundColor = .white
 		setupControllers()
 	}
+
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		navigationController?.isNavigationBarHidden = true
+	}
+
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		guard let tapeScreen = viewControllers?.first as? MainTapeViewControllerProtocol else { return }
+		tapeScreen.loadInitialConfiguration()
+	}
 }
 
 private extension MainScreenViewController {
