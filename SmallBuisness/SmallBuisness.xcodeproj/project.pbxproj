@@ -10,7 +10,6 @@
 		314B3862289D800A00D5A7F4 /* PostCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314B3861289D800A00D5A7F4 /* PostCellView.swift */; };
 		314B3864289D818A00D5A7F4 /* ProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314B3863289D818A00D5A7F4 /* ProgressRing.swift */; };
 		314B3867289DB40B00D5A7F4 /* PostCellViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314B3866289DB40B00D5A7F4 /* PostCellViewInteractor.swift */; };
-		314B3869289DB60500D5A7F4 /* PostCellViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314B3868289DB60500D5A7F4 /* PostCellViewService.swift */; };
 		314B386B289DB63600D5A7F4 /* PostCellViewDataBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314B386A289DB63600D5A7F4 /* PostCellViewDataBaseService.swift */; };
 		314B386D289DB99E00D5A7F4 /* PostCellViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314B386C289DB99E00D5A7F4 /* PostCellViewAssembly.swift */; };
 		314D88232896914A0037696E /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314D88222896914A0037696E /* PostCell.swift */; };
@@ -24,6 +23,8 @@
 		31BE5CBC289AFA36005D7392 /* MainTapeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE5CBB289AFA36005D7392 /* MainTapeAssembly.swift */; };
 		31BE5CBE289AFB79005D7392 /* MainTapeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE5CBD289AFB79005D7392 /* MainTapeService.swift */; };
 		31BE5CC0289AFD12005D7392 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE5CBF289AFD12005D7392 /* Post.swift */; };
+		31CEFD22289E5BF900209AEC /* MainTapeDataBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEFD21289E5BF900209AEC /* MainTapeDataBaseService.swift */; };
+		31CEFD24289E5EE800209AEC /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEFD23289E5EE800209AEC /* ImageLoader.swift */; };
 		77216EC2E075E391DFDAFB2C /* Pods_SmallBuisness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B4DC076255EB0C2258612E /* Pods_SmallBuisness.framework */; };
 		EA91F170287DDD7A00C11BC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA91F16F287DDD7A00C11BC3 /* AppDelegate.swift */; };
 		EA91F172287DDD7A00C11BC3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA91F171287DDD7A00C11BC3 /* SceneDelegate.swift */; };
@@ -80,7 +81,6 @@
 		314B3861289D800A00D5A7F4 /* PostCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellView.swift; sourceTree = "<group>"; };
 		314B3863289D818A00D5A7F4 /* ProgressRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRing.swift; sourceTree = "<group>"; };
 		314B3866289DB40B00D5A7F4 /* PostCellViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewInteractor.swift; sourceTree = "<group>"; };
-		314B3868289DB60500D5A7F4 /* PostCellViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewService.swift; sourceTree = "<group>"; };
 		314B386A289DB63600D5A7F4 /* PostCellViewDataBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewDataBaseService.swift; sourceTree = "<group>"; };
 		314B386C289DB99E00D5A7F4 /* PostCellViewAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewAssembly.swift; sourceTree = "<group>"; };
 		314D88222896914A0037696E /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
@@ -94,6 +94,8 @@
 		31BE5CBB289AFA36005D7392 /* MainTapeAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTapeAssembly.swift; sourceTree = "<group>"; };
 		31BE5CBD289AFB79005D7392 /* MainTapeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTapeService.swift; sourceTree = "<group>"; };
 		31BE5CBF289AFD12005D7392 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		31CEFD21289E5BF900209AEC /* MainTapeDataBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTapeDataBaseService.swift; sourceTree = "<group>"; };
+		31CEFD23289E5EE800209AEC /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageLoader.swift; path = SmallBuisness/Presentation/TapeScreen/ImageLoader.swift; sourceTree = SOURCE_ROOT; };
 		66D38076A6BE35CC9B34FAF1 /* Pods-SmallBuisness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmallBuisness.release.xcconfig"; path = "Target Support Files/Pods-SmallBuisness/Pods-SmallBuisness.release.xcconfig"; sourceTree = "<group>"; };
 		EA91F16C287DDD7A00C11BC3 /* SmallBuisness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmallBuisness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA91F16F287DDD7A00C11BC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -166,7 +168,6 @@
 				314B386C289DB99E00D5A7F4 /* PostCellViewAssembly.swift */,
 				314B3866289DB40B00D5A7F4 /* PostCellViewInteractor.swift */,
 				314B386A289DB63600D5A7F4 /* PostCellViewDataBaseService.swift */,
-				314B3868289DB60500D5A7F4 /* PostCellViewService.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -317,6 +318,7 @@
 		EA91F1A9287DE0BC00C11BC3 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				31CEFD23289E5EE800209AEC /* ImageLoader.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -374,6 +376,7 @@
 				31BE5CB9289AF905005D7392 /* MainTapeInteractor.swift */,
 				318E674D289B039B00EBA6BD /* MainTapePresenter.swift */,
 				31BE5CBD289AFB79005D7392 /* MainTapeService.swift */,
+				31CEFD21289E5BF900209AEC /* MainTapeDataBaseService.swift */,
 				31BE5CBB289AFA36005D7392 /* MainTapeAssembly.swift */,
 				31BE5CB8289AF8F4005D7392 /* DataSource */,
 			);
@@ -589,6 +592,7 @@
 				314D88232896914A0037696E /* PostCell.swift in Sources */,
 				EA91F172287DDD7A00C11BC3 /* SceneDelegate.swift in Sources */,
 				EA91F1DB287DE7C500C11BC3 /* UIImage+Extensions.swift in Sources */,
+				31CEFD22289E5BF900209AEC /* MainTapeDataBaseService.swift in Sources */,
 				EA91F1D2287DE0ED00C11BC3 /* Router.swift in Sources */,
 				EA91F1C7287DE0ED00C11BC3 /* CommonNavigationController.swift in Sources */,
 				314B3862289D800A00D5A7F4 /* PostCellView.swift in Sources */,
@@ -600,9 +604,9 @@
 				EA91F1D1287DE0ED00C11BC3 /* MainScreenViewController.swift in Sources */,
 				314D882B28969E950037696E /* CollectionDataSource.swift in Sources */,
 				314D882928969E6D0037696E /* MainTapeDataSource.swift in Sources */,
+				31CEFD24289E5EE800209AEC /* ImageLoader.swift in Sources */,
 				31BE5CBA289AF905005D7392 /* MainTapeInteractor.swift in Sources */,
 				EA91F1A5287DE05D00C11BC3 /* LoadingViewController.swift in Sources */,
-				314B3869289DB60500D5A7F4 /* PostCellViewService.swift in Sources */,
 				EA91F1B0287DE0D900C11BC3 /* Strings.swift in Sources */,
 				314B386B289DB63600D5A7F4 /* PostCellViewDataBaseService.swift in Sources */,
 			);

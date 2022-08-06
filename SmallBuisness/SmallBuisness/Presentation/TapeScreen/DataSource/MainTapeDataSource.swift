@@ -8,7 +8,7 @@
 import UIKit
 
 protocol MainTapeDataSourceProtocol: AnyObject {
-	func setItems(_ items: [PostCellItem])
+	func setItems(_ items: [PostCellItem], animated: Bool)
 }
 
 final class MainTapeDataSource: DataSource {
@@ -53,8 +53,19 @@ final class MainTapeDataSource: DataSource {
 }
 
 extension MainTapeDataSource: MainTapeDataSourceProtocol {
-	func setItems(_ items: [PostCellItem]) {
+	func setItems(_ items: [PostCellItem], animated: Bool = true) {
+		guard let collectionView = collectionView else { return }
+
+		guard animated else {
+			self.items = items
+			collectionView.reloadData()
+			return
+		}
+
 		self.items = items
-		collectionView?.reloadData()
+
+		collectionView.performBatchUpdates({
+			collectionView.reloadSections(IndexSet(integer: 0))
+		})
 	}
 }

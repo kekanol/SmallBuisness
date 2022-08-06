@@ -17,18 +17,23 @@ protocol MainTapeInteractorProtocol {
 final class MainTapeInteractor {
 	var presenter: MainTapePresenterProtocol!
 	var service: MainTapeServiceProtocol!
+	var dbService: MainTapeDataBaseServiceProtocol!
 
 	private var didAppearFirstTime: Bool = true
 }
 
 extension MainTapeInteractor: MainTapeInteractorProtocol {
 	func refresh(isInitial: Bool) {
+		if isInitial {
+			loadDBPosts()
+		}
+
 		service.loadPosts { [weak self] posts in
 			guard let self = self else { return }
 			switch posts {
 			case .success(let posts):
 				guard let posts = posts else { return }
-				self.presenter.presentPosts(posts)
+				self.presenter.presentPosts(posts, animated: true)
 
 			case .failure(_):
 				return
@@ -48,16 +53,9 @@ extension MainTapeInteractor: MainTapeInteractorProtocol {
 	}
 
 	func loadDBPosts() {
-		service.loadPosts { [weak self] posts in
+		dbService.loadPosts { [weak self] posts in
 			guard let self = self else { return }
-			switch posts {
-			case .success(let posts):
-				guard let posts = posts else { return }
-				self.presenter.presentPosts(posts)
-
-			case .failure(_):
-				return
-			}
+			self.presenter.presentPosts(posts, animated: false)
 		}
 	}
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MainTapePresenterProtocol {
-	func presentPosts(_ posts: [Post])
+	func presentPosts(_ posts: [Post], animated: Bool)
 }
 
 final class MainTapePresenter {
@@ -17,9 +17,9 @@ final class MainTapePresenter {
 }
 
 extension MainTapePresenter: MainTapePresenterProtocol {
-	func presentPosts(_ posts: [Post]) {
+	func presentPosts(_ posts: [Post], animated: Bool) {
 		let items = createTapeItems(from: posts)
-		dataSource.setItems(items)
+		dataSource.setItems(items, animated: animated)
 	}
 }
 

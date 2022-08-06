@@ -9,24 +9,36 @@ import UIKit
 
 final class PostCellViewInteractor {
 
-	var service: PostCellViewServiceProtocol
-	var dataBaseService: PostCellViewDataBaseServiceProtocol
+	private var dataBaseService: PostCellViewDataBaseServiceProtocol
 
-	init(service: PostCellViewServiceProtocol,
-		 dataBaseService: PostCellViewDataBaseServiceProtocol) {
-		self.service = service
+	init(dataBaseService: PostCellViewDataBaseServiceProtocol) {
 		self.dataBaseService = dataBaseService
-	}
-
-	enum ImageType {
-		case post
-		case account
-		case coment
 	}
 }
 
-extension PostCellViewInteractor {
-	func loadImage(with url: URL, imageType: ImageType, completion: @escaping ((UIImage) -> Void)) {
+enum ImageType: String {
+	case post
+	case avatar
+}
 
+extension PostCellViewInteractor {
+	func loadImage(with post: Post, imageType: ImageType, completion: @escaping ((UIImage?) -> Void)) {
+		let loadUrl = imageType == .post ? post.imageUrl: post.account.imageUrl
+		let id = imageType == .post ? post.id : post.account.id
+		let dbUrl = imageType.rawValue + id + ".jpg"
+		if let image = dataBaseService.getImage(for: dbUrl) {
+			completion(image)
+		}
+
+		ImageLoader.shared.loadImage(with: loadUrl) { [weak self] data in
+			guard let self = self,
+				  let data = data,
+				  let image = UIImage(data: data) else {
+				completion(nil)
+				return
+			}
+			completion(image)
+			self.dataBaseService.saveImage(image: image, for: id, imageType: imageType)
+		}
 	}
 }
