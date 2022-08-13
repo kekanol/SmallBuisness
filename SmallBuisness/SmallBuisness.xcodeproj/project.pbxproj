@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3120F60928A28B0900A6453B /* SearchScreenCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3120F60828A28B0900A6453B /* SearchScreenCellView.swift */; };
+		3120F60B28A28F4B00A6453B /* SearchCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3120F60A28A28F4B00A6453B /* SearchCellItem.swift */; };
+		3120F60D28A2986100A6453B /* SearchScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3120F60C28A2986100A6453B /* SearchScreenCell.swift */; };
+		3120F60F28A29BC600A6453B /* SearchScreenTapeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3120F60E28A29BC600A6453B /* SearchScreenTapeDataSource.swift */; };
+		3120F61128A29D3A00A6453B /* SearchScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3120F61028A29D3A00A6453B /* SearchScreenPresenter.swift */; };
+		3120F61328A29D4A00A6453B /* SearchScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3120F61228A29D4A00A6453B /* SearchScreenInteractor.swift */; };
+		3120F61528A29D9800A6453B /* SearchScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3120F61428A29D9800A6453B /* SearchScreenAssembly.swift */; };
+		3120F61828A29EF800A6453B /* SearchScreenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3120F61728A29EF800A6453B /* SearchScreenService.swift */; };
 		314B3862289D800A00D5A7F4 /* PostCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314B3861289D800A00D5A7F4 /* PostCellView.swift */; };
 		314B3864289D818A00D5A7F4 /* ProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314B3863289D818A00D5A7F4 /* ProgressRing.swift */; };
 		314B3867289DB40B00D5A7F4 /* PostCellViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314B3866289DB40B00D5A7F4 /* PostCellViewInteractor.swift */; };
@@ -16,6 +24,7 @@
 		314D882728969B700037696E /* PostCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314D882628969B6F0037696E /* PostCellItem.swift */; };
 		314D882928969E6D0037696E /* MainTapeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314D882828969E6D0037696E /* MainTapeDataSource.swift */; };
 		314D882B28969E950037696E /* CollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314D882A28969E950037696E /* CollectionDataSource.swift */; };
+		316F8D3E289FD72000E38FBB /* SearchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316F8D3D289FD72000E38FBB /* SearchScreenViewController.swift */; };
 		318E674E289B039B00EBA6BD /* MainTapePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E674D289B039B00EBA6BD /* MainTapePresenter.swift */; };
 		31BE5CB5289AC139005D7392 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE5CB4289AC139005D7392 /* DataSource.swift */; };
 		31BE5CB7289AF665005D7392 /* UICollectionReusableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE5CB6289AF665005D7392 /* UICollectionReusableView+Extensions.swift */; };
@@ -78,6 +87,14 @@
 
 /* Begin PBXFileReference section */
 		05B4DC076255EB0C2258612E /* Pods_SmallBuisness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmallBuisness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3120F60828A28B0900A6453B /* SearchScreenCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenCellView.swift; sourceTree = "<group>"; };
+		3120F60A28A28F4B00A6453B /* SearchCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellItem.swift; sourceTree = "<group>"; };
+		3120F60C28A2986100A6453B /* SearchScreenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenCell.swift; sourceTree = "<group>"; };
+		3120F60E28A29BC600A6453B /* SearchScreenTapeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenTapeDataSource.swift; sourceTree = "<group>"; };
+		3120F61028A29D3A00A6453B /* SearchScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenPresenter.swift; sourceTree = "<group>"; };
+		3120F61228A29D4A00A6453B /* SearchScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenInteractor.swift; sourceTree = "<group>"; };
+		3120F61428A29D9800A6453B /* SearchScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenAssembly.swift; sourceTree = "<group>"; };
+		3120F61728A29EF800A6453B /* SearchScreenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenService.swift; sourceTree = "<group>"; };
 		314B3861289D800A00D5A7F4 /* PostCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellView.swift; sourceTree = "<group>"; };
 		314B3863289D818A00D5A7F4 /* ProgressRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRing.swift; sourceTree = "<group>"; };
 		314B3866289DB40B00D5A7F4 /* PostCellViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewInteractor.swift; sourceTree = "<group>"; };
@@ -87,6 +104,7 @@
 		314D882628969B6F0037696E /* PostCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellItem.swift; sourceTree = "<group>"; };
 		314D882828969E6D0037696E /* MainTapeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTapeDataSource.swift; sourceTree = "<group>"; };
 		314D882A28969E950037696E /* CollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDataSource.swift; sourceTree = "<group>"; };
+		316F8D3D289FD72000E38FBB /* SearchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenViewController.swift; sourceTree = "<group>"; };
 		318E674D289B039B00EBA6BD /* MainTapePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTapePresenter.swift; sourceTree = "<group>"; };
 		31BE5CB4289AC139005D7392 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		31BE5CB6289AF665005D7392 /* UICollectionReusableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionReusableView+Extensions.swift"; sourceTree = "<group>"; };
@@ -161,6 +179,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3120F61628A29EE300A6453B /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				3120F60828A28B0900A6453B /* SearchScreenCellView.swift */,
+				3120F60C28A2986100A6453B /* SearchScreenCell.swift */,
+				3120F60A28A28F4B00A6453B /* SearchCellItem.swift */,
+				3120F60E28A29BC600A6453B /* SearchScreenTapeDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
 		314B3860289D766A00D5A7F4 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +217,19 @@
 				314B3865289D819100D5A7F4 /* View */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		316F8D3C289FD71100E38FBB /* SearchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				316F8D3D289FD72000E38FBB /* SearchScreenViewController.swift */,
+				3120F61228A29D4A00A6453B /* SearchScreenInteractor.swift */,
+				3120F61028A29D3A00A6453B /* SearchScreenPresenter.swift */,
+				3120F61728A29EF800A6453B /* SearchScreenService.swift */,
+				3120F61428A29D9800A6453B /* SearchScreenAssembly.swift */,
+				3120F61628A29EE300A6453B /* DataSource */,
+			);
+			path = SearchScreen;
 			sourceTree = "<group>";
 		};
 		31BE5CB8289AF8F4005D7392 /* DataSource */ = {
@@ -286,6 +328,7 @@
 		EA91F1A6287DE09100C11BC3 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				316F8D3C289FD71100E38FBB /* SearchScreen */,
 				EA91F1DD287DF37A00C11BC3 /* TapeScreen */,
 				EA91F1BA287DE0EC00C11BC3 /* Auth */,
 				EA91F1B2287DE0EC00C11BC3 /* BaseViews */,
@@ -566,30 +609,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				316F8D3E289FD72000E38FBB /* SearchScreenViewController.swift in Sources */,
 				EA91F1D0287DE0ED00C11BC3 /* MainScreenRouter.swift in Sources */,
+				3120F60D28A2986100A6453B /* SearchScreenCell.swift in Sources */,
 				318E674E289B039B00EBA6BD /* MainTapePresenter.swift in Sources */,
 				31BE5CBC289AFA36005D7392 /* MainTapeAssembly.swift in Sources */,
 				31BE5CBE289AFB79005D7392 /* MainTapeService.swift in Sources */,
 				EA91F1DF287DF39200C11BC3 /* MainTapeViewController.swift in Sources */,
+				3120F60B28A28F4B00A6453B /* SearchCellItem.swift in Sources */,
 				EA91F1B1287DE0D900C11BC3 /* AccountProvider.swift in Sources */,
 				314B3864289D818A00D5A7F4 /* ProgressRing.swift in Sources */,
 				EA91F1CE287DE0ED00C11BC3 /* AuthPresenter.swift in Sources */,
 				EA91F1CA287DE0ED00C11BC3 /* BaseButton.swift in Sources */,
+				3120F61528A29D9800A6453B /* SearchScreenAssembly.swift in Sources */,
 				EA91F1CD287DE0ED00C11BC3 /* AuthAssembly.swift in Sources */,
 				31BE5CB5289AC139005D7392 /* DataSource.swift in Sources */,
 				EA91F1CC287DE0ED00C11BC3 /* AuthCredensial.swift in Sources */,
 				EA91F1AF287DE0D900C11BC3 /* Images.swift in Sources */,
 				314B3867289DB40B00D5A7F4 /* PostCellViewInteractor.swift in Sources */,
 				EA91F1CF287DE0ED00C11BC3 /* AuthService.swift in Sources */,
+				3120F61828A29EF800A6453B /* SearchScreenService.swift in Sources */,
+				3120F61128A29D3A00A6453B /* SearchScreenPresenter.swift in Sources */,
 				EA91F1CB287DE0ED00C11BC3 /* AuthViewController.swift in Sources */,
 				EA91F1C4287DE0ED00C11BC3 /* BaseLoadingVeiw.swift in Sources */,
 				314D882728969B700037696E /* PostCellItem.swift in Sources */,
+				3120F60928A28B0900A6453B /* SearchScreenCellView.swift in Sources */,
 				EA91F1C8287DE0ED00C11BC3 /* BaseTextField.swift in Sources */,
 				EA91F1C5287DE0ED00C11BC3 /* SuccessFailView.swift in Sources */,
 				EA91F170287DDD7A00C11BC3 /* AppDelegate.swift in Sources */,
 				EA91F1AE287DE0D900C11BC3 /* UIConstants.swift in Sources */,
 				31BE5CC0289AFD12005D7392 /* Post.swift in Sources */,
 				314D88232896914A0037696E /* PostCell.swift in Sources */,
+				3120F60F28A29BC600A6453B /* SearchScreenTapeDataSource.swift in Sources */,
+				3120F61328A29D4A00A6453B /* SearchScreenInteractor.swift in Sources */,
 				EA91F172287DDD7A00C11BC3 /* SceneDelegate.swift in Sources */,
 				EA91F1DB287DE7C500C11BC3 /* UIImage+Extensions.swift in Sources */,
 				31CEFD22289E5BF900209AEC /* MainTapeDataBaseService.swift in Sources */,

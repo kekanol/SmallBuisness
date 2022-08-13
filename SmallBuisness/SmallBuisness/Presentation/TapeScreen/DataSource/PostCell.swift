@@ -14,6 +14,12 @@ final class PostCell: UICollectionViewCell {
 
 	private var item: PostCellItem?
 
+	var sizeDidChange: ((IndexPath) -> Void)?
+
+	override var intrinsicContentSize: CGSize {
+		return CGSize(width: UIScreen.main.bounds.width, height: view.contentHeight)
+	}
+
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		setupUI()
@@ -24,9 +30,12 @@ final class PostCell: UICollectionViewCell {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	func configure(with item: PostCellItem) {
+	func configure(with item: PostCellItem, indexPath: IndexPath) {
 		self.item = item
-		view.setItem(item)
+		view.setItem(item, indexPath: indexPath)
+		view.sizeDidChange = { [weak self] indexPath in
+			self?.sizeDidChange?(indexPath)
+		}
 	}
 }
 

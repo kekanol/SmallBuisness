@@ -26,7 +26,8 @@ final class MainTapeDataSource: DataSource {
 		let model = items[indexPath.row]
 		return ElementConfigurator(reuseIdentifier: PostCell.identifier, configurationBlock: { (cell) in
 			guard let cell = cell as? PostCell else { return }
-			cell.configure(with: model)
+			cell.configure(with: model, indexPath: indexPath)
+//			cell.sizeDidChange = { [weak self] indexPath in self?.collectionView?.reloadItems(at: [indexPath])}
 		})
 	}
 
@@ -39,9 +40,13 @@ final class MainTapeDataSource: DataSource {
 	}
 
 	override func sizeForItem(_ indexPath: IndexPath) -> CGSize {
-		let width = collectionView!.bounds.width
-		let size = CGSize(width: width, height: width)
-		return size
+		guard let cell = collectionView?.cellForItem(at: indexPath) else {
+			let item = items[indexPath.row]
+			let width = collectionView!.bounds.width
+			let size = item.calculateCellSize(for: width)
+			return size
+		}
+		return cell.intrinsicContentSize
 	}
 
 	override func collectionView(

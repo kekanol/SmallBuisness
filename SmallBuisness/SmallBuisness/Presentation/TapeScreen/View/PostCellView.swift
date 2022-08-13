@@ -11,9 +11,12 @@ final class PostCellView: UIView {
 
 	var interactor: PostCellViewInteractor!
 
-	var contentHeight: CGFloat = 0
+	var contentHeight: CGFloat = 88 + UIScreen.main.bounds.width
+
+	var sizeDidChange: ((IndexPath) -> Void)?
 
 	private lazy var imageHeight = imageView.heightAnchor.constraint(equalTo: widthAnchor)
+	private var indexPath: IndexPath = IndexPath()
 
 	private lazy var imageView: UIImageView = {
 		let view = UIImageView()
@@ -73,7 +76,8 @@ final class PostCellView: UIView {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	func setItem(_ item: PostCellItem) {
+	func setItem(_ item: PostCellItem, indexPath: IndexPath) {
+		self.indexPath = indexPath
 		imageView.image = nil
 		loader.isHidden = false
 		interactor.loadImage(with: item.post, imageType: .post) { [weak self] image in
@@ -81,6 +85,8 @@ final class PostCellView: UIView {
 			let image = image else { return }
 			self.imageView.image = image
 			self.loader.isHidden = true
+			self.contentHeight = 88 + image.size.height / image.size.width * UIScreen.main.bounds.width
+			self.sizeDidChange?(self.indexPath)
 		}
 
 		interactor.loadImage(with: item.post, imageType: .avatar) { [weak self] image in
@@ -136,7 +142,6 @@ private extension PostCellView {
 		imageView.snp.makeConstraints { make in
 			make.leading.trailing.equalToSuperview()
 			make.top.equalTo(accountImage.snp.bottom).offset(8)
-			make.height.equalTo(imageView.snp.width)
 		}
 
 		likeButton.snp.makeConstraints { make in

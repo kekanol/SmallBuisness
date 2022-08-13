@@ -67,7 +67,7 @@ private extension MainScreenViewController {
 	
 	func getSearchScreen() -> UIViewController {
 		let nc = CommonNavigationController()
-		let vc = UIViewController()
+		let vc = SearchScreenAssembly.build()
 		nc.viewControllers = [vc]
 		nc.tabBarItem = UITabBarItem(
 			title: nil,

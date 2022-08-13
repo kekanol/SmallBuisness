@@ -73,7 +73,7 @@ private extension MainTapeViewController {
 	func setupConstraints() {
 		collection.snp.makeConstraints { make in
 			make.leading.trailing.equalToSuperview()
-			make.top.equalTo(topLabel.snp.bottom)
+			make.top.equalTo(topLabel.snp.bottom).offset(8)
 		}
 		collection.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
 
