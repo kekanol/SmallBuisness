@@ -7,21 +7,15 @@
 
 import UIKit
 
-final class PostCell: UICollectionViewCell {
+final class PostCell: UITableViewCell {
 	static let reuseIdentifier: String = "\(PostCell.self)"
 
 	private let view = PostCellViewAssembly.build()
 
 	private var item: PostCellItem?
 
-	var sizeDidChange: ((IndexPath) -> Void)?
-
-	override var intrinsicContentSize: CGSize {
-		return CGSize(width: UIScreen.main.bounds.width, height: view.contentHeight)
-	}
-
-	override init(frame: CGRect) {
-		super.init(frame: frame)
+	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+		super.init(style: style, reuseIdentifier: reuseIdentifier)
 		setupUI()
 	}
 
@@ -33,9 +27,6 @@ final class PostCell: UICollectionViewCell {
 	func configure(with item: PostCellItem, indexPath: IndexPath) {
 		self.item = item
 		view.setItem(item, indexPath: indexPath)
-		view.sizeDidChange = { [weak self] indexPath in
-			self?.sizeDidChange?(indexPath)
-		}
 	}
 }
 

@@ -15,62 +15,49 @@ final class MainTapeDataSource: DataSource {
 	private var items: [PostCellItem] = []
 
 	func refresh() {
-		self.collectionView?.reloadData()
+		self.tableView?.reloadData()
 	}
 
 	override func registerCells() {
-		self.collectionView?.register(class: PostCell.self)
+		self.tableView?.register(PostCell.self, forCellReuseIdentifier: PostCell.reuseIdentifier)
 	}
 
 	override func configurator(_ indexPath: IndexPath) -> ElementConfigurator {
 		let model = items[indexPath.row]
-		return ElementConfigurator(reuseIdentifier: PostCell.identifier, configurationBlock: { (cell) in
+		return ElementConfigurator(reuseIdentifier: PostCell.reuseIdentifier, configurationBlock: { (cell) in
 			guard let cell = cell as? PostCell else { return }
 			cell.configure(with: model, indexPath: indexPath)
 //			cell.sizeDidChange = { [weak self] indexPath in self?.collectionView?.reloadItems(at: [indexPath])}
 		})
 	}
 
-	override func numberOfElementsInSection(_ section: Int) -> Int {
-		return items.count
-	}
-
 	override func numberOfSections() -> Int {
 		return 1
 	}
 
-	override func sizeForItem(_ indexPath: IndexPath) -> CGSize {
-		guard let cell = collectionView?.cellForItem(at: indexPath) else {
-			let item = items[indexPath.row]
-			let width = collectionView!.bounds.width
-			let size = item.calculateCellSize(for: width)
-			return size
-		}
-		return cell.intrinsicContentSize
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return items.count
 	}
 
-	override func collectionView(
-		_ collectionView: UICollectionView,
-		layout collectionViewLayout: UICollectionViewLayout,
-		minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-		return 0
+	override func heightForRow(_ indexPath: IndexPath) -> CGFloat {
+		return UITableView.automaticDimension
 	}
 }
 
 extension MainTapeDataSource: MainTapeDataSourceProtocol {
 	func setItems(_ items: [PostCellItem], animated: Bool = true) {
-		guard let collectionView = collectionView else { return }
+		guard let tableView = tableView else { return }
 
 		guard animated else {
 			self.items = items
-			collectionView.reloadData()
+			tableView.reloadData()
 			return
 		}
 
 		self.items = items
 
-		collectionView.performBatchUpdates({
-			collectionView.reloadSections(IndexSet(integer: 0))
+		tableView.performBatchUpdates({
+			tableView.reloadSections(IndexSet(integer: 0), with: .fade)
 		})
 	}
 }

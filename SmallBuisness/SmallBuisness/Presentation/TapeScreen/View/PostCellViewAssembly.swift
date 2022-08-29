@@ -10,8 +10,7 @@ import Foundation
 final class PostCellViewAssembly {
 	static func build() -> PostCellView {
 		let view = PostCellView()
-		let db = PostCellViewDataBaseService()
-		let interactor = PostCellViewInteractor(dataBaseService: db)
+		let interactor = PostCellViewInteractor()
 		view.interactor = interactor
 
 		return view

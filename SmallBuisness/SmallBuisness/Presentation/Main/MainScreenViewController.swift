@@ -79,7 +79,7 @@ private extension MainScreenViewController {
 
 	func getNewPostScreen() -> UIViewController {
 		let nc = CommonNavigationController()
-		let vc = UIViewController()
+		let vc = AddPostAssembly().build()
 		nc.viewControllers = [vc]
 		nc.tabBarItem = UITabBarItem(
 			title: nil,

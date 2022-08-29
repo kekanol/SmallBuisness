@@ -12,14 +12,12 @@ final class MainTapeAssembly {
 		let viewController = MainTapeViewController()
 		let interactor = MainTapeInteractor()
 		let presenter = MainTapePresenter()
-		let dataSource = MainTapeDataSource(collectionView: viewController.collection)
+		let dataSource = MainTapeDataSource(tableView: viewController.tableView)
 		let service = MainTapeServiceMock()
-		let dbServise = MainTapeDataBaseServiceMock()
 
 		viewController.interactor = interactor
 
 		interactor.service = service
-		interactor.dbService = dbServise
 		interactor.presenter = presenter
 
 		presenter.dataSource = dataSource

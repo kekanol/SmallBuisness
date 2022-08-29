@@ -11,10 +11,6 @@ final class PostCellView: UIView {
 
 	var interactor: PostCellViewInteractor!
 
-	var contentHeight: CGFloat = 88 + UIScreen.main.bounds.width
-
-	var sizeDidChange: ((IndexPath) -> Void)?
-
 	private lazy var imageHeight = imageView.heightAnchor.constraint(equalTo: widthAnchor)
 	private var indexPath: IndexPath = IndexPath()
 
@@ -85,8 +81,6 @@ final class PostCellView: UIView {
 			let image = image else { return }
 			self.imageView.image = image
 			self.loader.isHidden = true
-			self.contentHeight = 88 + image.size.height / image.size.width * UIScreen.main.bounds.width
-			self.sizeDidChange?(self.indexPath)
 		}
 
 		interactor.loadImage(with: item.post, imageType: .avatar) { [weak self] image in
@@ -115,7 +109,6 @@ private extension PostCellView {
 //		 comentAccountLabel,
 //		 comentDescription
 		].forEach {
-			$0.translatesAutoresizingMaskIntoConstraints = false
 			addSubview($0)
 		}
 		setupConstraints()
@@ -142,6 +135,7 @@ private extension PostCellView {
 		imageView.snp.makeConstraints { make in
 			make.leading.trailing.equalToSuperview()
 			make.top.equalTo(accountImage.snp.bottom).offset(8)
+			make.width.equalTo(imageView.snp.height)
 		}
 
 		likeButton.snp.makeConstraints { make in

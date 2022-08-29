@@ -18,12 +18,11 @@ final class MainTapeViewController: UIViewController {
 
 	var interactor: MainTapeInteractorProtocol!
 
-	lazy var collection: UICollectionView = {
-		let layout = UICollectionViewFlowLayout()
-		layout.scrollDirection = .vertical
-		let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
-		collection.register(PostCell.self, forCellWithReuseIdentifier: PostCell.reuseIdentifier)
-		return collection
+	lazy var tableView: UITableView = {
+		let tableView = UITableView(frame: .zero, style: .plain)
+		tableView.estimatedRowHeight = UITableView.automaticDimension
+		tableView.allowsSelection = false
+		return tableView
 	}()
 
 	private lazy var spiner: UIActivityIndicatorView = {
@@ -59,11 +58,11 @@ final class MainTapeViewController: UIViewController {
 private extension MainTapeViewController {
 
 	@objc func topLabelDidTap() {
-		collection.setContentOffset(CGPoint.zero, animated: true)
+		tableView.setContentOffset(CGPoint.zero, animated: true)
 	}
 
 	func setupUI() {
-		[collection, spiner, topLabel].forEach {
+		[tableView, spiner, topLabel].forEach {
 			$0.translatesAutoresizingMaskIntoConstraints = false
 			view.addSubview($0)
 		}
@@ -71,11 +70,11 @@ private extension MainTapeViewController {
 	}
 
 	func setupConstraints() {
-		collection.snp.makeConstraints { make in
+		tableView.snp.makeConstraints { make in
 			make.leading.trailing.equalToSuperview()
 			make.top.equalTo(topLabel.snp.bottom).offset(8)
 		}
-		collection.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+		tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
 
 		spiner.snp.makeConstraints { make in
 			make.center.equalToSuperview()
@@ -86,7 +85,6 @@ private extension MainTapeViewController {
 			make.height.equalTo(24)
 		}
 		topLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16).isActive = true
-
 	}
 }
 
@@ -94,9 +92,7 @@ private extension MainTapeViewController {
 
 extension MainTapeViewController: MainTapeViewControllerProtocol {
 
-	func loadInitialConfiguration() {
-		interactor.loadDBPosts()
-	}
+	func loadInitialConfiguration() {}
 
 	func refresh() {
 
