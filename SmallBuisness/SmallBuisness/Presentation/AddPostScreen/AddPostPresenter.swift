@@ -9,4 +9,10 @@ import Foundation
 
 final class AddPostPresenter {
 	weak var viewController: AddPostViewController?
+	var errorFactory: PhotosErrorFactory!
+
+	func presentError() {
+		let error = errorFactory.getError()
+		viewController?.presentError(with: error)
+	}
 }

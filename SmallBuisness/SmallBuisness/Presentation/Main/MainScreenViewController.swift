@@ -25,8 +25,7 @@ final class MainScreenViewController: UITabBarController {
 
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		guard let tapeScreen = viewControllers?.first as? MainTapeViewControllerProtocol else { return }
-		tapeScreen.loadInitialConfiguration()
+		PhotoLibraryAccessor.shared.requestAccess { _ in }
 	}
 }
 

@@ -25,6 +25,10 @@
 		314D882928969E6D0037696E /* MainTapeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314D882828969E6D0037696E /* MainTapeDataSource.swift */; };
 		314D882B28969E950037696E /* CollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314D882A28969E950037696E /* CollectionDataSource.swift */; };
 		316F8D3E289FD72000E38FBB /* SearchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316F8D3D289FD72000E38FBB /* SearchScreenViewController.swift */; };
+		31794EA428BE92E100E77C49 /* AddPostDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31794EA328BE92E100E77C49 /* AddPostDataSource.swift */; };
+		31794EA628BE93EC00E77C49 /* AddPostPhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31794EA528BE93EC00E77C49 /* AddPostPhotoService.swift */; };
+		31794EA828BEA1C100E77C49 /* PhotosErrorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31794EA728BEA1C100E77C49 /* PhotosErrorFactory.swift */; };
+		31794EAA28BEA90700E77C49 /* PhotoLibraryAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31794EA928BEA90700E77C49 /* PhotoLibraryAccessor.swift */; };
 		318E674E289B039B00EBA6BD /* MainTapePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E674D289B039B00EBA6BD /* MainTapePresenter.swift */; };
 		31BE5CB5289AC139005D7392 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE5CB4289AC139005D7392 /* DataSource.swift */; };
 		31BE5CB7289AF665005D7392 /* UICollectionReusableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE5CB6289AF665005D7392 /* UICollectionReusableView+Extensions.swift */; };
@@ -108,6 +112,10 @@
 		314D882828969E6D0037696E /* MainTapeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTapeDataSource.swift; sourceTree = "<group>"; };
 		314D882A28969E950037696E /* CollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDataSource.swift; sourceTree = "<group>"; };
 		316F8D3D289FD72000E38FBB /* SearchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenViewController.swift; sourceTree = "<group>"; };
+		31794EA328BE92E100E77C49 /* AddPostDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostDataSource.swift; sourceTree = "<group>"; };
+		31794EA528BE93EC00E77C49 /* AddPostPhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostPhotoService.swift; sourceTree = "<group>"; };
+		31794EA728BEA1C100E77C49 /* PhotosErrorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosErrorFactory.swift; sourceTree = "<group>"; };
+		31794EA928BEA90700E77C49 /* PhotoLibraryAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryAccessor.swift; sourceTree = "<group>"; };
 		318E674D289B039B00EBA6BD /* MainTapePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTapePresenter.swift; sourceTree = "<group>"; };
 		31BE5CB4289AC139005D7392 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		31BE5CB6289AF665005D7392 /* UICollectionReusableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionReusableView+Extensions.swift"; sourceTree = "<group>"; };
@@ -251,10 +259,13 @@
 		31FFDC9428BD3923005E022A /* AddPostScreen */ = {
 			isa = PBXGroup;
 			children = (
+				31FFDC9528BD3933005E022A /* AddPostAssembly.swift */,
 				31FFDC8E28BD38E3005E022A /* AddPostViewController.swift */,
 				31FFDC9028BD38F3005E022A /* AddPostInteractor.swift */,
 				31FFDC9228BD38FF005E022A /* AddPostPresenter.swift */,
-				31FFDC9528BD3933005E022A /* AddPostAssembly.swift */,
+				31794EA328BE92E100E77C49 /* AddPostDataSource.swift */,
+				31794EA528BE93EC00E77C49 /* AddPostPhotoService.swift */,
+				31794EA728BEA1C100E77C49 /* PhotosErrorFactory.swift */,
 			);
 			path = AddPostScreen;
 			sourceTree = "<group>";
@@ -365,6 +376,7 @@
 				EA91F1AC287DE0D900C11BC3 /* Strings.swift */,
 				EA91F1AA287DE0D800C11BC3 /* UIConstants.swift */,
 				EA91F1DC287DE81400C11BC3 /* Extensions */,
+				31794EA928BEA90700E77C49 /* PhotoLibraryAccessor.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -629,6 +641,7 @@
 				316F8D3E289FD72000E38FBB /* SearchScreenViewController.swift in Sources */,
 				EA91F1D0287DE0ED00C11BC3 /* MainScreenRouter.swift in Sources */,
 				3120F60D28A2986100A6453B /* SearchScreenCell.swift in Sources */,
+				31794EA628BE93EC00E77C49 /* AddPostPhotoService.swift in Sources */,
 				318E674E289B039B00EBA6BD /* MainTapePresenter.swift in Sources */,
 				31FFDC8F28BD38E3005E022A /* AddPostViewController.swift in Sources */,
 				31BE5CBC289AFA36005D7392 /* MainTapeAssembly.swift in Sources */,
@@ -662,6 +675,7 @@
 				314D88232896914A0037696E /* PostCell.swift in Sources */,
 				3120F60F28A29BC600A6453B /* SearchScreenTapeDataSource.swift in Sources */,
 				3120F61328A29D4A00A6453B /* SearchScreenInteractor.swift in Sources */,
+				31794EA428BE92E100E77C49 /* AddPostDataSource.swift in Sources */,
 				EA91F172287DDD7A00C11BC3 /* SceneDelegate.swift in Sources */,
 				EA91F1DB287DE7C500C11BC3 /* UIImage+Extensions.swift in Sources */,
 				EA91F1D2287DE0ED00C11BC3 /* Router.swift in Sources */,
@@ -672,6 +686,7 @@
 				EA91F1C6287DE0ED00C11BC3 /* BaseLabel.swift in Sources */,
 				31FFDC9128BD38F3005E022A /* AddPostInteractor.swift in Sources */,
 				314B386D289DB99E00D5A7F4 /* PostCellViewAssembly.swift in Sources */,
+				31794EA828BEA1C100E77C49 /* PhotosErrorFactory.swift in Sources */,
 				EA91F1C9287DE0ED00C11BC3 /* BaseView.swift in Sources */,
 				EA91F1D1287DE0ED00C11BC3 /* MainScreenViewController.swift in Sources */,
 				314D882B28969E950037696E /* CollectionDataSource.swift in Sources */,
@@ -680,6 +695,7 @@
 				31BE5CBA289AF905005D7392 /* MainTapeInteractor.swift in Sources */,
 				EA91F1A5287DE05D00C11BC3 /* LoadingViewController.swift in Sources */,
 				EA91F1B0287DE0D900C11BC3 /* Strings.swift in Sources */,
+				31794EAA28BEA90700E77C49 /* PhotoLibraryAccessor.swift in Sources */,
 				314B386B289DB63600D5A7F4 /* PostCellViewDataBaseService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -861,11 +877,11 @@
 				DEVELOPMENT_TEAM = 9Z347TUD92;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SmallBuisness/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "photo use";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Loading;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -892,11 +908,11 @@
 				DEVELOPMENT_TEAM = 9Z347TUD92;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SmallBuisness/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "photo use";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Loading;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
