@@ -12,17 +12,17 @@ final class AddPostPhotoService {
 
 	private let fetchLimit = 20
 
-	func loadPhotos(_ completion: @escaping ([UIImage]) -> Void) {
+	func loadPhotos(multiplyer: Int, _ completion: @escaping ([UIImage?]) -> Void) {
 		guard PHPhotoLibrary.authorizationStatus() == .authorized else {
 			completion([])
 			return
 		}
 
-		var images = [UIImage]()
+		var images = [UIImage?]()
 
 		let imgManager = PHImageManager.default()
 		let fetchOptions = PHFetchOptions()
-		fetchOptions.fetchLimit = fetchLimit
+		fetchOptions.fetchLimit = fetchLimit * multiplyer
 		fetchOptions.sortDescriptors = [NSSortDescriptor(key:"creationDate", ascending: true)]
 
 		let fetchResult = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: fetchOptions)

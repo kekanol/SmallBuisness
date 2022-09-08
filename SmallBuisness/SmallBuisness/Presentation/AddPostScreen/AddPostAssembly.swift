@@ -5,8 +5,6 @@
 //  Created by Константин on 29.08.2022.
 //
 
-import Foundation
-
 final class AddPostAssembly {
 	func build() -> AddPostViewController {
 		let viewController = AddPostViewController()
@@ -23,6 +21,12 @@ final class AddPostAssembly {
 		presenter.viewController = viewController
 		presenter.errorFactory = errorFactory
 
+		dataSource.imageDidSelect = { [weak interactor] image in
+			interactor?.processImageSelected(image)
+		}
+		dataSource.askLoadMore = { [weak interactor] in
+			interactor?.loadMore()
+		}
 		return viewController
 	}
 }
