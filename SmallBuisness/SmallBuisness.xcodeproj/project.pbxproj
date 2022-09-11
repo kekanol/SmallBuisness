@@ -32,6 +32,9 @@
 		318E674E289B039B00EBA6BD /* MainTapePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E674D289B039B00EBA6BD /* MainTapePresenter.swift */; };
 		31A7BF6028CA801A0077D2C0 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A7BF5F28CA801A0077D2C0 /* PhotoCell.swift */; };
 		31A7BF6228CA8BAD0077D2C0 /* BigPhotoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A7BF6128CA8BAD0077D2C0 /* BigPhotoHeader.swift */; };
+		31A7BF6428CE91AE0077D2C0 /* StretchyHeaderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A7BF6328CE91AE0077D2C0 /* StretchyHeaderLayout.swift */; };
+		31A7BF6628CE92680077D2C0 /* FiltersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A7BF6528CE92680077D2C0 /* FiltersFactory.swift */; };
+		31A7BF6828CE95450077D2C0 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A7BF6728CE95450077D2C0 /* FilterView.swift */; };
 		31BE5CB5289AC139005D7392 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE5CB4289AC139005D7392 /* DataSource.swift */; };
 		31BE5CB7289AF665005D7392 /* UICollectionReusableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE5CB6289AF665005D7392 /* UICollectionReusableView+Extensions.swift */; };
 		31BE5CBA289AF905005D7392 /* MainTapeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE5CB9289AF905005D7392 /* MainTapeInteractor.swift */; };
@@ -121,6 +124,9 @@
 		318E674D289B039B00EBA6BD /* MainTapePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTapePresenter.swift; sourceTree = "<group>"; };
 		31A7BF5F28CA801A0077D2C0 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		31A7BF6128CA8BAD0077D2C0 /* BigPhotoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigPhotoHeader.swift; sourceTree = "<group>"; };
+		31A7BF6328CE91AE0077D2C0 /* StretchyHeaderLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchyHeaderLayout.swift; sourceTree = "<group>"; };
+		31A7BF6528CE92680077D2C0 /* FiltersFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersFactory.swift; sourceTree = "<group>"; };
+		31A7BF6728CE95450077D2C0 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		31BE5CB4289AC139005D7392 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		31BE5CB6289AF665005D7392 /* UICollectionReusableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionReusableView+Extensions.swift"; sourceTree = "<group>"; };
 		31BE5CB9289AF905005D7392 /* MainTapeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTapeInteractor.swift; sourceTree = "<group>"; };
@@ -231,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				31BE5CB4289AC139005D7392 /* DataSource.swift */,
+				31A7BF6328CE91AE0077D2C0 /* StretchyHeaderLayout.swift */,
 				31BE5CBF289AFD12005D7392 /* Post.swift */,
 				314B3865289D819100D5A7F4 /* View */,
 			);
@@ -270,8 +277,10 @@
 				31794EA328BE92E100E77C49 /* AddPostDataSource.swift */,
 				31794EA528BE93EC00E77C49 /* AddPostPhotoService.swift */,
 				31794EA728BEA1C100E77C49 /* PhotosErrorFactory.swift */,
+				31A7BF6528CE92680077D2C0 /* FiltersFactory.swift */,
 				31A7BF5F28CA801A0077D2C0 /* PhotoCell.swift */,
 				31A7BF6128CA8BAD0077D2C0 /* BigPhotoHeader.swift */,
+				31A7BF6728CE95450077D2C0 /* FilterView.swift */,
 			);
 			path = AddPostScreen;
 			sourceTree = "<group>";
@@ -646,6 +655,7 @@
 			files = (
 				316F8D3E289FD72000E38FBB /* SearchScreenViewController.swift in Sources */,
 				EA91F1D0287DE0ED00C11BC3 /* MainScreenRouter.swift in Sources */,
+				31A7BF6428CE91AE0077D2C0 /* StretchyHeaderLayout.swift in Sources */,
 				3120F60D28A2986100A6453B /* SearchScreenCell.swift in Sources */,
 				31794EA628BE93EC00E77C49 /* AddPostPhotoService.swift in Sources */,
 				318E674E289B039B00EBA6BD /* MainTapePresenter.swift in Sources */,
@@ -667,6 +677,7 @@
 				31FFDC9328BD38FF005E022A /* AddPostPresenter.swift in Sources */,
 				EA91F1CC287DE0ED00C11BC3 /* AuthCredensial.swift in Sources */,
 				EA91F1AF287DE0D900C11BC3 /* Images.swift in Sources */,
+				31A7BF6628CE92680077D2C0 /* FiltersFactory.swift in Sources */,
 				314B3867289DB40B00D5A7F4 /* PostCellViewInteractor.swift in Sources */,
 				EA91F1CF287DE0ED00C11BC3 /* AuthService.swift in Sources */,
 				3120F61828A29EF800A6453B /* SearchScreenService.swift in Sources */,
@@ -686,6 +697,7 @@
 				31794EA428BE92E100E77C49 /* AddPostDataSource.swift in Sources */,
 				EA91F172287DDD7A00C11BC3 /* SceneDelegate.swift in Sources */,
 				EA91F1DB287DE7C500C11BC3 /* UIImage+Extensions.swift in Sources */,
+				31A7BF6828CE95450077D2C0 /* FilterView.swift in Sources */,
 				EA91F1D2287DE0ED00C11BC3 /* Router.swift in Sources */,
 				EA91F1C7287DE0ED00C11BC3 /* CommonNavigationController.swift in Sources */,
 				314B3862289D800A00D5A7F4 /* PostCellView.swift in Sources */,

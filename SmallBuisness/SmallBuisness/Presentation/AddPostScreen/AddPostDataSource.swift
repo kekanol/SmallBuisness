@@ -7,25 +7,31 @@
 
 import UIKit
 
+protocol AddPostDataSourceDelegate: AnyObject {
+	func okButtonDidTap()
+	func cancelBittonDidTap()
+	func imageDidSelect(_ image: UIImage)
+	func askLoadMore()
+}
+
 final class AddPostDataSource: DataSource {
+
+	weak var delegate: AddPostDataSourceDelegate?
+	private(set) var selectedImage: UIImage?
+	private(set) var header: BigPhotoHeader?
 
 	private var images = [UIImage?]() {
 		didSet {
 			update(animated: true)
 		}
 	}
-	private var header: BigPhotoHeader?
-	private var selectedImage: UIImage?
 	private var canLoadMore: Bool = true
-
-	var imageDidSelect: ((UIImage) -> Void)?
-	var askLoadMore: (() -> Void)?
 
 	func setItems(with images: [UIImage?]) {
 		if selectedImage == nil {
 			selectedImage = images.first ?? nil
 		}
-		let ostatok = images.count % 4
+		let ostatok = 4 - images.count % 4
 		let newImages = images + Array(repeating: nil, count: ostatok)
 		canLoadMore = newImages.count != self.images.count
 		self.images = newImages
@@ -57,7 +63,7 @@ final class AddPostDataSource: DataSource {
 	override func rowAction(_ indexPath: IndexPath) {
 		if let image = images[indexPath.row] {
 			selectedImage = image
-			imageDidSelect?(image)
+			delegate?.imageDidSelect(image)
 			header?.configure(image)
 		}
 	}
@@ -68,6 +74,14 @@ final class AddPostDataSource: DataSource {
 		let header = collectionView.dequeueReusableSupplementaryView(ofKind: "UICollectionElementKindSectionHeader",
 																	 withReuseIdentifier: BigPhotoHeader.reuseIdentifier,
 																	 for: indexPath) as! BigPhotoHeader
+		header.okButtonTapped = { [weak self] in
+			self?.delegate?.okButtonDidTap()
+			self?.collectionView?.isScrollEnabled = false
+		}
+		header.cancelButtonTapped = { [weak self] in
+			self?.delegate?.cancelBittonDidTap()
+			self?.collectionView?.isScrollEnabled = true
+		}
 		header.configure(selectedImage)
 		self.header = header
 		return header
@@ -103,7 +117,7 @@ final class AddPostDataSource: DataSource {
 		let contentBottomInsetY = size - offset
 		if contentBottomInsetY < UIScreen.main.bounds.height / 5,
 		   canLoadMore {
-			askLoadMore?()
+			delegate?.askLoadMore()
 		}
 	}
 }
@@ -111,7 +125,6 @@ final class AddPostDataSource: DataSource {
 private extension AddPostDataSource {
 	func update(animated: Bool) {
 		guard let collectionView = collectionView else { return }
-
 		guard animated else {
 			collectionView.reloadData()
 			return

@@ -21,12 +21,7 @@ final class AddPostAssembly {
 		presenter.viewController = viewController
 		presenter.errorFactory = errorFactory
 
-		dataSource.imageDidSelect = { [weak interactor] image in
-			interactor?.processImageSelected(image)
-		}
-		dataSource.askLoadMore = { [weak interactor] in
-			interactor?.loadMore()
-		}
+		dataSource.delegate = interactor
 		return viewController
 	}
 }
