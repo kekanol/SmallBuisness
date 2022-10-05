@@ -70,16 +70,22 @@ final class AuthViewController: CommonViewController {
 
 extension AuthViewController: AuthViewControllerProtocol {
 	func present(for state: AuthState) {
-//		switch state {
-//		case .loading:
-//			loadingView.show()
-//		case .authorized:
-//			processAuthrized()
-//		case .base:
-//			configureView()
-//		case .error:
-//			loadingView.hide()
-//		}
+		switch state {
+		case .loading:
+			enter.isLoading = true
+		case .authorized:
+			login.validationEnded(with: .correct)
+			password.validationEnded(with: .correct)
+			enter.isLoading = false
+		case .base:
+			login.validationEnded(with: .base)
+			password.validationEnded(with: .base)
+			enter.isLoading = false
+			configureView()
+		case .error(let type, let message):
+			enter.isLoading = false
+			processError(with: type, message: message)
+		}
 	}
 }
 
@@ -178,10 +184,35 @@ private extension AuthViewController {
 		titleLabel.font = .standart(style: .bold, of: 24)
 	}
 
+	func processError(with type: AuthError, message: String) {
+		switch type {
+		case .internet:
+			break
+		case .incorrectPassword:
+			password.validationEnded(with: .error(message: message))
+		case .incorrectLogin:
+			login.validationEnded(with: .error(message: message))
+		}
+	}
+
 	@objc
 	func enterAction() {
-		AccountProvider.shared.setState(.fizik)
-		Router.shared.mainScreenRouter.showMainScreen()
+		window.endEditing(true)
+		guard let credentials = validateTexts() else { return }
+		enter.isLoading = true
+		presenter?.load(with: credentials)
+	}
+
+	func validateTexts() -> AuthCredensial? {
+		let passwordText = password.text
+		let loginText = login.text
+		guard let loginText = loginText,
+			let passwordText = passwordText else {
+			if passwordText == nil { password.validationEnded(with: .error(message: "Введите пароль")) }
+			if loginText == nil { login.validationEnded(with: .error(message: "Введите логин")) }
+			return nil
+		}
+		return AuthCredensial(login: loginText, password: passwordText)
 	}
 }
 

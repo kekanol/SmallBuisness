@@ -9,7 +9,27 @@ import UIKit
 
 final class CommonButton: UIButton {
 
+	var isLoading: Bool = false {
+		willSet {
+			if newValue {
+				presentIsLoading()
+			} else if newValue != isLoading {
+				presentNormal()
+			}
+		}
+	}
+
 	private let style: CommonButtonStyle
+	private lazy var spinner: Spinner = {
+		let size = CGSize(width: frame.height - 8, height: frame.height - 8)
+		let origin = CGPoint(x: bounds.midX - size.height / 2, y: bounds.midY - size.height / 2)
+		print(origin)
+		print(size)
+		let spinnerFrame = CGRect(origin: origin, size: size)
+		let spinner = Spinner(frame: spinnerFrame, tintColor: style.textColorNormal)
+		addSubview(spinner)
+		return spinner
+	}()
 
 	override var isEnabled: Bool {
 		willSet {
@@ -48,6 +68,24 @@ private extension CommonButton {
 		backgroundColor = style.backgroundColorNormal
 		layer.cornerRadius = 8
 		clipsToBounds = true
+	}
+
+	func presentIsLoading() {
+		isUserInteractionEnabled = false
+		spinner.startAnimating()
+		UIView.animate(withDuration: 0.15) { [weak self] in
+			self?.titleLabel?.alpha = 0
+			self?.imageView?.alpha = 0
+		}
+	}
+
+	func presentNormal() {
+		isUserInteractionEnabled = true
+		spinner.endAnimating()
+		UIView.animate(withDuration: 0.15) { [weak self] in
+			self?.titleLabel?.alpha = 1
+			self?.imageView?.alpha = 1
+		}
 	}
 }
 

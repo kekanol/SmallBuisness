@@ -23,9 +23,9 @@ class CommonTextField: UIView {
 	private let isPassword: Bool
 
 	private let textField = UITextField()
-	private let buttonClear = UIButton()
+	private let button = UIButton()
 	private lazy var stack: UIStackView = {
-		let stack = UIStackView(arrangedSubviews: [textField, buttonClear])
+		let stack = UIStackView(arrangedSubviews: [textField, button])
 		stack.axis = .horizontal
 		return stack
 	}()
@@ -36,15 +36,13 @@ class CommonTextField: UIView {
 		setupView()
 		configureView()
 		updateAppearance()
+		let gr = UITapGestureRecognizer(target: self, action: #selector(setActive))
+		addGestureRecognizer(gr)
 	}
 
 	@available(*, unavailable)
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
-	}
-
-	func setActive() {
-		_ = textField.becomeFirstResponder()
 	}
 
 	func validationEnded(with result: Status) {
@@ -61,20 +59,24 @@ private extension CommonTextField {
 			make.leading.top.bottom.trailing.equalToSuperview().inset(16)
 		}
 
-		buttonClear.snp.makeConstraints { make in
+		button.snp.makeConstraints { make in
 			make.width.height.equalTo(16)
 		}
 	}
 
 	func configureView() {
-		textField.delegate = self
-		textField.addTarget(self, action: #selector(textDidChange(_:)), for: .valueChanged)
-		textField.isSecureTextEntry = isPassword
 		clipsToBounds = true
 		layer.borderWidth = 2
 		layer.cornerRadius = 8
+
+		textField.delegate = self
+		textField.addTarget(self, action: #selector(textDidChange(_:)), for: .editingChanged)
+		textField.isSecureTextEntry = isPassword
 		textField.font = .standart(style: .regular, of: 14)
-		buttonClear.setImage(isPassword ? .eyeClosed : .ban, for: .normal)
+
+		let image: UIImage = isPassword ? (textField.isSecureTextEntry ? .eyeClosed : .eyeOpened) : .ban
+		button.setImage(image, for: .normal)
+		button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
 	}
 
 	func updateAppearance() {
@@ -88,12 +90,29 @@ private extension CommonTextField {
 		case .disabled, .base:
 			layer.borderColor = UIColor.elementLine.cgColor
 		}
-		buttonClear.isHidden = isPassword ? false : status != .active
+		button.isHidden = isPassword ? false : status != .active
 	}
 
 	@objc
 	func textDidChange(_ sender: UITextField) {
 		text = textField.text
+	}
+
+	@objc
+	func buttonAction() {
+		if isPassword {
+			textField.isSecureTextEntry.toggle()
+			let image: UIImage = textField.isSecureTextEntry ? .eyeClosed : .eyeOpened
+			button.setImage(image, for: .normal)
+			return
+		}
+		textField.text = nil
+		text = nil
+	}
+
+	@objc
+	func setActive() {
+		_ = textField.becomeFirstResponder()
 	}
 }
 

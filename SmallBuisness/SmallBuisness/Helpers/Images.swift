@@ -52,4 +52,5 @@ extension UIImage {
 	static let authImage = UIImage(named: "authImage") ?? UIImage()
 	static let ban = UIImage(named: "ban") ?? UIImage()
 	static let eyeClosed = UIImage(named: "eyeClosed") ?? UIImage()
+	static let eyeOpened = UIImage(named: "eyeOpened") ?? UIImage()
 }

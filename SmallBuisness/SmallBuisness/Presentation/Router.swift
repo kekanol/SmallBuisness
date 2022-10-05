@@ -66,4 +66,8 @@ extension Router {
 		let vc = AuthAssembly().build()
 		currentNC?.pushViewController(vc, animated: true)
 	}
+
+	func openRegistration() {
+		
+	}
 }

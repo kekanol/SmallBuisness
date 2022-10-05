@@ -103,7 +103,7 @@ private extension PostCellView {
 		 threDotsButton,
 		 likeButton,
 		 favouriteButton,
-		 loader,
+//		 loader,
 		 descriptionLabel,
 //		 comentImage,
 //		 comentAccountLabel,
@@ -158,10 +158,10 @@ private extension PostCellView {
 			make.bottom.equalToSuperview().inset(8)
 		}
 
-		loader.snp.makeConstraints { make in
-			make.center.equalTo(imageView)
-			make.width.height.equalTo(50)
-		}
+//		loader.snp.makeConstraints { make in
+//			make.center.equalTo(imageView)
+//			make.width.height.equalTo(50)
+//		}
 	}
 }
 

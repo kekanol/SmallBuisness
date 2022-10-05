@@ -19,8 +19,6 @@ final class AuthPresenter {
 	private weak var viewController: AuthViewControllerProtocol?
 	private let service: AuthServiceProtocol
 
-	private var state: AuthState = .base
-
 	init(viewController: AuthViewControllerProtocol, service: AuthServiceProtocol) {
 		self.viewController = viewController
 		self.service = service
@@ -29,8 +27,27 @@ final class AuthPresenter {
 
 extension AuthPresenter: AuthPresenterProtocol {
 	func load(with credensial: AuthCredensial) {
-		AccountProvider.shared.setState(.fizik)
-		viewController?.present(for: .authorized)
+		viewController?.present(for: .loading)
+		service.load(with: credensial) { [weak self] authError in
+			guard let self = self else { return }
+			guard let error = authError else {
+				DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+					self.showMain()
+				}
+				AccountProvider.shared.setState(.fizik)
+				self.viewController?.present(for: .authorized)
+				return
+			}
+			let message: String
+			switch error {
+			case .internet: message = "Нет доступа к интернету"
+			case .incorrectPassword: message = "Неверный пароль"
+			case .incorrectLogin: message = "Аккаунт с таким именем не найден"
+			}
+
+			self.viewController?.present(for: .error(type: error, message: message))
+		}
+
 	}
 
 	func showMain() {

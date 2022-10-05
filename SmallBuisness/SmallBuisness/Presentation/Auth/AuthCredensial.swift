@@ -14,5 +14,5 @@ enum AuthState {
 	case loading
 	case authorized
 	case base
-	case error
+	case error(type: AuthError, message: String)
 }
