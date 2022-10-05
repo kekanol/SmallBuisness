@@ -7,7 +7,7 @@
 
 final class AuthAssembly {
 
-	static func build() -> AuthViewControllerProtocol {
+	func build() -> AuthViewControllerProtocol {
 		let service = AuthService()
 		let viewController = AuthViewController()
 		let presenter = AuthPresenter(viewController: viewController, service: service)

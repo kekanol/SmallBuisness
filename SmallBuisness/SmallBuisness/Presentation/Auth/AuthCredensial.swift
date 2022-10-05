@@ -5,7 +5,7 @@
 //  Created by Константин on 5/24/22.
 //
 
-struct AuthCredensial {
+struct AuthCredensial: Codable {
 	var login: String
 	var password: String
 }

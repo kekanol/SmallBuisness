@@ -49,4 +49,7 @@ extension UIImage {
 	static let user = UIImage(named: "user") ?? UIImage()
 	static let cart = UIImage(named: "cart") ?? UIImage()
 	static let threeDots = UIImage(named: "threeDots") ?? UIImage()
+	static let authImage = UIImage(named: "authImage") ?? UIImage()
+	static let ban = UIImage(named: "ban") ?? UIImage()
+	static let eyeClosed = UIImage(named: "eyeClosed") ?? UIImage()
 }

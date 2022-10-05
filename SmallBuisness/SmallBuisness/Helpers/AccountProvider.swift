@@ -12,16 +12,33 @@ typealias AccountState = AccountProvider.AccountState
 final class AccountProvider {
 
 	static let shared = AccountProvider()
-	private(set) var currentState: AccountState
+	private static let key = "userAuthorizationStatus"
+	private(set) var currentState: AccountState //{
+//		get {
+//			let value = UserDefaults.standard.string(forKey: Self.key)
+//			return AccountState(rawValue: value)
+//		}
+//		set {
+//			UserDefaults.standard.set(newValue.rawValue, forKey: Self.key)
+//		}
+//	}
 
 	private init() {
 		currentState = .none
 	}
 
-	enum AccountState {
+	enum AccountState: String {
 		case none
 		case urik
 		case fizik
+
+		init(rawValue: String?) {
+			if rawValue == AccountState.urik.rawValue {
+				self = .urik
+			} else if rawValue == AccountState.fizik.rawValue {
+				self = .fizik
+			} else { self = .none }
+		}
 	}
 
 	func setState(_ state: AccountState) {

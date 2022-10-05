@@ -24,9 +24,12 @@ class LoadingViewController: UIViewController {
 		let rootNC = CommonNavigationController()
 		UIApplication.shared.window?.rootViewController = rootNC
 		UIApplication.shared.window?.makeKeyAndVisible()
-		AccountProvider.shared.setState(.urik)
 		Router.shared.currentNC = rootNC
-		Router.shared.mainScreenRouter.showMainScreen()
+		if AccountProvider.shared.currentState == .none {
+			Router.shared.openAuthorization()
+		} else {
+			Router.shared.mainScreenRouter.showMainScreen()
+		}
 	}
 }
 

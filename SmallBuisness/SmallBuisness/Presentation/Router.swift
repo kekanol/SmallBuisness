@@ -61,4 +61,9 @@ extension Router {
 	var mainScreenRouter: MainScreenRouter {
 		MainScreenRouter()
 	}
+
+	func openAuthorization() {
+		let vc = AuthAssembly().build()
+		currentNC?.pushViewController(vc, animated: true)
+	}
 }

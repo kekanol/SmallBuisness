@@ -11,7 +11,7 @@ protocol AuthViewControllerProtocol: UIViewController {
 	func present(for state: AuthState)
 }
 
-final class AuthViewController: UIViewController {
+final class AuthViewController: CommonViewController {
 
 	// MARK: - Public properties
 
@@ -19,117 +19,170 @@ final class AuthViewController: UIViewController {
 
 	// MARK: - Private properties
 
-	private let scrollView = UIScrollView()
-	private let scrollCanvas = UIView()
-
-	private let imageView = UIImageView()
-	private let titleLabel =  UILabel()
-	private let loginTextField = BaseTextField()
-	private let passwordTextField = BaseTextField()
-	private let enterButton = BaseButton()
-	private let loadingView = BaseLoadingVeiw()
-
-	private let texts = Strings()
+	private var bottomConstraint: NSLayoutConstraint!
+	private let contentView = UIView()
+	private let container = UIView()
+	private let imageView = UIImageView(image: .authImage)
+	private let bottomSheet = UIView()
+	private let titleLabel = UILabel()
+	private let subtitle = UILabel()
+	private let orView = OrView()
+	private let login = CommonTextField()
+	private let password = CommonTextField(isPassword: true)
+	private let enter = CommonButton(.primary)
+	private let registration = CommonButton(.secondary)
+	private let forgotPass = CommonButton(.transparent)
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
 		setupView()
-		configureView()
+	}
+
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		navigationController?.setNavigationBarHidden(true, animated: false)
+		subscribeToKeyboardNotifications()
+	}
+
+	override func viewDidDisappear(_ animated: Bool) {
+		super.viewDidDisappear(animated)
+		unsubscribeFromKeyboardNotifications()
+	}
+
+	override func handleKeyboardDidShown(_ keyboardBounds: CGRect) {
+		let enterButtonBottomOffset = bottomSheet.frame.height - enter.frame.origin.y - enter.frame.height
+		let keyBoardOffset = keyboardBounds.height - view.safeAreaInsets.bottom
+		let offset = enterButtonBottomOffset - keyBoardOffset - enter.frame.height - 40
+		bottomConstraint.constant = offset
+
+		UIView.animate(withDuration: 0.15, animations: { [weak self] in
+			self?.view.layoutIfNeeded()
+		})
+	}
+
+	override func handleKeyboardDidHidden(_ keyboardBounds: CGRect) {
+		bottomConstraint.constant = 0
+		UIView.animate(withDuration: 0.15, animations: { [weak self] in
+			self?.view.layoutIfNeeded()
+		})
 	}
 }
 
 extension AuthViewController: AuthViewControllerProtocol {
 	func present(for state: AuthState) {
-		switch state {
-		case .loading:
-			loadingView.show()
-		case .authorized:
-			processAuthrized()
-		case .base:
-			configureView()
-		case .error:
-			loadingView.hide()
-		}
+//		switch state {
+//		case .loading:
+//			loadingView.show()
+//		case .authorized:
+//			processAuthrized()
+//		case .base:
+//			configureView()
+//		case .error:
+//			loadingView.hide()
+//		}
 	}
 }
 
 private extension AuthViewController {
 	func setupView() {
-		[scrollView,
-		 scrollCanvas,
-		 imageView,
-		 titleLabel,
-		 loginTextField,
-		 passwordTextField,
-		 enterButton].forEach {
-			$0.translatesAutoresizingMaskIntoConstraints = false
-		}
-
-		view.addSubview(scrollView)
-		scrollView.addSubview(scrollCanvas)
-
-		[imageView, titleLabel, loginTextField, passwordTextField, enterButton].forEach {
-			scrollCanvas.addSubview($0)
-		}
-
-		setupConstraints()
+		addSubviews()
+		configureView()
+		configureContainer()
 	}
 
-	func setupConstraints() {
-		NSLayoutConstraint.activate([
-			scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-			scrollView.topAnchor.constraint(equalTo: view.topAnchor),
-			scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-			scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+	func addSubviews() {
+		view.addSubview(imageView)
+		view.addSubview(bottomSheet)
+		bottomSheet.addSubview(container)
 
-			scrollCanvas.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
-			scrollCanvas.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
-			scrollCanvas.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
-			scrollCanvas.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
-			scrollCanvas.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor),
+		let height = UIScreen.main.bounds.height - (UIScreen.main.bounds.width * 0.64 + view.safeAreaInsets.top - 20)
+		bottomSheet.snp.makeConstraints { make in
+			make.leading.trailing.equalToSuperview()
+			make.height.equalTo(height)
+		}
+		bottomConstraint = bottomSheet.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+		bottomConstraint.isActive = true
 
-			imageView.centerXAnchor.constraint(equalTo: scrollCanvas.centerXAnchor),
-			imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 81),
-			imageView.widthAnchor.constraint(equalToConstant: 120),
-			imageView.heightAnchor.constraint(equalToConstant: 120),
+		imageView.snp.makeConstraints { make in
+			make.centerX.width.equalToSuperview()
+			make.height.equalTo(imageView.snp.width).multipliedBy(0.64)
+			make.top.equalTo(view.safeAreaLayoutGuide)
+		}
 
-			titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: UIConstants.smallOffset),
-			titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-			titleLabel.heightAnchor.constraint(equalToConstant: UIConstants.middleOffset),
+		container.snp.makeConstraints { make in
+			make.leading.trailing.bottom.top.equalToSuperview().inset(24)
+		}
+	}
 
-			loginTextField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: UIConstants.bigOffset),
-			loginTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-			loginTextField.heightAnchor.constraint(equalToConstant: 40),
-
-			passwordTextField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: UIConstants.middleOffset),
-			passwordTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-			passwordTextField.heightAnchor.constraint(equalToConstant: 40),
-
-			enterButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: UIConstants.bigOffset),
-			enterButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-			enterButton.heightAnchor.constraint(equalToConstant: 60)
-
-		])
+	func configureContainer() {
+		container.addSubview(forgotPass)
+		[titleLabel, subtitle, login, password, enter, orView, registration].forEach {
+			container.addSubview($0)
+			$0.snp.makeConstraints { make in make.leading.trailing.equalToSuperview() }
+		}
+		titleLabel.snp.makeConstraints { make in
+			make.top.equalToSuperview().inset(16)
+			make.height.equalTo(30)
+		}
+		subtitle.snp.makeConstraints { make in
+			make.top.equalTo(titleLabel.snp.bottom).offset(8)
+			make.height.equalTo(18)
+		}
+		login.snp.makeConstraints { make in
+			make.top.equalTo(subtitle.snp.bottom).offset(32)
+			make.height.equalTo(50)
+		}
+		password.snp.makeConstraints { make in
+			make.top.equalTo(login.snp.bottom).offset(16)
+			make.height.equalTo(50)
+		}
+		forgotPass.snp.makeConstraints { make in
+			make.leading.equalToSuperview()
+			make.top.equalTo(password.snp.bottom).offset(16)
+			make.height.equalTo(16)
+		}
+		enter.snp.makeConstraints { make in
+			make.top.equalTo(forgotPass.snp.bottom).offset(32)
+			make.height.equalTo(40)
+		}
+		orView.snp.makeConstraints { make in
+			make.top.equalTo(enter.snp.bottom).offset(16)
+			make.height.equalTo(18)
+		}
+		registration.snp.makeConstraints { make in
+			make.top.equalTo(orView.snp.bottom).offset(16)
+			make.height.equalTo(40)
+		}
 	}
 
 	func configureView() {
-		loginTextField.placeholder = texts.login
-		passwordTextField.placeholder = texts.password
-		enterButton.setTitle(texts.enter, for: .normal)
+		view.backgroundColor = .baseBackground
+
+		bottomSheet.backgroundColor = .white
+		bottomSheet.clipsToBounds = true
+		bottomSheet.layer.cornerRadius = 8
+		bottomSheet.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+
+		enter.setTitle("Войти", for: .normal)
+		enter.addTarget(self, action: #selector(enterAction), for: .touchUpInside)
+		registration.setTitle("Регистрация", for: .normal)
+		forgotPass.setTitle("Забыли пароль?", for: .normal)
+		login.placeholder = "Логин"
+		password.placeholder = "Пароль"
+		login.delegate = self
+		password.delegate = self
+
+		subtitle.text = "Общайтесь без ограничений"
+		subtitle.font = .standart(style: .regular, of: 14)
+		titleLabel.text = "Авторизируйтесь"
+		titleLabel.font = .standart(style: .bold, of: 24)
 	}
 
-	func processAuthrized() {
-		SuccessFailView.presentSuccess(on: view) { [weak self] in
-			guard let self = self else { return }
-			self.presenter?.showMain()
-		}
-	}
-
-	func processError() {
-		SuccessFailView.presentFailure(on: view) { [weak self] in
-			guard let self = self else { return }
-			
-		}
+	@objc
+	func enterAction() {
+		AccountProvider.shared.setState(.fizik)
+		Router.shared.mainScreenRouter.showMainScreen()
 	}
 }
+
+extension AuthViewController: CommonTextFieldDelegate {}
