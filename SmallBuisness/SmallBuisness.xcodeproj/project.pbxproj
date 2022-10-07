@@ -15,6 +15,8 @@
 		3120F61328A29D4A00A6453B /* SearchScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3120F61228A29D4A00A6453B /* SearchScreenInteractor.swift */; };
 		3120F61528A29D9800A6453B /* SearchScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3120F61428A29D9800A6453B /* SearchScreenAssembly.swift */; };
 		3120F61828A29EF800A6453B /* SearchScreenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3120F61728A29EF800A6453B /* SearchScreenService.swift */; };
+		3123C1AD28EF406D004840CD /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3123C1AC28EF406D004840CD /* NetworkClient.swift */; };
+		3123C1AF28EF5E4D004840CD /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3123C1AE28EF5E4D004840CD /* LoadingScreen.swift */; };
 		3128F7B728ECC196005B471C /* CommonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3128F7B628ECC196005B471C /* CommonViewController.swift */; };
 		314B3862289D800A00D5A7F4 /* PostCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314B3861289D800A00D5A7F4 /* PostCellView.swift */; };
 		314B3864289D818A00D5A7F4 /* ProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314B3863289D818A00D5A7F4 /* ProgressRing.swift */; };
@@ -27,11 +29,10 @@
 		314D882B28969E950037696E /* CollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314D882A28969E950037696E /* CollectionDataSource.swift */; };
 		316DB83E28EE04660026FE73 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316DB83D28EE04660026FE73 /* Spinner.swift */; };
 		316DB84128EE263B0026FE73 /* RegistrationNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316DB84028EE263B0026FE73 /* RegistrationNameViewController.swift */; };
-		316DB84328EE265F0026FE73 /* RegistrationFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316DB84228EE265F0026FE73 /* RegistrationFlow.swift */; };
+		316DB84328EE265F0026FE73 /* RegistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316DB84228EE265F0026FE73 /* RegistrationModel.swift */; };
 		316DB84528EE26B40026FE73 /* RegistrationPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316DB84428EE26B40026FE73 /* RegistrationPasswordViewController.swift */; };
 		316DB84728EE26D50026FE73 /* RegistrationEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316DB84628EE26D50026FE73 /* RegistrationEmailViewController.swift */; };
 		316DB84928EE26EC0026FE73 /* RegistrationPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316DB84828EE26EC0026FE73 /* RegistrationPhoneViewController.swift */; };
-		316DB84B28EE26FE0026FE73 /* RegistrationFinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316DB84A28EE26FE0026FE73 /* RegistrationFinalViewController.swift */; };
 		316DB84D28EE27330026FE73 /* RegistrationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316DB84C28EE27330026FE73 /* RegistrationPresenter.swift */; };
 		316DB85028EE274B0026FE73 /* RegistrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316DB84F28EE274B0026FE73 /* RegistrationService.swift */; };
 		316F8D3E289FD72000E38FBB /* SearchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316F8D3D289FD72000E38FBB /* SearchScreenViewController.swift */; };
@@ -40,6 +41,8 @@
 		31794EA828BEA1C100E77C49 /* PhotosErrorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31794EA728BEA1C100E77C49 /* PhotosErrorFactory.swift */; };
 		31794EAA28BEA90700E77C49 /* PhotoLibraryAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31794EA928BEA90700E77C49 /* PhotoLibraryAccessor.swift */; };
 		318E674E289B039B00EBA6BD /* MainTapePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E674D289B039B00EBA6BD /* MainTapePresenter.swift */; };
+		3195E68628F0D05900FEC467 /* PhoneTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3195E68528F0D05900FEC467 /* PhoneTextField.swift */; };
+		3195E68828F0D0E700FEC467 /* PhoneFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3195E68728F0D0E700FEC467 /* PhoneFormatter.swift */; };
 		31A7BF6028CA801A0077D2C0 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A7BF5F28CA801A0077D2C0 /* PhotoCell.swift */; };
 		31A7BF6228CA8BAD0077D2C0 /* BigPhotoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A7BF6128CA8BAD0077D2C0 /* BigPhotoHeader.swift */; };
 		31A7BF6428CE91AE0077D2C0 /* StretchyHeaderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A7BF6328CE91AE0077D2C0 /* StretchyHeaderLayout.swift */; };
@@ -131,6 +134,8 @@
 		3120F61228A29D4A00A6453B /* SearchScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenInteractor.swift; sourceTree = "<group>"; };
 		3120F61428A29D9800A6453B /* SearchScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenAssembly.swift; sourceTree = "<group>"; };
 		3120F61728A29EF800A6453B /* SearchScreenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenService.swift; sourceTree = "<group>"; };
+		3123C1AC28EF406D004840CD /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkClient.swift; path = SmallBuisness/Presentation/Registration/NetworkClient.swift; sourceTree = SOURCE_ROOT; };
+		3123C1AE28EF5E4D004840CD /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 		3128F7B628ECC196005B471C /* CommonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewController.swift; sourceTree = "<group>"; };
 		314B3861289D800A00D5A7F4 /* PostCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellView.swift; sourceTree = "<group>"; };
 		314B3863289D818A00D5A7F4 /* ProgressRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRing.swift; sourceTree = "<group>"; };
@@ -143,11 +148,10 @@
 		314D882A28969E950037696E /* CollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDataSource.swift; sourceTree = "<group>"; };
 		316DB83D28EE04660026FE73 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		316DB84028EE263B0026FE73 /* RegistrationNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationNameViewController.swift; sourceTree = "<group>"; };
-		316DB84228EE265F0026FE73 /* RegistrationFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationFlow.swift; sourceTree = "<group>"; };
+		316DB84228EE265F0026FE73 /* RegistrationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModel.swift; sourceTree = "<group>"; };
 		316DB84428EE26B40026FE73 /* RegistrationPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPasswordViewController.swift; sourceTree = "<group>"; };
 		316DB84628EE26D50026FE73 /* RegistrationEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationEmailViewController.swift; sourceTree = "<group>"; };
 		316DB84828EE26EC0026FE73 /* RegistrationPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPhoneViewController.swift; sourceTree = "<group>"; };
-		316DB84A28EE26FE0026FE73 /* RegistrationFinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationFinalViewController.swift; sourceTree = "<group>"; };
 		316DB84C28EE27330026FE73 /* RegistrationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenter.swift; sourceTree = "<group>"; };
 		316DB84F28EE274B0026FE73 /* RegistrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationService.swift; sourceTree = "<group>"; };
 		316F8D3D289FD72000E38FBB /* SearchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +160,8 @@
 		31794EA728BEA1C100E77C49 /* PhotosErrorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosErrorFactory.swift; sourceTree = "<group>"; };
 		31794EA928BEA90700E77C49 /* PhotoLibraryAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryAccessor.swift; sourceTree = "<group>"; };
 		318E674D289B039B00EBA6BD /* MainTapePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTapePresenter.swift; sourceTree = "<group>"; };
+		3195E68528F0D05900FEC467 /* PhoneTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneTextField.swift; sourceTree = "<group>"; };
+		3195E68728F0D0E700FEC467 /* PhoneFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneFormatter.swift; sourceTree = "<group>"; };
 		31A7BF5F28CA801A0077D2C0 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		31A7BF6128CA8BAD0077D2C0 /* BigPhotoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigPhotoHeader.swift; sourceTree = "<group>"; };
 		31A7BF6328CE91AE0077D2C0 /* StretchyHeaderLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchyHeaderLayout.swift; sourceTree = "<group>"; };
@@ -280,6 +286,7 @@
 				31B6DCD728ECD56600C9ACE7 /* OrView.swift */,
 				316DB83D28EE04660026FE73 /* Spinner.swift */,
 				31B6DCD928ECD6C400C9ACE7 /* CommonTextField.swift */,
+				3195E68528F0D05900FEC467 /* PhoneTextField.swift */,
 				31B6DCDB28ECD77F00C9ACE7 /* CommonButton.swift */,
 			);
 			path = View;
@@ -292,6 +299,7 @@
 				31A7BF6328CE91AE0077D2C0 /* StretchyHeaderLayout.swift */,
 				31BE5CBF289AFD12005D7392 /* Post.swift */,
 				3128F7B628ECC196005B471C /* CommonViewController.swift */,
+				3123C1AE28EF5E4D004840CD /* LoadingScreen.swift */,
 				314B3865289D819100D5A7F4 /* View */,
 			);
 			path = Common;
@@ -303,7 +311,7 @@
 				316DB84E28EE273A0026FE73 /* ViewControllers */,
 				316DB84C28EE27330026FE73 /* RegistrationPresenter.swift */,
 				316DB84F28EE274B0026FE73 /* RegistrationService.swift */,
-				316DB84228EE265F0026FE73 /* RegistrationFlow.swift */,
+				316DB84228EE265F0026FE73 /* RegistrationModel.swift */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -315,7 +323,6 @@
 				316DB84428EE26B40026FE73 /* RegistrationPasswordViewController.swift */,
 				316DB84628EE26D50026FE73 /* RegistrationEmailViewController.swift */,
 				316DB84828EE26EC0026FE73 /* RegistrationPhoneViewController.swift */,
-				316DB84A28EE26FE0026FE73 /* RegistrationFinalViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -481,6 +488,7 @@
 			children = (
 				314D882A28969E950037696E /* CollectionDataSource.swift */,
 				EA91F1AD287DE0D900C11BC3 /* AccountProvider.swift */,
+				3195E68728F0D0E700FEC467 /* PhoneFormatter.swift */,
 				EA91F1AB287DE0D900C11BC3 /* Images.swift */,
 				EA91F1AC287DE0D900C11BC3 /* Strings.swift */,
 				EA91F1AA287DE0D800C11BC3 /* UIConstants.swift */,
@@ -503,6 +511,7 @@
 			isa = PBXGroup;
 			children = (
 				31CEFD23289E5EE800209AEC /* ImageLoader.swift */,
+				3123C1AC28EF406D004840CD /* NetworkClient.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -764,6 +773,7 @@
 				31A7BF6428CE91AE0077D2C0 /* StretchyHeaderLayout.swift in Sources */,
 				3120F60D28A2986100A6453B /* SearchScreenCell.swift in Sources */,
 				31794EA628BE93EC00E77C49 /* AddPostPhotoService.swift in Sources */,
+				3195E68628F0D05900FEC467 /* PhoneTextField.swift in Sources */,
 				318E674E289B039B00EBA6BD /* MainTapePresenter.swift in Sources */,
 				316DB84D28EE27330026FE73 /* RegistrationPresenter.swift in Sources */,
 				316DB85028EE274B0026FE73 /* RegistrationService.swift in Sources */,
@@ -772,7 +782,6 @@
 				31FFDC9628BD3933005E022A /* AddPostAssembly.swift in Sources */,
 				31BE5CBE289AFB79005D7392 /* MainTapeService.swift in Sources */,
 				316DB83E28EE04660026FE73 /* Spinner.swift in Sources */,
-				316DB84B28EE26FE0026FE73 /* RegistrationFinalViewController.swift in Sources */,
 				EA91F1DF287DF39200C11BC3 /* MainTapeViewController.swift in Sources */,
 				31A7BF6228CA8BAD0077D2C0 /* BigPhotoHeader.swift in Sources */,
 				3120F60B28A28F4B00A6453B /* SearchCellItem.swift in Sources */,
@@ -791,6 +800,7 @@
 				31A7BF6628CE92680077D2C0 /* FiltersFactory.swift in Sources */,
 				314B3867289DB40B00D5A7F4 /* PostCellViewInteractor.swift in Sources */,
 				EA91F1CF287DE0ED00C11BC3 /* AuthService.swift in Sources */,
+				3195E68828F0D0E700FEC467 /* PhoneFormatter.swift in Sources */,
 				3120F61828A29EF800A6453B /* SearchScreenService.swift in Sources */,
 				3120F61128A29D3A00A6453B /* SearchScreenPresenter.swift in Sources */,
 				31B6DCD828ECD56600C9ACE7 /* OrView.swift in Sources */,
@@ -803,7 +813,7 @@
 				EA91F170287DDD7A00C11BC3 /* AppDelegate.swift in Sources */,
 				EA91F1AE287DE0D900C11BC3 /* UIConstants.swift in Sources */,
 				31BE5CC0289AFD12005D7392 /* Post.swift in Sources */,
-				316DB84328EE265F0026FE73 /* RegistrationFlow.swift in Sources */,
+				316DB84328EE265F0026FE73 /* RegistrationModel.swift in Sources */,
 				31B6DCDA28ECD6C400C9ACE7 /* CommonTextField.swift in Sources */,
 				314D88232896914A0037696E /* PostCell.swift in Sources */,
 				3120F60F28A29BC600A6453B /* SearchScreenTapeDataSource.swift in Sources */,
@@ -829,6 +839,7 @@
 				314D882B28969E950037696E /* CollectionDataSource.swift in Sources */,
 				314D882928969E6D0037696E /* MainTapeDataSource.swift in Sources */,
 				31CEFD24289E5EE800209AEC /* ImageLoader.swift in Sources */,
+				3123C1AD28EF406D004840CD /* NetworkClient.swift in Sources */,
 				316DB84928EE26EC0026FE73 /* RegistrationPhoneViewController.swift in Sources */,
 				316DB84128EE263B0026FE73 /* RegistrationNameViewController.swift in Sources */,
 				316DB84528EE26B40026FE73 /* RegistrationPasswordViewController.swift in Sources */,
@@ -837,6 +848,7 @@
 				EA91F1B0287DE0D900C11BC3 /* Strings.swift in Sources */,
 				31794EAA28BEA90700E77C49 /* PhotoLibraryAccessor.swift in Sources */,
 				314B386B289DB63600D5A7F4 /* PostCellViewDataBaseService.swift in Sources */,
+				3123C1AF28EF5E4D004840CD /* LoadingScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

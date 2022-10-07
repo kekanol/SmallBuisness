@@ -9,7 +9,7 @@ import Foundation
 
 protocol AuthPresenterProtocol: AnyObject {
 	func load(with credensial: AuthCredensial)
-	func showMain()
+	func showRegistration()
 }
 
 final class AuthPresenter {
@@ -50,11 +50,13 @@ extension AuthPresenter: AuthPresenterProtocol {
 
 	}
 
-	func showMain() {
-		Router.shared.mainScreenRouter.showMainScreen()
+	func showRegistration() {
+		Router.shared.openRegistration()
 	}
 }
 
 private extension AuthPresenter {
-	
+	func showMain() {
+		Router.shared.mainScreenRouter.showMainScreen()
+	}
 }

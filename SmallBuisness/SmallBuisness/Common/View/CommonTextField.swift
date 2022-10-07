@@ -18,11 +18,12 @@ class CommonTextField: UIView {
 	}
 	var delegate: CommonTextFieldDelegate?
 	var text: String?
+	var textChanged: ((String?) -> Void)?
 
 	private(set) var status: Status = .base
 	private let isPassword: Bool
 
-	private let textField = UITextField()
+	let textField = UITextField()
 	private let button = UIButton()
 	private lazy var stack: UIStackView = {
 		let stack = UIStackView(arrangedSubviews: [textField, button])
@@ -48,6 +49,15 @@ class CommonTextField: UIView {
 	func validationEnded(with result: Status) {
 		status = result
 		updateAppearance()
+	}
+
+	func setText(_ text: String) {
+		
+	}
+
+	@objc
+	func setActive() {
+		_ = textField.becomeFirstResponder()
 	}
 }
 
@@ -96,6 +106,7 @@ private extension CommonTextField {
 	@objc
 	func textDidChange(_ sender: UITextField) {
 		text = textField.text
+		textChanged?(text)
 	}
 
 	@objc
@@ -108,11 +119,6 @@ private extension CommonTextField {
 		}
 		textField.text = nil
 		text = nil
-	}
-
-	@objc
-	func setActive() {
-		_ = textField.becomeFirstResponder()
 	}
 }
 

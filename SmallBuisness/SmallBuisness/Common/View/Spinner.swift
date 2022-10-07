@@ -9,13 +9,13 @@ import UIKit
 
 final class Spinner: UIView {
 
-	private var spinLayer: CALayer!
+	var spinLayer: CALayer!
 
-	init(frame: CGRect, tintColor: UIColor) {
+	init(frame: CGRect, tintColor: UIColor, linewidth: CGFloat = 3) {
 		super.init(frame: frame)
 		let bounds = CGRect(origin: CGPoint(), size: frame.size)
 		let center = CGPoint(x: bounds.midX, y: bounds.midY)
-		spinLayer = ProgressRing(bounds: bounds, position: center, fromColor: .clear, toColor: tintColor, linewidth: 3, toValue: 1)
+		spinLayer = ProgressRing(bounds: bounds, position: center, fromColor: .clear, toColor: tintColor, linewidth: linewidth, toValue: 1)
 		layer.addSublayer(spinLayer)
 		alpha = 1
 	}

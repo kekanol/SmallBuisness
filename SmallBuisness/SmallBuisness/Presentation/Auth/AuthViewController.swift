@@ -172,6 +172,7 @@ private extension AuthViewController {
 		enter.setTitle("Войти", for: .normal)
 		enter.addTarget(self, action: #selector(enterAction), for: .touchUpInside)
 		registration.setTitle("Регистрация", for: .normal)
+		registration.addTarget(self, action: #selector(registrationAction), for: .touchUpInside)
 		forgotPass.setTitle("Забыли пароль?", for: .normal)
 		login.placeholder = "Логин"
 		password.placeholder = "Пароль"
@@ -201,6 +202,10 @@ private extension AuthViewController {
 		guard let credentials = validateTexts() else { return }
 		enter.isLoading = true
 		presenter?.load(with: credentials)
+	}
+
+	@objc func registrationAction() {
+		presenter?.showRegistration()
 	}
 
 	func validateTexts() -> AuthCredensial? {

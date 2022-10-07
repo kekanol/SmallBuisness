@@ -18,6 +18,7 @@ final class Router {
 
 	private init() {
 		currentNC = UIApplication.shared.windows.first?.rootViewController?.navigationController
+		currentNC?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.primary]
 	}
 
 	func getDeepLink(fromUrl url: String) -> URL? {
@@ -68,6 +69,8 @@ extension Router {
 	}
 
 	func openRegistration() {
-		
+		let presenter = RegistrationPresenter()
+		let vc = RegistrationNameViewController(presenter: presenter)
+		currentNC?.pushViewController(vc, animated: true)
 	}
 }
