@@ -27,6 +27,7 @@ final class RegistrationPhoneViewController: CommonViewController {
 	private let textField: PhoneTextField = {
 		let textField = PhoneTextField(isPassword: false)
 		textField.placeholder = "Номер телефона"
+		textField.keyBoardType = .phonePad
 		return textField
 	}()
 	private lazy var button: CommonButton = {

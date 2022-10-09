@@ -69,6 +69,10 @@
 		31BE5CBE289AFB79005D7392 /* MainTapeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE5CBD289AFB79005D7392 /* MainTapeService.swift */; };
 		31BE5CC0289AFD12005D7392 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE5CBF289AFD12005D7392 /* Post.swift */; };
 		31CEFD24289E5EE800209AEC /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEFD23289E5EE800209AEC /* ImageLoader.swift */; };
+		31EF695828F32F6700D5A6E8 /* ShakeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF695728F32F6700D5A6E8 /* ShakeMenu.swift */; };
+		31EF695B28F335FE00D5A6E8 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF695A28F335FE00D5A6E8 /* CurrentUser.swift */; };
+		31EF695D28F343FE00D5A6E8 /* SnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF695C28F343FE00D5A6E8 /* SnackBar.swift */; };
+		31EF695F28F3628300D5A6E8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF695E28F3628300D5A6E8 /* ProfileViewController.swift */; };
 		31FFDC8F28BD38E3005E022A /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FFDC8E28BD38E3005E022A /* AddPostViewController.swift */; };
 		31FFDC9128BD38F3005E022A /* AddPostInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FFDC9028BD38F3005E022A /* AddPostInteractor.swift */; };
 		31FFDC9328BD38FF005E022A /* AddPostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FFDC9228BD38FF005E022A /* AddPostPresenter.swift */; };
@@ -188,6 +192,10 @@
 		31BE5CBD289AFB79005D7392 /* MainTapeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTapeService.swift; sourceTree = "<group>"; };
 		31BE5CBF289AFD12005D7392 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		31CEFD23289E5EE800209AEC /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageLoader.swift; path = SmallBuisness/Presentation/TapeScreen/ImageLoader.swift; sourceTree = SOURCE_ROOT; };
+		31EF695728F32F6700D5A6E8 /* ShakeMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeMenu.swift; sourceTree = "<group>"; };
+		31EF695A28F335FE00D5A6E8 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
+		31EF695C28F343FE00D5A6E8 /* SnackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBar.swift; sourceTree = "<group>"; };
+		31EF695E28F3628300D5A6E8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		31FFDC8E28BD38E3005E022A /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
 		31FFDC9028BD38F3005E022A /* AddPostInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostInteractor.swift; sourceTree = "<group>"; };
 		31FFDC9228BD38FF005E022A /* AddPostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostPresenter.swift; sourceTree = "<group>"; };
@@ -295,12 +303,12 @@
 		314D882C2896A47D0037696E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				31EF695628F32F4600D5A6E8 /* HelperViewControllers */,
+				314B3865289D819100D5A7F4 /* View */,
 				31BE5CB4289AC139005D7392 /* DataSource.swift */,
 				31A7BF6328CE91AE0077D2C0 /* StretchyHeaderLayout.swift */,
 				31BE5CBF289AFD12005D7392 /* Post.swift */,
 				3128F7B628ECC196005B471C /* CommonViewController.swift */,
-				3123C1AE28EF5E4D004840CD /* LoadingScreen.swift */,
-				314B3865289D819100D5A7F4 /* View */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -366,6 +374,24 @@
 			path = DataSource;
 			sourceTree = "<group>";
 		};
+		31EF695628F32F4600D5A6E8 /* HelperViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3123C1AE28EF5E4D004840CD /* LoadingScreen.swift */,
+				31EF695728F32F6700D5A6E8 /* ShakeMenu.swift */,
+				31EF695C28F343FE00D5A6E8 /* SnackBar.swift */,
+			);
+			path = HelperViewControllers;
+			sourceTree = "<group>";
+		};
+		31EF695928F335F200D5A6E8 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				31EF695A28F335FE00D5A6E8 /* CurrentUser.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		31FFDC9428BD3923005E022A /* AddPostScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -418,6 +444,7 @@
 		EA91F16E287DDD7A00C11BC3 /* SmallBuisness */ = {
 			isa = PBXGroup;
 			children = (
+				31EF695928F335F200D5A6E8 /* User */,
 				314D882C2896A47D0037696E /* Common */,
 				EA91F1A9287DE0BC00C11BC3 /* Network */,
 				EA91F1A8287DE0B200C11BC3 /* DataBase */,
@@ -471,13 +498,14 @@
 		EA91F1A6287DE09100C11BC3 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				EA91F1C3287DE0ED00C11BC3 /* Router.swift */,
+				31EF695E28F3628300D5A6E8 /* ProfileViewController.swift */,
 				316F8D3C289FD71100E38FBB /* SearchScreen */,
 				EA91F1DD287DF37A00C11BC3 /* TapeScreen */,
 				EA91F1BA287DE0EC00C11BC3 /* Auth */,
 				316DB83F28EE26250026FE73 /* Registration */,
 				EA91F1B2287DE0EC00C11BC3 /* BaseViews */,
 				EA91F1C0287DE0EC00C11BC3 /* Main */,
-				EA91F1C3287DE0ED00C11BC3 /* Router.swift */,
 				31FFDC9428BD3923005E022A /* AddPostScreen */,
 			);
 			path = Presentation;
@@ -803,9 +831,11 @@
 				3195E68828F0D0E700FEC467 /* PhoneFormatter.swift in Sources */,
 				3120F61828A29EF800A6453B /* SearchScreenService.swift in Sources */,
 				3120F61128A29D3A00A6453B /* SearchScreenPresenter.swift in Sources */,
+				31EF695828F32F6700D5A6E8 /* ShakeMenu.swift in Sources */,
 				31B6DCD828ECD56600C9ACE7 /* OrView.swift in Sources */,
 				EA91F1CB287DE0ED00C11BC3 /* AuthViewController.swift in Sources */,
 				EA91F1C4287DE0ED00C11BC3 /* BaseLoadingVeiw.swift in Sources */,
+				31EF695F28F3628300D5A6E8 /* ProfileViewController.swift in Sources */,
 				314D882728969B700037696E /* PostCellItem.swift in Sources */,
 				3120F60928A28B0900A6453B /* SearchScreenCellView.swift in Sources */,
 				EA91F1C8287DE0ED00C11BC3 /* BaseTextField.swift in Sources */,
@@ -818,6 +848,7 @@
 				314D88232896914A0037696E /* PostCell.swift in Sources */,
 				3120F60F28A29BC600A6453B /* SearchScreenTapeDataSource.swift in Sources */,
 				3120F61328A29D4A00A6453B /* SearchScreenInteractor.swift in Sources */,
+				31EF695D28F343FE00D5A6E8 /* SnackBar.swift in Sources */,
 				31794EA428BE92E100E77C49 /* AddPostDataSource.swift in Sources */,
 				EA91F172287DDD7A00C11BC3 /* SceneDelegate.swift in Sources */,
 				31B6DCDC28ECD77F00C9ACE7 /* CommonButton.swift in Sources */,
@@ -848,6 +879,7 @@
 				EA91F1B0287DE0D900C11BC3 /* Strings.swift in Sources */,
 				31794EAA28BEA90700E77C49 /* PhotoLibraryAccessor.swift in Sources */,
 				314B386B289DB63600D5A7F4 /* PostCellViewDataBaseService.swift in Sources */,
+				31EF695B28F335FE00D5A6E8 /* CurrentUser.swift in Sources */,
 				3123C1AF28EF5E4D004840CD /* LoadingScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

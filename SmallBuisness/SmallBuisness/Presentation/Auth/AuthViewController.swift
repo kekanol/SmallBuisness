@@ -66,6 +66,16 @@ final class AuthViewController: CommonViewController {
 			self?.view.layoutIfNeeded()
 		})
 	}
+
+	
+	override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+		if motion == .motionShake {
+			guard Constants.devBuild else { return }
+			Router.shared.openShakeMenu()
+		} else {
+			super.motionEnded(motion, with: event)
+		}
+	}
 }
 
 extension AuthViewController: AuthViewControllerProtocol {

@@ -65,12 +65,24 @@ extension Router {
 
 	func openAuthorization() {
 		let vc = AuthAssembly().build()
-		currentNC?.pushViewController(vc, animated: true)
+		currentNC?.setViewControllers([vc], animated: true)
 	}
 
 	func openRegistration() {
 		let presenter = RegistrationPresenter()
 		let vc = RegistrationNameViewController(presenter: presenter)
 		currentNC?.pushViewController(vc, animated: true)
+	}
+
+	func openShakeMenu() {
+		guard Constants.devBuild else { return }
+		let shakeMenu = ShakeMenu()
+		currentNC?.present(shakeMenu, animated: true)
+	}
+
+	func showSnackBar(with message: String?, isError: Bool, keyboardHeight: CGFloat = 0) {
+		guard let message = message else { return }
+		let snackBar = SnackBar(message: message, isError: isError, keyBoardHeight: keyboardHeight)
+		snackBar.present(on: currentNC)
 	}
 }

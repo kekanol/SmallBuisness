@@ -23,8 +23,6 @@ final class CommonButton: UIButton {
 	private lazy var spinner: Spinner = {
 		let size = CGSize(width: frame.height - 8, height: frame.height - 8)
 		let origin = CGPoint(x: bounds.midX - size.height / 2, y: bounds.midY - size.height / 2)
-		print(origin)
-		print(size)
 		let spinnerFrame = CGRect(origin: origin, size: size)
 		let spinner = Spinner(frame: spinnerFrame, tintColor: style.textColorNormal)
 		addSubview(spinner)

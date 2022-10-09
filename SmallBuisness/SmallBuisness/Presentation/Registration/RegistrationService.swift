@@ -7,16 +7,16 @@
 
 final class RegistrationService {
 
-	func check(text: String, type: RegistrationCredType, completion: @escaping ((Bool) -> Void)) {
+	func check(text: String, type: RegistrationCredType, completion: @escaping ((Bool, String?) -> Void)) {
 		switch type {
 		case .name:
-			completion(true)
+			completion(true, nil)
 		case .password:
-			completion(true)
+			completion(true, nil)
 		case .phone:
-			completion(true)
+			completion(true, nil)
 		case .email:
-			completion(true)
+			completion(true, nil)
 		}
 	}
 }

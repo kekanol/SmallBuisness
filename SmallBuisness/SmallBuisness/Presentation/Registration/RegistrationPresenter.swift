@@ -12,6 +12,7 @@ final class RegistrationPresenter {
 
 	private var model = RegistrationModel()
 	private let service = RegistrationService()
+	var keyboardHeight: CGFloat = 0
 
 	func askIfCanContinue(with type: RegistrationCredType, text: String, completion: @escaping ((Bool) -> Void)) {
 		switch type {
@@ -28,15 +29,16 @@ final class RegistrationPresenter {
 			completion(false)
 			return
 		}
-		service.check(text: text, type: type) { [weak self] isOK in
+		service.check(text: text, type: type) { [weak self] isOK, message in
+			guard let self = self else { return }
 			completion(isOK)
-			guard isOK else { return }
-			self?.openNext(from: type)
+			guard isOK, message == nil else {
+				print(self.keyboardHeight)
+				Router.shared.showSnackBar(with: message, isError: true, keyboardHeight: self.keyboardHeight)
+				return
+			}
+			self.openNext(from: type)
 		}
-	}
-
-	deinit {
-		print("presenterdeinit")
 	}
 
 	private func openNext(from type: RegistrationCredType) {

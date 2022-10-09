@@ -102,7 +102,7 @@ private extension MainScreenViewController {
 	
 	func getProfileScreen() -> UIViewController {
 		let nc = CommonNavigationController()
-		let vc = UIViewController()
+		let vc = ProfileViewController()
 		nc.viewControllers = [vc]
 		nc.tabBarItem = UITabBarItem(
 			title: nil,

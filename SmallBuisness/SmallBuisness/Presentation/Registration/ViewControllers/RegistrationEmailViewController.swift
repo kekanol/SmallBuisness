@@ -27,6 +27,7 @@ final class RegistrationEmailViewController: CommonViewController {
 	private let textField: CommonTextField = {
 		let textField = CommonTextField(isPassword: false)
 		textField.placeholder = "E-mail"
+		textField.keyBoardType = .emailAddress
 		return textField
 	}()
 	private lazy var button: CommonButton = {

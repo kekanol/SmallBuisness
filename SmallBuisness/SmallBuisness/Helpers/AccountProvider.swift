@@ -13,18 +13,15 @@ final class AccountProvider {
 
 	static let shared = AccountProvider()
 	private static let key = "userAuthorizationStatus"
-	private(set) var currentState: AccountState //{
-//		get {
-//			let value = UserDefaults.standard.string(forKey: Self.key)
-//			return AccountState(rawValue: value)
-//		}
-//		set {
-//			UserDefaults.standard.set(newValue.rawValue, forKey: Self.key)
-//		}
-//	}
+	private(set) var currentState: AccountState {
+		didSet {
+			if currentState == .none { CurrentUser.shared.clear() }
+		}
+	}
 
 	private init() {
-		currentState = .none
+		let value = UserDefaults.standard.string(forKey: Self.key)
+		currentState = AccountState(rawValue: value)
 	}
 
 	enum AccountState: String {
@@ -43,5 +40,6 @@ final class AccountProvider {
 
 	func setState(_ state: AccountState) {
 		currentState = state
+		UserDefaults.standard.set(currentState.rawValue, forKey: Self.key)
 	}
 }

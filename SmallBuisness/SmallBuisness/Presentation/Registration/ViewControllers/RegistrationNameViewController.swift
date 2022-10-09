@@ -59,7 +59,22 @@ final class RegistrationNameViewController: CommonViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		navigationController?.setNavigationBarHidden(false, animated: true)
+		navigationController?.navigationBar.backItem?.titleView?.tintColor = .primary
 		textField.setActive()
+		subscribeToKeyboardNotifications()
+	}
+
+	override func viewDidDisappear(_ animated: Bool) {
+		super.viewDidDisappear(animated)
+		unsubscribeFromKeyboardNotifications()
+	}
+
+	override func handleKeyboardDidShown(_ keyboardBounds: CGRect) {
+		presenter.keyboardHeight = keyboardBounds.height
+	}
+
+	override func handleKeyboardDidHidden(_ keyboardBounds: CGRect) {
+		presenter.keyboardHeight = 0
 	}
 
 	override func handleTap(sender: UITapGestureRecognizer? = nil) {}

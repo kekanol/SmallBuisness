@@ -13,11 +13,11 @@ class CommonNavigationController: UINavigationController {
 		navigationBar.shadowImage = UIImage()
 		navigationBar.setBackgroundImage(UIImage(), for: .default)
 		navigationBar.barTintColor = .clear
-		navigationBar.tintColor = .white
+		navigationBar.tintColor = .primary
 		navigationItem.setHidesBackButton(true, animated: false)
-		navigationItem.backButtonTitle = ""
+		navigationItem.backButtonTitle = "Назад"
 		navigationItem.hidesBackButton = true
 		interactivePopGestureRecognizer?.delegate = nil
-		self.delegate = nil
+		delegate = nil
 	}
 }

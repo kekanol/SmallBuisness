@@ -5,6 +5,8 @@
 //  Created by Константин on 05.10.2022.
 //
 
+import Foundation
+
 struct RegistrationModel {
 	var name: String = ""
 	var password: String = ""
@@ -16,12 +18,28 @@ struct RegistrationModel {
 		case .name:
 			return name != ""
 		case .password:
-			return password != ""
+			return checkPassword()
 		case .phone:
-			return phone != ""
+			return checkPhone()
 		case .email:
-			return email != ""
+			return checkEmail()
 		}
+	}
+
+	private func checkPhone() -> Bool {
+		phone != "" && phone.clean().count == 11
+	}
+
+	private func checkEmail() -> Bool {
+		let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+		let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+		return emailPred.evaluate(with: email)
+	}
+
+	private func checkPassword() -> Bool {
+		// минимум 8 символов, 1 заглавная буква, 1 цифра
+		let passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
+		return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: self)
 	}
 }
 
