@@ -7,15 +7,18 @@
 
 import UIKit
 
-final class PostCell: UITableViewCell {
+final class PostCell: UICollectionViewCell {
 	static let reuseIdentifier: String = "\(PostCell.self)"
 
 	private let view = PostCellViewAssembly.build()
+	var didTapLike: ((IndexPath) -> Void)?
+	var didTapComent: ((IndexPath) -> Void)?
+	var didTapFavourites: ((IndexPath) -> Void)?
 
 	private var item: PostCellItem?
 
-	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-		super.init(style: style, reuseIdentifier: reuseIdentifier)
+	override init(frame: CGRect) {
+		super.init(frame: frame)
 		setupUI()
 	}
 
@@ -27,6 +30,9 @@ final class PostCell: UITableViewCell {
 	func configure(with item: PostCellItem, indexPath: IndexPath) {
 		self.item = item
 		view.setItem(item, indexPath: indexPath)
+		view.didTapLike = { [weak self] i in self?.didTapLike?(i) }
+		view.didTapComent = { [weak self] i in self?.didTapComent?(i) }
+		view.didTapFavourites = { [weak self] i in self?.didTapFavourites?(i) }
 	}
 }
 

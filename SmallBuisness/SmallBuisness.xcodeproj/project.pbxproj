@@ -73,6 +73,10 @@
 		31EF695B28F335FE00D5A6E8 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF695A28F335FE00D5A6E8 /* CurrentUser.swift */; };
 		31EF695D28F343FE00D5A6E8 /* SnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF695C28F343FE00D5A6E8 /* SnackBar.swift */; };
 		31EF695F28F3628300D5A6E8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF695E28F3628300D5A6E8 /* ProfileViewController.swift */; };
+		31EF696128F3EA3200D5A6E8 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF696028F3EA3200D5A6E8 /* PostViewController.swift */; };
+		31EF696328F4A1BA00D5A6E8 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF696228F4A1BA00D5A6E8 /* CommentsViewController.swift */; };
+		31EF696628F4A98A00D5A6E8 /* DescriptionPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF696528F4A98A00D5A6E8 /* DescriptionPostView.swift */; };
+		31EF696828F5D40500D5A6E8 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF696728F5D40500D5A6E8 /* CommentView.swift */; };
 		31FFDC8F28BD38E3005E022A /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FFDC8E28BD38E3005E022A /* AddPostViewController.swift */; };
 		31FFDC9128BD38F3005E022A /* AddPostInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FFDC9028BD38F3005E022A /* AddPostInteractor.swift */; };
 		31FFDC9328BD38FF005E022A /* AddPostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FFDC9228BD38FF005E022A /* AddPostPresenter.swift */; };
@@ -196,6 +200,10 @@
 		31EF695A28F335FE00D5A6E8 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		31EF695C28F343FE00D5A6E8 /* SnackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBar.swift; sourceTree = "<group>"; };
 		31EF695E28F3628300D5A6E8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		31EF696028F3EA3200D5A6E8 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		31EF696228F4A1BA00D5A6E8 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		31EF696528F4A98A00D5A6E8 /* DescriptionPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionPostView.swift; sourceTree = "<group>"; };
+		31EF696728F5D40500D5A6E8 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		31FFDC8E28BD38E3005E022A /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
 		31FFDC9028BD38F3005E022A /* AddPostInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostInteractor.swift; sourceTree = "<group>"; };
 		31FFDC9228BD38FF005E022A /* AddPostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostPresenter.swift; sourceTree = "<group>"; };
@@ -392,6 +400,17 @@
 			path = User;
 			sourceTree = "<group>";
 		};
+		31EF696428F4A97500D5A6E8 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				31EF696028F3EA3200D5A6E8 /* PostViewController.swift */,
+				31EF696228F4A1BA00D5A6E8 /* CommentsViewController.swift */,
+				31EF696528F4A98A00D5A6E8 /* DescriptionPostView.swift */,
+				31EF696728F5D40500D5A6E8 /* CommentView.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
 		31FFDC9428BD3923005E022A /* AddPostScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -500,6 +519,7 @@
 			children = (
 				EA91F1C3287DE0ED00C11BC3 /* Router.swift */,
 				31EF695E28F3628300D5A6E8 /* ProfileViewController.swift */,
+				31EF696428F4A97500D5A6E8 /* Post */,
 				316F8D3C289FD71100E38FBB /* SearchScreen */,
 				EA91F1DD287DF37A00C11BC3 /* TapeScreen */,
 				EA91F1BA287DE0EC00C11BC3 /* Auth */,
@@ -813,6 +833,7 @@
 				EA91F1DF287DF39200C11BC3 /* MainTapeViewController.swift in Sources */,
 				31A7BF6228CA8BAD0077D2C0 /* BigPhotoHeader.swift in Sources */,
 				3120F60B28A28F4B00A6453B /* SearchCellItem.swift in Sources */,
+				31EF696828F5D40500D5A6E8 /* CommentView.swift in Sources */,
 				31B6DCDE28ECDD9100C9ACE7 /* Colors.swift in Sources */,
 				EA91F1B1287DE0D900C11BC3 /* AccountProvider.swift in Sources */,
 				314B3864289D818A00D5A7F4 /* ProgressRing.swift in Sources */,
@@ -852,6 +873,7 @@
 				31794EA428BE92E100E77C49 /* AddPostDataSource.swift in Sources */,
 				EA91F172287DDD7A00C11BC3 /* SceneDelegate.swift in Sources */,
 				31B6DCDC28ECD77F00C9ACE7 /* CommonButton.swift in Sources */,
+				31EF696128F3EA3200D5A6E8 /* PostViewController.swift in Sources */,
 				EA91F1DB287DE7C500C11BC3 /* UIImage+Extensions.swift in Sources */,
 				31A7BF6828CE95450077D2C0 /* FilterView.swift in Sources */,
 				EA91F1D2287DE0ED00C11BC3 /* Router.swift in Sources */,
@@ -862,6 +884,7 @@
 				EA91F1C6287DE0ED00C11BC3 /* BaseLabel.swift in Sources */,
 				31FFDC9128BD38F3005E022A /* AddPostInteractor.swift in Sources */,
 				31B6DCE028ECDE8800C9ACE7 /* Fonts.swift in Sources */,
+				31EF696328F4A1BA00D5A6E8 /* CommentsViewController.swift in Sources */,
 				314B386D289DB99E00D5A7F4 /* PostCellViewAssembly.swift in Sources */,
 				3128F7B728ECC196005B471C /* CommonViewController.swift in Sources */,
 				31794EA828BEA1C100E77C49 /* PhotosErrorFactory.swift in Sources */,
@@ -875,6 +898,7 @@
 				316DB84128EE263B0026FE73 /* RegistrationNameViewController.swift in Sources */,
 				316DB84528EE26B40026FE73 /* RegistrationPasswordViewController.swift in Sources */,
 				31BE5CBA289AF905005D7392 /* MainTapeInteractor.swift in Sources */,
+				31EF696628F4A98A00D5A6E8 /* DescriptionPostView.swift in Sources */,
 				EA91F1A5287DE05D00C11BC3 /* LoadingViewController.swift in Sources */,
 				EA91F1B0287DE0D900C11BC3 /* Strings.swift in Sources */,
 				31794EAA28BEA90700E77C49 /* PhotoLibraryAccessor.swift in Sources */,

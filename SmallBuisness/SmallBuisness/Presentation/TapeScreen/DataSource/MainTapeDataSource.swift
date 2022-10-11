@@ -19,7 +19,7 @@ final class MainTapeDataSource: DataSource {
 	}
 
 	override func registerCells() {
-		self.tableView?.register(PostCell.self, forCellReuseIdentifier: PostCell.reuseIdentifier)
+		collectionView?.register(PostCell.self, forCellWithReuseIdentifier: PostCell.reuseIdentifier)
 	}
 
 	override func configurator(_ indexPath: IndexPath) -> ElementConfigurator {
@@ -27,6 +27,9 @@ final class MainTapeDataSource: DataSource {
 		return ElementConfigurator(reuseIdentifier: PostCell.reuseIdentifier, configurationBlock: { (cell) in
 			guard let cell = cell as? PostCell else { return }
 			cell.configure(with: model, indexPath: indexPath)
+			cell.didTapComent = { _ in
+				Router.shared.openComents(for: self.items[indexPath.row].post)
+			}
 //			cell.sizeDidChange = { [weak self] indexPath in self?.collectionView?.reloadItems(at: [indexPath])}
 		})
 	}
@@ -35,29 +38,29 @@ final class MainTapeDataSource: DataSource {
 		return 1
 	}
 
-	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return items.count
+	override func numberOfElementsInSection(_ section: Int) -> Int {
+		items.count
 	}
 
-	override func heightForRow(_ indexPath: IndexPath) -> CGFloat {
-		return UITableView.automaticDimension
+	override func numberOfSections(in collectionView: UICollectionView) -> Int {
+		1
 	}
 }
 
 extension MainTapeDataSource: MainTapeDataSourceProtocol {
 	func setItems(_ items: [PostCellItem], animated: Bool = true) {
-		guard let tableView = tableView else { return }
+		guard let collectionView = collectionView else { return }
 
 		guard animated else {
 			self.items = items
-			tableView.reloadData()
+			collectionView.reloadData()
 			return
 		}
 
 		self.items = items
 
-		tableView.performBatchUpdates({
-			tableView.reloadSections(IndexSet(integer: 0), with: .fade)
+		collectionView.performBatchUpdates({
+			collectionView.reloadSections(IndexSet(integer: 0))
 		})
 	}
 }

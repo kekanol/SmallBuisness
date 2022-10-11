@@ -12,7 +12,7 @@ final class MainTapeAssembly {
 		let viewController = MainTapeViewController()
 		let interactor = MainTapeInteractor()
 		let presenter = MainTapePresenter()
-		let dataSource = MainTapeDataSource(tableView: viewController.tableView)
+		let dataSource = MainTapeDataSource(collectionView: viewController.tableView)
 		let service = MainTapeServiceMock()
 
 		viewController.interactor = interactor

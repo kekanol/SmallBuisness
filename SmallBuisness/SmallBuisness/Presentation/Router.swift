@@ -85,4 +85,9 @@ extension Router {
 		let snackBar = SnackBar(message: message, isError: isError, keyBoardHeight: keyboardHeight)
 		snackBar.present(on: currentNC)
 	}
+
+	func openComents(for post: Post) {
+		let vc = CommentsViewController(post: post)
+		currentNC?.pushViewController(vc, animated: true)
+	}
 }

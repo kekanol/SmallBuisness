@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol CommonTextFieldDelegate {
-
-}
-
 class CommonTextField: UIView {
 
 	var placeholder: String = "" {
@@ -19,7 +15,6 @@ class CommonTextField: UIView {
 	var keyBoardType: UIKeyboardType = .default {
 		didSet { textField.keyboardType = keyBoardType }
 	}
-	var delegate: CommonTextFieldDelegate?
 	var text: String?
 	var textChanged: ((String?) -> Void)?
 

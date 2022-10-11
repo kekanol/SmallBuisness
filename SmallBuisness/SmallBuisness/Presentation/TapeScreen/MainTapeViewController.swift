@@ -18,9 +18,11 @@ final class MainTapeViewController: UIViewController {
 
 	var interactor: MainTapeInteractorProtocol!
 
-	lazy var tableView: UITableView = {
-		let tableView = UITableView(frame: .zero, style: .plain)
-		tableView.estimatedRowHeight = UITableView.automaticDimension
+	lazy var tableView: UICollectionView = {
+		let layout = UICollectionViewFlowLayout()
+		layout.scrollDirection = .vertical
+		let tableView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+//		tableView.estimatedRowHeight = UITableView.automaticDimension
 		tableView.allowsSelection = false
 		return tableView
 	}()

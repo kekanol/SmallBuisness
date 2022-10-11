@@ -186,8 +186,6 @@ private extension AuthViewController {
 		forgotPass.setTitle("Забыли пароль?", for: .normal)
 		login.placeholder = "Логин"
 		password.placeholder = "Пароль"
-		login.delegate = self
-		password.delegate = self
 
 		subtitle.text = "Общайтесь без ограничений"
 		subtitle.font = .standart(style: .regular, of: 14)
@@ -230,5 +228,3 @@ private extension AuthViewController {
 		return AuthCredensial(login: loginText, password: passwordText)
 	}
 }
-
-extension AuthViewController: CommonTextFieldDelegate {}

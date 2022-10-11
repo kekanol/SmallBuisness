@@ -10,6 +10,9 @@ import UIKit
 final class PostCellView: UIView {
 
 	var interactor: PostCellViewInteractor!
+	var didTapLike: ((IndexPath) -> Void)?
+	var didTapComent: ((IndexPath) -> Void)?
+	var didTapFavourites: ((IndexPath) -> Void)?
 
 	private lazy var imageHeight = imageView.heightAnchor.constraint(equalTo: widthAnchor)
 	private var indexPath: IndexPath = IndexPath()
@@ -45,6 +48,13 @@ final class PostCellView: UIView {
 		button.addTarget(self, action: #selector(likeButtonAction), for: .touchUpInside)
 		button.setImage(UIImage.heartBreak, for: .normal)
 		button.setImage(UIImage.heart, for: .selected)
+		return button
+	}()
+
+	private lazy var comentButton: UIButton = {
+		let button = UIButton()
+		button.addTarget(self, action: #selector(commentButtonAction), for: .touchUpInside)
+		button.setImage(UIImage.chatCircle, for: .normal)
 		return button
 	}()
 
@@ -102,6 +112,7 @@ private extension PostCellView {
 		 accountLabel,
 		 threDotsButton,
 		 likeButton,
+		 comentButton,
 		 favouriteButton,
 //		 loader,
 		 descriptionLabel,
@@ -144,6 +155,12 @@ private extension PostCellView {
 			make.top.equalTo(imageView.snp.bottom).offset(8)
 		}
 
+		comentButton.snp.makeConstraints { make in
+			make.leading.equalTo(likeButton.snp.trailing).offset(16)
+			make.width.height.equalTo(16)
+			make.centerY.equalTo(likeButton)
+		}
+
 		favouriteButton.snp.makeConstraints { make in
 			make.trailing.equalToSuperview().inset(16)
 			make.width.height.equalTo(16)
@@ -172,9 +189,15 @@ private extension PostCellView {
 
 	@objc func likeButtonAction() {
 		likeButton.isSelected = !likeButton.isSelected
+		didTapLike?(indexPath)
+	}
+
+	@objc func commentButtonAction() {
+		didTapComent?(indexPath)
 	}
 
 	@objc func favouriteButtonAction() {
 		favouriteButton.isSelected = !favouriteButton.isSelected
+		didTapFavourites?(indexPath)
 	}
 }
