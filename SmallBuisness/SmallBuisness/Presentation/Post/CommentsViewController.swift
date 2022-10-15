@@ -12,7 +12,7 @@ final class CommentsViewController: CommonViewController {
 	private let post: Post
 	private var items: [Comment]
 
-	private lazy var descriptionView = DescriptionPostView(fromPost: false, post: post)
+	private lazy var descriptionView = DescriptionPostView(fromPost: false)
 	private var bottomConstraint: NSLayoutConstraint!
 	private lazy var stackView: UIStackView = {
 		let stack = UIStackView()
@@ -98,6 +98,7 @@ private extension CommentsViewController {
 	func configure() {
 		title = "Коментарии"
 		view.backgroundColor = .secondaryDisabled
+		descriptionView.configure(with: post)
 		stackView.addArrangedSubview(descriptionView)
 		for item in items {
 			let comentView = CommentView(item)

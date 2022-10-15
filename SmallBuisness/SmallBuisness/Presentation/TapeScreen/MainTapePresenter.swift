@@ -12,7 +12,7 @@ protocol MainTapePresenterProtocol {
 }
 
 final class MainTapePresenter {
-	var dataSource: MainTapeDataSourceProtocol!
+	var dataSource: MainTapeDataSource!
 	weak var viewController: MainTapeViewControllerProtocol?
 }
 
@@ -26,7 +26,11 @@ extension MainTapePresenter: MainTapePresenterProtocol {
 private extension MainTapePresenter {
 	func createTapeItems(from posts: [Post]) -> [PostCellItem] {
 		posts.map { post -> PostCellItem in
-			return PostCellItem(post: post)
+			let item = PostCellItem(post: post)
+			item.commensAction = {
+				Router.shared.openComents(for: post)
+			}
+			return item
 		}
 	}
 }

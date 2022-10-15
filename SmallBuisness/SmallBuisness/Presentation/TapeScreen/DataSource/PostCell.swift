@@ -10,12 +10,9 @@ import UIKit
 final class PostCell: UICollectionViewCell {
 	static let reuseIdentifier: String = "\(PostCell.self)"
 
-	private let view = PostCellViewAssembly.build()
-	var didTapLike: ((IndexPath) -> Void)?
-	var didTapComent: ((IndexPath) -> Void)?
-	var didTapFavourites: ((IndexPath) -> Void)?
+	var updateHeight: (() -> Void)?
 
-	private var item: PostCellItem?
+	private let view = PostCellView()
 
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -28,11 +25,18 @@ final class PostCell: UICollectionViewCell {
 	}
 
 	func configure(with item: PostCellItem, indexPath: IndexPath) {
-		self.item = item
-		view.setItem(item, indexPath: indexPath)
-		view.didTapLike = { [weak self] i in self?.didTapLike?(i) }
-		view.didTapComent = { [weak self] i in self?.didTapComent?(i) }
-		view.didTapFavourites = { [weak self] i in self?.didTapFavourites?(i) }
+		view.setItem(item)
+		view.updateHeight = { [weak self] in
+			self?.updateHeight?()
+		}
+	}
+
+	override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+		return view.point(inside: point, with: event)
+	}
+
+	override func becomeFirstResponder() -> Bool {
+		view.becomeFirstResponder()
 	}
 }
 
@@ -40,13 +44,11 @@ final class PostCell: UICollectionViewCell {
 
 private extension PostCell {
 	func setupUI() {
-		[view].forEach {
-			$0.translatesAutoresizingMaskIntoConstraints = false
-			addSubview($0)
-		}
+		addSubview(view)
 
 		view.snp.makeConstraints { make in
-			make.leading.trailing.top.bottom.equalToSuperview()
+			make.leading.trailing.equalToSuperview().inset(24)
+			make.top.bottom.equalToSuperview()
 		}
 	}
 }

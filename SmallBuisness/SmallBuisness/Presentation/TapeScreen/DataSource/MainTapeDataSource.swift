@@ -7,16 +7,9 @@
 
 import UIKit
 
-protocol MainTapeDataSourceProtocol: AnyObject {
-	func setItems(_ items: [PostCellItem], animated: Bool)
-}
-
 final class MainTapeDataSource: DataSource {
-	private var items: [PostCellItem] = []
 
-	func refresh() {
-		self.tableView?.reloadData()
-	}
+	private var items: [PostCellItem] = []
 
 	override func registerCells() {
 		collectionView?.register(PostCell.self, forCellWithReuseIdentifier: PostCell.reuseIdentifier)
@@ -27,10 +20,9 @@ final class MainTapeDataSource: DataSource {
 		return ElementConfigurator(reuseIdentifier: PostCell.reuseIdentifier, configurationBlock: { (cell) in
 			guard let cell = cell as? PostCell else { return }
 			cell.configure(with: model, indexPath: indexPath)
-			cell.didTapComent = { _ in
-				Router.shared.openComents(for: self.items[indexPath.row].post)
+			cell.updateHeight = { [weak self] in
+				self?.collectionView?.reloadData()
 			}
-//			cell.sizeDidChange = { [weak self] indexPath in self?.collectionView?.reloadItems(at: [indexPath])}
 		})
 	}
 
@@ -45,9 +37,14 @@ final class MainTapeDataSource: DataSource {
 	override func numberOfSections(in collectionView: UICollectionView) -> Int {
 		1
 	}
+
+	override func sizeForItem(_ indexPath: IndexPath) -> CGSize {
+		let item = items[indexPath.row]
+		return item.cellSize
+	}
 }
 
-extension MainTapeDataSource: MainTapeDataSourceProtocol {
+extension MainTapeDataSource {
 	func setItems(_ items: [PostCellItem], animated: Bool = true) {
 		guard let collectionView = collectionView else { return }
 

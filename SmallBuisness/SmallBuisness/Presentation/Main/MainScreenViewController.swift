@@ -15,6 +15,7 @@ final class MainScreenViewController: UITabBarController {
 		super.viewDidLoad()
 		self.view.backgroundColor = .white
 		self.tabBar.backgroundColor = .white
+		self.tabBar.tintColor = .primary
 		setupControllers()
 	}
 
@@ -37,7 +38,6 @@ private extension MainScreenViewController {
 				getTapeScreen(),
 				getSearchScreen(),
 				getNewPostScreen(),
-				getCartScreen(),
 				getProfileScreen()
 			]
 		case .urik:
@@ -58,7 +58,7 @@ private extension MainScreenViewController {
 		nc.viewControllers = [vc]
 		nc.tabBarItem = UITabBarItem(
 			title: "",
-			image: UIImage.paperPlaneTilt.withRenderingMode(.alwaysTemplate),
+			image: UIImage.homeOutline.withRenderingMode(.alwaysTemplate),
 			selectedImage: nil)
 		nc.tabBarItem.imageInsets = UIEdgeInsets()
 		return nc
@@ -70,7 +70,7 @@ private extension MainScreenViewController {
 		nc.viewControllers = [vc]
 		nc.tabBarItem = UITabBarItem(
 			title: nil,
-			image: UIImage.magnifyingGlass.withRenderingMode(.alwaysTemplate),
+			image: UIImage.searchOutline.withRenderingMode(.alwaysTemplate),
 			selectedImage: nil)
 		nc.tabBarItem.imageInsets = UIEdgeInsets()
 		return nc
@@ -82,23 +82,23 @@ private extension MainScreenViewController {
 		nc.viewControllers = [vc]
 		nc.tabBarItem = UITabBarItem(
 			title: nil,
-			image: UIImage.plusSquare.withRenderingMode(.alwaysTemplate),
+			image: UIImage.plusCircleOutline.withRenderingMode(.alwaysTemplate),
 			selectedImage: nil)
 		nc.tabBarItem.imageInsets = UIEdgeInsets()
 		return nc
 	}
-	
-	func getCartScreen() -> UIViewController {
-		let nc = CommonNavigationController()
-		let vc = UIViewController()
-		nc.viewControllers = [vc]
-		nc.tabBarItem = UITabBarItem(
-			title: nil,
-			image: UIImage.cart.withRenderingMode(.alwaysTemplate),
-			selectedImage: nil)
-		nc.tabBarItem.imageInsets = UIEdgeInsets()
-		return nc
-	}
+//	
+//	func getCartScreen() -> UIViewController {
+//		let nc = CommonNavigationController()
+//		let vc = UIViewController()
+//		nc.viewControllers = [vc]
+//		nc.tabBarItem = UITabBarItem(
+//			title: nil,
+//			image: UIImage.cart.withRenderingMode(.alwaysTemplate),
+//			selectedImage: nil)
+//		nc.tabBarItem.imageInsets = UIEdgeInsets()
+//		return nc
+//	}
 	
 	func getProfileScreen() -> UIViewController {
 		let nc = CommonNavigationController()
@@ -106,7 +106,7 @@ private extension MainScreenViewController {
 		nc.viewControllers = [vc]
 		nc.tabBarItem = UITabBarItem(
 			title: nil,
-			image: UIImage.user.withRenderingMode(.alwaysTemplate),
+			image: UIImage.userOutline.withRenderingMode(.alwaysTemplate),
 			selectedImage: nil)
 		nc.tabBarItem.imageInsets = UIEdgeInsets()
 		return nc
@@ -118,7 +118,7 @@ private extension MainScreenViewController {
 		nc.viewControllers = [vc]
 		nc.tabBarItem = UITabBarItem(
 			title: nil,
-			image: UIImage.bookOpen.withRenderingMode(.alwaysTemplate),
+			image: UIImage.pencilSquare.withRenderingMode(.alwaysTemplate),
 			selectedImage: nil)
 		nc.tabBarItem.imageInsets = UIEdgeInsets()
 		return nc

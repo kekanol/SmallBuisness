@@ -20,13 +20,13 @@ final class BigPhotoHeader: UICollectionReusableView {
 	private lazy var okButton: UIButton = {
 		let button = UIButton()
 		button.addTarget(self, action: #selector(okButtonDidTap), for: .touchUpInside)
-		button.setImage(UIImage.checkCircle, for: .normal)
+		button.setImage(UIImage.settingsOutline, for: .normal)
 		return button
 	}()
 	private lazy var cancelButton: UIButton = {
 		let button = UIButton()
 		button.addTarget(self, action: #selector(cancelButtonDidTap), for: .touchUpInside)
-		button.setImage(UIImage.x, for: .normal)
+		button.setImage(UIImage.xCircle, for: .normal)
 		button.isHidden = true
 		return button
 	}()

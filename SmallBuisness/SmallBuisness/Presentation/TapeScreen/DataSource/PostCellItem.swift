@@ -11,24 +11,17 @@ final class PostCellItem {
 
 	var post: Post
 	var tapAction: (() -> Void)?
+	var likeAction: (() -> Void)?
+	var favouritesAction: (() -> Void)?
+	var commensAction: (() -> Void)?
+	var readMoreTapped = false
+	var cellSize: CGSize {
+		let height = 506 - 390 + UIConstants.screenWidth + descriptionHeight
+		return CGSize(width: UIConstants.screenWidth, height: height)
+	}
+	var descriptionHeight: CGFloat = 0
 
 	init(post: Post) {
 		self.post = post
-	}
-
-	func calculateCellSize(for width: CGFloat) -> CGSize {
-		let avatarHeight = 20
-		let avatarSpacingTop = 8
-		let avatarSpacingBottom = 8
-		let imageHeight = width
-		let likeHeight = 16
-		let likeSpacingTop = 8
-		let likeSpacingBot = 8
-		let descriptionHeight = 20 //post.description.width / width int + 1 * 20
-
-		let totalHeight: CGFloat = CGFloat(avatarHeight + avatarSpacingTop + avatarSpacingBottom +
-											 likeHeight + likeSpacingBot + likeSpacingTop + descriptionHeight) + imageHeight
-
-		return CGSize(width: width, height: totalHeight)
 	}
 }

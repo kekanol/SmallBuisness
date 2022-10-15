@@ -43,11 +43,12 @@ final class MainTapeServiceMock: MainTapeServiceProtocol {
 							account: acc,
 							imageUrl: URL(string: "https://zoo-ekb.ru/uploads/product_filters_value/1226/photo.jpg")!,
 							isProduct: false,
-							description: "hui hui image \(i)",
+							description: "Очень интересный текст про то, что изображено на посте Очень интересный текст про то, что изображено на посте \(i)",
 							likeCount: 0,
 							isLiked: false,
 							isFavourite: false,
 							comments: [])
+
 			posts.append(post)
 		}
 

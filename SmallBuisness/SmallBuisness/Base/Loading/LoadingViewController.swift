@@ -11,7 +11,7 @@ class LoadingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		let image = UIImageView(image: UIImage.box)
+		let image = UIImageView(image: UIImage.heartFilled.withTintColor(.primary))
 		image.frame.size = CGSize(width: 216, height: 216)
 		image.center = view.center
 		view.addSubview(image)

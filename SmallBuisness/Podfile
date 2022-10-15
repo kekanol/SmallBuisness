@@ -6,6 +6,7 @@ target 'SmallBuisness' do
   use_frameworks!
 
 	pod 'SnapKit', '~> 5.6.0'
-	pod 'KeyChain'
+	pod 'KeychainSwift', '~> 20.0'
+	pod 'SDWebImage', '~> 5.0'
 
 end

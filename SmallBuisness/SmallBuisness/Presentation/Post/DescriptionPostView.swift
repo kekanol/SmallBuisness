@@ -9,7 +9,6 @@ import UIKit
 
 final class DescriptionPostView: UIView {
 	private let isFromPost: Bool
-	private let post: Post
 
 	private lazy var image: UIImageView = {
 		let view = UIImageView()
@@ -25,17 +24,23 @@ final class DescriptionPostView: UIView {
 	}()
 	private lazy var hStack: UIStackView = {
 		let stack = UIStackView()
-		[image, name].forEach { stack.addArrangedSubview($0) }
+		if isFromPost {
+			stack.addArrangedSubview(name)
+		} else {
+			[image, name].forEach { stack.addArrangedSubview($0) }
+		}
 		stack.axis = .horizontal
 		stack.spacing = 8
 		stack.contentMode = .left
 		return stack
 	}()
-	private lazy var descriptionView: UILabel = {
+	private(set) lazy var descriptionView: UILabel = {
 		let label = UILabel()
 		label.font = .standart(style: .regular, of: 12)
-		label.numberOfLines = isFromPost ? 3 : 0
+		label.numberOfLines = 0
 		label.textColor = .textPrimary
+		label.lineBreakMode = .byWordWrapping
+		label.contentMode = .topLeft
 		return label
 	}()
 	private lazy var date: UILabel = {
@@ -46,7 +51,7 @@ final class DescriptionPostView: UIView {
 	}()
 	private lazy var dateImage: UIImageView = {
 		let view = UIImageView()
-		view.image = UIImage() // clock
+		view.image = .clockOutline.withTintColor(.textTertiary)
 		view.backgroundColor = .clear
 		return view
 	}()
@@ -57,17 +62,23 @@ final class DescriptionPostView: UIView {
 		return stack
 	}()
 
-	init(fromPost: Bool, post: Post) {
+	init(fromPost: Bool) {
 		isFromPost = fromPost
-		self.post = post
 		super.init(frame: .zero)
 		setupView()
-		configure()
 	}
 
 	@available(*, unavailable)
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+
+	func configure(with post: Post) {
+		//		image.image = coment.accountImageUrl // TODO: добавить картинку
+		image.backgroundColor = .gray
+		name.text = post.account.name
+		descriptionView.text = post.description
+		date.text = "\(Date())" // TODO: add date
 	}
 }
 
@@ -89,7 +100,9 @@ private extension DescriptionPostView {
 
 		addSubview(vStack)
 
+		name.snp.makeConstraints { make in make.height.equalTo(isFromPost ? 16 : 24) }
 		vStack.snp.makeConstraints { make in make.leading.trailing.top.bottom.equalToSuperview() }
+		image.snp.makeConstraints { make in make.height.width.equalTo(24)}
 		dateImage.snp.makeConstraints { make in
 			make.leading.top.equalToSuperview()
 			make.width.height.equalTo(16)
@@ -101,19 +114,12 @@ private extension DescriptionPostView {
 		dateView.snp.makeConstraints { make in
 			make.height.equalTo(16)
 		}
+		descriptionView.snp.makeConstraints { make in make.width.equalToSuperview() }
 		if !isFromPost {
 			let devider = UIView()
 			devider.backgroundColor = .elementLine
 			vStack.addArrangedSubview(devider)
 			devider.snp.makeConstraints { make in make.height.equalTo(1) }
 		}
-	}
-
-	func configure() {
-		//		image.image = coment.accountImageUrl // TODO: добавить картинку
-		image.backgroundColor = .gray
-		name.text = post.account.name
-		descriptionView.text = post.description
-		date.text = "\(Date())" // TODO: add date
 	}
 }

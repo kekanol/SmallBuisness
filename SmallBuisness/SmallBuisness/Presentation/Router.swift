@@ -12,14 +12,11 @@ final class Router {
 	private let paths: [String] = []
 	private let urlStart: String = "startap777://"
 	private let universalStart: String = "https://startap777"
-	var currentNC: UINavigationController?
+	var currentNC: CommonNavigationController?
 
 	static let shared = Router()
 
-	private init() {
-		currentNC = UIApplication.shared.windows.first?.rootViewController?.navigationController
-		currentNC?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.primary]
-	}
+	private init() {}
 
 	func getDeepLink(fromUrl url: String) -> URL? {
 		let path = dropUniversalStart(for: url)

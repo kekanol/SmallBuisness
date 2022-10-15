@@ -22,8 +22,6 @@ final class MainTapeViewController: UIViewController {
 		let layout = UICollectionViewFlowLayout()
 		layout.scrollDirection = .vertical
 		let tableView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-//		tableView.estimatedRowHeight = UITableView.automaticDimension
-		tableView.allowsSelection = false
 		return tableView
 	}()
 

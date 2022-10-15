@@ -54,8 +54,8 @@ final class CommentView: UIView {
 	}()
 	private lazy var likeButton: UIButton = {
 		let button = UIButton()
-		button.setImage(UIImage.heart, for: .normal)
-		button.setImage(UIImage.heart, for: .selected)
+		button.setImage(UIImage.heartOutline, for: .normal)
+		button.setImage(UIImage.heartFilled.withTintColor(.primary), for: .selected)
 		button.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
 		return button
 	}()
