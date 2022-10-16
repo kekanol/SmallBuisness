@@ -47,7 +47,7 @@ private extension PostCell {
 		addSubview(view)
 
 		view.snp.makeConstraints { make in
-			make.leading.trailing.equalToSuperview().inset(24)
+			make.leading.trailing.equalToSuperview()
 			make.top.bottom.equalToSuperview()
 		}
 	}

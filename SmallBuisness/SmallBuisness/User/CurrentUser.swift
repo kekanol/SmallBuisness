@@ -15,7 +15,6 @@ final class CurrentUser {
 	private(set) var image: UIImage?
 
 	static let shared = CurrentUser()
-	private let key = "UserData"
 	private let userdefaults = UserDefaults.standard
 
 	private init() {
@@ -23,7 +22,7 @@ final class CurrentUser {
 	}
 
 	private func fetchData() {
-		guard let data = userdefaults.value(forKey: key) as? Data,
+		guard let data = userdefaults.value(forKey: UserdefaultsKeys.userData.rawValue) as? Data,
 			  let user = try? PropertyListDecoder().decode(User.self, from: data) else {
 			return
 		}
@@ -42,11 +41,11 @@ final class CurrentUser {
 
 	func setUserData(name: String, email: String, phone: String, imageData: Data?) {
 		let user = User(name: name, email: email, phone: phone, imageData: imageData)
-		userdefaults.set(try? PropertyListEncoder().encode(user), forKey: key)
+		userdefaults.set(try? PropertyListEncoder().encode(user), forKey: UserdefaultsKeys.userData.rawValue)
 	}
 
 	func clear() {
-		userdefaults.set(nil, forKey: key)
+		userdefaults.set(nil, forKey: UserdefaultsKeys.userData.rawValue)
 	}
 
 	private struct User: Codable {

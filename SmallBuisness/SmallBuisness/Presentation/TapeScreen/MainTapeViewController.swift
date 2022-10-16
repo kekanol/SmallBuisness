@@ -22,6 +22,7 @@ final class MainTapeViewController: UIViewController {
 		let layout = UICollectionViewFlowLayout()
 		layout.scrollDirection = .vertical
 		let tableView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+		tableView.showsVerticalScrollIndicator = false
 		return tableView
 	}()
 
@@ -71,7 +72,7 @@ private extension MainTapeViewController {
 
 	func setupConstraints() {
 		tableView.snp.makeConstraints { make in
-			make.leading.trailing.equalToSuperview()
+			make.leading.trailing.equalToSuperview().inset(24)
 			make.top.equalTo(topLabel.snp.bottom).offset(8)
 		}
 		tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true

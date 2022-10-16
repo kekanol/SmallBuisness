@@ -20,7 +20,6 @@ final class AuthViewController: CommonViewController {
 	// MARK: - Private properties
 
 	private var bottomConstraint: NSLayoutConstraint!
-	private let contentView = UIView()
 	private let container = UIView()
 	private let imageView = UIImageView(image: .authImage)
 	private let bottomSheet = UIView()

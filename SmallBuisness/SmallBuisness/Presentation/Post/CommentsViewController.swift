@@ -12,15 +12,17 @@ final class CommentsViewController: CommonViewController {
 	private let post: Post
 	private var items: [Comment]
 
-	private lazy var descriptionView = DescriptionPostView(fromPost: false)
+	private let descriptionView = DescriptionPostView(fromPost: false)
 	private var bottomConstraint: NSLayoutConstraint!
 	private lazy var stackView: UIStackView = {
 		let stack = UIStackView()
 		stack.axis = .vertical
+		stack.spacing = 12
 		return stack
 	}()
 	private lazy var scrollView: UIScrollView = {
 		let scroll = UIScrollView()
+		scroll.showsVerticalScrollIndicator = false
 		scroll.showsHorizontalScrollIndicator = false
 		return scroll
 	}()

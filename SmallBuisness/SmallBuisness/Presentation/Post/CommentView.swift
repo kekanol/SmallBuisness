@@ -11,7 +11,7 @@ final class CommentView: UIView {
 
 	var likeButtonAction: (() -> Void)?
 
-	private let comment: Comment
+	private var comment: Comment
 
 	private lazy var image: UIImageView = {
 		let view = UIImageView()
@@ -24,14 +24,6 @@ final class CommentView: UIView {
 		label.font = .standart(style: .medium, of: 12)
 		label.textColor = .textPrimary
 		return label
-	}()
-	private lazy var hStack: UIStackView = {
-		let stack = UIStackView()
-		[image, name, likeCount, likeButton].forEach { stack.addArrangedSubview($0) }
-		stack.axis = .horizontal
-		stack.spacing = 8
-		stack.distribution = .equalSpacing
-		return stack
 	}()
 	private lazy var descriptionView: UILabel = {
 		let label = UILabel()
@@ -48,7 +40,7 @@ final class CommentView: UIView {
 	}()
 	private lazy var dateImage: UIImageView = {
 		let view = UIImageView()
-		view.image = UIImage() // clock
+		view.image = .clockOutline
 		view.backgroundColor = .clear
 		return view
 	}()
@@ -90,7 +82,9 @@ private extension CommentView {
 		let dateView = UIView()
 		dateView.addSubview(dateImage)
 		dateView.addSubview(date)
-		[hStack, descriptionView, dateView].forEach {
+		let topView = UIView()
+		[image, name, likeCount, likeButton].forEach { topView.addSubview($0) }
+		[topView, descriptionView, dateView].forEach {
 			vStack.addArrangedSubview($0)
 		}
 
@@ -108,23 +102,46 @@ private extension CommentView {
 		dateView.snp.makeConstraints { make in
 			make.height.equalTo(16)
 		}
-		hStack.snp.makeConstraints { make in make.height.equalTo(24) }
-		likeButton.snp.makeConstraints { make in make.width.height.equalTo(16) }
-		likeCount.snp.makeConstraints { make in make.width.equalTo(24) }
+		topView .snp.makeConstraints { make in make.height.equalTo(24) }
+		likeButton.snp.makeConstraints { make in
+			make.width.height.equalTo(16)
+			make.trailing.centerY.equalToSuperview()
+		}
+		likeCount.snp.makeConstraints { make in
+			make.width.equalTo(24)
+			make.trailing.equalTo(likeButton.snp.leading).offset(8)
+			make.centerY.equalToSuperview()
+		}
+		image.snp.makeConstraints { make in
+			make.leading.centerY.equalToSuperview()
+			make.width.height.equalTo(24)
+		}
+		name.snp.makeConstraints { make in
+			make.leading.equalTo(image.snp.trailing).offset(8)
+			make.centerY.equalToSuperview()
+			make.trailing.equalTo(likeCount.snp.leading)
+		}
 	}
 
 	func configure() {
-//		image.image = coment.accountImageUrl // TODO: добавить картинку
-		image.backgroundColor = .gray
-		name.text = comment.account
+		image.loadWithCache(comment.accountImageUrl)
+		name.text = comment.accountName
 		descriptionView.text = comment.text
-		likeCount.text = String(Int.random(in: 0...999)) //TODO: add count
-		date.text = "\(Date())" // TODO: add date
+		likeButton.isSelected = comment.isLiked
+		likeCount.text = "\(comment.likesCount)"
+		date.text = comment.date.string(with: "dd MMMM yyyy")
 	}
 
 	@objc
 	func likeButtonTapped() {
 		likeButton.isSelected.toggle()
+		comment.isLiked.toggle()
+		if comment.isLiked {
+			comment.likesCount += 1
+		} else {
+			comment.likesCount -= 1
+		}
+		likeCount.text = "\(comment.likesCount)"
 		likeButtonAction?()
 	}
 }

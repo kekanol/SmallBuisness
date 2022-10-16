@@ -10,6 +10,7 @@ import UIKit
 extension UIColor {
 	/// Фоны
 	static let baseBackground = UIColor(red: 0.635, green: 0.627, blue: 0.961, alpha: 1)
+	static let trasparentSecondaryBackground = UIColor(red: 0.191, green: 0.199, blue: 0.208, alpha: 0.2)
 	static let elementaryBackground = UIColor(red: 0.985, green: 0.979, blue: 0.992, alpha: 1)
 
 	/// Тексты

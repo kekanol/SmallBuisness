@@ -11,10 +11,10 @@ final class PostCellView: UIView {
 
 	var didTapLike: (() -> Void)?
 	var didTapComent: (() -> Void)?
-	var didTapFavourites: (() -> Void)?
+	var didTapFavourites: ((Bool) -> Void)?
+	var didTapThreeDots: (() -> Void)?
 	var updateHeight: (() -> Void)?
 
-	private lazy var imageHeight = imageView.heightAnchor.constraint(equalTo: widthAnchor)
 	private var item: PostCellItem!
 
 	private lazy var imageView: UIImageView = {
@@ -45,12 +45,18 @@ final class PostCellView: UIView {
 
 	private lazy var readMoreButton: UIButton = {
 		let button = UIButton()
-		button.setTitle("Показать еще", for: .normal)
-		button.setTitleColor(.primary, for: .normal)
+		button.setTitle("посмотреть", for: .normal)
+		button.setTitleColor(.textTertiary, for: .normal)
 		button.titleLabel?.font = .standart(style: .regular, of: 12)
 		button.backgroundColor = .white
 		button.layer.cornerRadius = 4
 		button.addTarget(self, action: #selector(readMoreButtonAction), for: .touchUpInside)
+
+		button.layer.shadowColor = UIColor.white.cgColor
+		button.layer.shadowOpacity = 1
+		button.layer.shadowOffset = CGSize(width: -10, height: 2)
+		button.layer.shadowRadius = 5
+
 		return button
 	}()
 
@@ -126,8 +132,12 @@ final class PostCellView: UIView {
 			item?.likeAction?()
 		}
 
-		didTapFavourites = { [weak item] in
-			item?.favouritesAction?()
+		didTapFavourites = { [weak item] isSelected in
+			item?.favouritesAction?(isSelected)
+		}
+
+		didTapThreeDots = { [weak item] in
+			item?.threeDotsAction?()
 		}
 	}
 }
@@ -137,13 +147,13 @@ private extension PostCellView {
 		[imageView,
 		 accountImage,
 		 accountLabel,
-		 threDotsButton,
 		 likeButton,
 		 likeCount,
 		 comentButton,
 		 commentCount,
-		 favouriteButton,
 		 descriptionView,
+		 favouriteButton,
+		 threDotsButton,
 		 readMoreButton
 		].forEach {
 			addSubview($0)
@@ -200,8 +210,8 @@ private extension PostCellView {
 		}
 
 		favouriteButton.snp.makeConstraints { make in
-			make.trailing.equalToSuperview()
 			make.width.height.equalTo(24)
+			make.trailing.equalToSuperview()
 			make.centerY.equalTo(likeButton)
 		}
 
@@ -213,8 +223,9 @@ private extension PostCellView {
 		}
 
 		readMoreButton.snp.makeConstraints { make in
-			make.bottom.equalTo(descriptionView).inset(1)
+			make.bottom.equalTo(descriptionView).inset(1.5)
 			make.trailing.equalTo(descriptionView)
+			make.width.equalTo(71)
 			make.height.equalTo(12)
 		}
 	}
@@ -222,7 +233,7 @@ private extension PostCellView {
 
 private extension PostCellView {
 	@objc func threeDotsAction() {
-
+		didTapThreeDots?()
 	}
 
 	@objc func likeButtonAction() {
@@ -244,7 +255,7 @@ private extension PostCellView {
 	@objc func favouriteButtonAction() {
 		item.post.isFavourite.toggle()
 		favouriteButton.isSelected.toggle()
-		didTapFavourites?()
+		didTapFavourites?(favouriteButton.isSelected)
 	}
 
 	@objc func readMoreButtonAction() {

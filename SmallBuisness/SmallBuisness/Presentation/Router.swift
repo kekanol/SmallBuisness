@@ -87,4 +87,12 @@ extension Router {
 		let vc = CommentsViewController(post: post)
 		currentNC?.pushViewController(vc, animated: true)
 	}
+
+	func presentBottomSheet(with items: [BottomSheetItem]) {
+		let vc = BottomSheet()
+		vc.items = items
+		vc.modalPresentationStyle = .overCurrentContext
+		vc.modalTransitionStyle = .crossDissolve
+		currentNC?.present(vc, animated: true)
+	}
 }

@@ -16,13 +16,17 @@ struct Post {
 	var likeCount: Int
 	var isLiked: Bool
 	var isFavourite: Bool
+	var date: Date
 	var comments: [Comment]
 }
 
 struct Comment {
 	var accountImageUrl: URL
-	var account: String
+	var accountName: String
 	var text: String
+	var isLiked: Bool
+	var likesCount: Int
+	var date: Date
 }
 
 struct Account {

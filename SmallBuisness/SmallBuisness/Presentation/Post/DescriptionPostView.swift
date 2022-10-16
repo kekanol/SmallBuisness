@@ -74,11 +74,10 @@ final class DescriptionPostView: UIView {
 	}
 
 	func configure(with post: Post) {
-		//		image.image = coment.accountImageUrl // TODO: добавить картинку
-		image.backgroundColor = .gray
+		image.loadWithCache(post.account.imageUrl)
 		name.text = post.account.name
 		descriptionView.text = post.description
-		date.text = "\(Date())" // TODO: add date
+		date.text = post.date.string(with: "dd MMMM YYYY")
 	}
 }
 
@@ -92,7 +91,6 @@ private extension DescriptionPostView {
 				vStack.addArrangedSubview($0)
 			}
 		} else {
-			image.isHidden = true
 			[hStack, descriptionView, dateView].forEach {
 				vStack.addArrangedSubview($0)
 			}

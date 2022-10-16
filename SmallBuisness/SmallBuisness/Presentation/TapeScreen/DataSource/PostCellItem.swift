@@ -12,12 +12,13 @@ final class PostCellItem {
 	var post: Post
 	var tapAction: (() -> Void)?
 	var likeAction: (() -> Void)?
-	var favouritesAction: (() -> Void)?
+	var favouritesAction: ((Bool) -> Void)?
+	var threeDotsAction: (() -> Void)?
 	var commensAction: (() -> Void)?
 	var readMoreTapped = false
 	var cellSize: CGSize {
 		let height = 506 - 390 + UIConstants.screenWidth + descriptionHeight
-		return CGSize(width: UIConstants.screenWidth, height: height)
+		return CGSize(width: UIConstants.screenWidth - 48, height: height)
 	}
 	var descriptionHeight: CGFloat = 0
 
