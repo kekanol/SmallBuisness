@@ -37,8 +37,14 @@ final class MainTapeServiceMock: MainTapeServiceProtocol {
 
 		for i in 0...5 {
 			let acc = Account(imageUrl: URL(string: "https://avatars.mds.yandex.net/i?id=b7a249f48c97a8524927344c948a23dd-5233058-images-thumbs&n=13")!,
-							  name: "beka",
+							  name: "beka popov",
+							  nickName: "@beha_loh",
+							  posts: [],
+							  subs: [],
+							  suberbs: [],
+							  description: nil,
 							  id: "\(i)")
+
 			let post = Post(id: "\(i)",
 							account: acc,
 							imageUrl: URL(string: "https://zoo-ekb.ru/uploads/product_filters_value/1226/photo.jpg")!,

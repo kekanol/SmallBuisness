@@ -5,7 +5,7 @@
 //  Created by Константин on 03.08.2022.
 //
 
-import Foundation
+import UIKit
 
 struct Post {
 	var id: String
@@ -30,7 +30,12 @@ struct Comment {
 }
 
 struct Account {
-	var imageUrl: URL
+	var imageUrl: URL?
 	var name: String
+	var nickName: String
+	var posts: [String]
+	var subs: [String]
+	var suberbs: [String]
+	var description: String?
 	var id: String
 }

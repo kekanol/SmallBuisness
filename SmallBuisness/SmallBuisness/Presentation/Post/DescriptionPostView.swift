@@ -74,7 +74,9 @@ final class DescriptionPostView: UIView {
 	}
 
 	func configure(with post: Post) {
-		image.loadWithCache(post.account.imageUrl)
+		if let url = post.account.imageUrl {
+			image.loadWithCache(url)
+		}
 		name.text = post.account.name
 		descriptionView.text = post.description
 		date.text = post.date.string(with: "dd MMMM YYYY")

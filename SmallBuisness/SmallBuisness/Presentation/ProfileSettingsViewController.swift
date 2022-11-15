@@ -1,5 +1,5 @@
 //
-//  ProfileViewController.swift
+//  ProfileSettingsViewController.swift
 //  SmallBuisness
 //
 //  Created by Константин on 09.10.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ProfileViewController: UIViewController {
+final class ProfileSettingsViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()

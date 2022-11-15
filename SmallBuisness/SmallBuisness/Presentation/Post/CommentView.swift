@@ -102,7 +102,7 @@ private extension CommentView {
 		dateView.snp.makeConstraints { make in
 			make.height.equalTo(16)
 		}
-		topView .snp.makeConstraints { make in make.height.equalTo(24) }
+		topView.snp.makeConstraints { make in make.height.equalTo(24) }
 		likeButton.snp.makeConstraints { make in
 			make.width.height.equalTo(16)
 			make.trailing.centerY.equalToSuperview()

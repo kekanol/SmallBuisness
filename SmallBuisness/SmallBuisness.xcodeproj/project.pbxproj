@@ -18,6 +18,12 @@
 		3123C1AD28EF406D004840CD /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3123C1AC28EF406D004840CD /* NetworkClient.swift */; };
 		3123C1AF28EF5E4D004840CD /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3123C1AE28EF5E4D004840CD /* LoadingScreen.swift */; };
 		3128F7B728ECC196005B471C /* CommonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3128F7B628ECC196005B471C /* CommonViewController.swift */; };
+		3137919029155366006ACAAE /* AuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3137918F29155366006ACAAE /* AuthRequest.swift */; };
+		31379192291ADF91006ACAAE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31379191291ADF91006ACAAE /* ProfileViewController.swift */; };
+		31379195291AE3DF006ACAAE /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31379194291AE3DF006ACAAE /* ProfileHeaderView.swift */; };
+		31379197291C3D99006ACAAE /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31379196291C3D99006ACAAE /* ProfileInteractor.swift */; };
+		31379199291C3EAB006ACAAE /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31379198291C3EAB006ACAAE /* ProfileService.swift */; };
+		3137919B291C4254006ACAAE /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3137919A291C4254006ACAAE /* ProfilePresenter.swift */; };
 		314B3862289D800A00D5A7F4 /* PostCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314B3861289D800A00D5A7F4 /* PostCellView.swift */; };
 		314B3864289D818A00D5A7F4 /* ProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314B3863289D818A00D5A7F4 /* ProgressRing.swift */; };
 		314D88232896914A0037696E /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314D88222896914A0037696E /* PostCell.swift */; };
@@ -73,7 +79,7 @@
 		31EF695828F32F6700D5A6E8 /* ShakeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF695728F32F6700D5A6E8 /* ShakeMenu.swift */; };
 		31EF695B28F335FE00D5A6E8 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF695A28F335FE00D5A6E8 /* CurrentUser.swift */; };
 		31EF695D28F343FE00D5A6E8 /* SnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF695C28F343FE00D5A6E8 /* SnackBar.swift */; };
-		31EF695F28F3628300D5A6E8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF695E28F3628300D5A6E8 /* ProfileViewController.swift */; };
+		31EF695F28F3628300D5A6E8 /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF695E28F3628300D5A6E8 /* ProfileSettingsViewController.swift */; };
 		31EF696128F3EA3200D5A6E8 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF696028F3EA3200D5A6E8 /* PostViewController.swift */; };
 		31EF696328F4A1BA00D5A6E8 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF696228F4A1BA00D5A6E8 /* CommentsViewController.swift */; };
 		31EF696628F4A98A00D5A6E8 /* DescriptionPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF696528F4A98A00D5A6E8 /* DescriptionPostView.swift */; };
@@ -146,6 +152,12 @@
 		3123C1AC28EF406D004840CD /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkClient.swift; path = SmallBuisness/Presentation/Registration/NetworkClient.swift; sourceTree = SOURCE_ROOT; };
 		3123C1AE28EF5E4D004840CD /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 		3128F7B628ECC196005B471C /* CommonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewController.swift; sourceTree = "<group>"; };
+		3137918F29155366006ACAAE /* AuthRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthRequest.swift; path = SmallBuisness/Common/HelperViewControllers/AuthRequest.swift; sourceTree = SOURCE_ROOT; };
+		31379191291ADF91006ACAAE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		31379194291AE3DF006ACAAE /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		31379196291C3D99006ACAAE /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
+		31379198291C3EAB006ACAAE /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		3137919A291C4254006ACAAE /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		314B3861289D800A00D5A7F4 /* PostCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellView.swift; sourceTree = "<group>"; };
 		314B3863289D818A00D5A7F4 /* ProgressRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRing.swift; sourceTree = "<group>"; };
 		314D88222896914A0037696E /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
@@ -201,7 +213,7 @@
 		31EF695728F32F6700D5A6E8 /* ShakeMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeMenu.swift; sourceTree = "<group>"; };
 		31EF695A28F335FE00D5A6E8 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		31EF695C28F343FE00D5A6E8 /* SnackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBar.swift; sourceTree = "<group>"; };
-		31EF695E28F3628300D5A6E8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		31EF695E28F3628300D5A6E8 /* ProfileSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewController.swift; sourceTree = "<group>"; };
 		31EF696028F3EA3200D5A6E8 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		31EF696228F4A1BA00D5A6E8 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		31EF696528F4A98A00D5A6E8 /* DescriptionPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionPostView.swift; sourceTree = "<group>"; };
@@ -284,6 +296,18 @@
 				3120F60E28A29BC600A6453B /* SearchScreenTapeDataSource.swift */,
 			);
 			path = DataSource;
+			sourceTree = "<group>";
+		};
+		31379193291AE3C3006ACAAE /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				31379191291ADF91006ACAAE /* ProfileViewController.swift */,
+				31379196291C3D99006ACAAE /* ProfileInteractor.swift */,
+				3137919A291C4254006ACAAE /* ProfilePresenter.swift */,
+				31379198291C3EAB006ACAAE /* ProfileService.swift */,
+				31379194291AE3DF006ACAAE /* ProfileHeaderView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		314B3865289D819100D5A7F4 /* View */ = {
@@ -511,7 +535,8 @@
 			isa = PBXGroup;
 			children = (
 				EA91F1C3287DE0ED00C11BC3 /* Router.swift */,
-				31EF695E28F3628300D5A6E8 /* ProfileViewController.swift */,
+				31EF695E28F3628300D5A6E8 /* ProfileSettingsViewController.swift */,
+				31379193291AE3C3006ACAAE /* Profile */,
 				31EF696428F4A97500D5A6E8 /* Post */,
 				316F8D3C289FD71100E38FBB /* SearchScreen */,
 				EA91F1DD287DF37A00C11BC3 /* TapeScreen */,
@@ -554,6 +579,7 @@
 			children = (
 				31CEFD23289E5EE800209AEC /* ImageLoader.swift */,
 				3123C1AC28EF406D004840CD /* NetworkClient.swift */,
+				3137918F29155366006ACAAE /* AuthRequest.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -813,6 +839,7 @@
 				316F8D3E289FD72000E38FBB /* SearchScreenViewController.swift in Sources */,
 				EA91F1D0287DE0ED00C11BC3 /* MainScreenRouter.swift in Sources */,
 				316DB84728EE26D50026FE73 /* RegistrationEmailViewController.swift in Sources */,
+				31379195291AE3DF006ACAAE /* ProfileHeaderView.swift in Sources */,
 				31A7BF6428CE91AE0077D2C0 /* StretchyHeaderLayout.swift in Sources */,
 				3120F60D28A2986100A6453B /* SearchScreenCell.swift in Sources */,
 				31794EA628BE93EC00E77C49 /* AddPostPhotoService.swift in Sources */,
@@ -822,9 +849,11 @@
 				316DB85028EE274B0026FE73 /* RegistrationService.swift in Sources */,
 				31FFDC8F28BD38E3005E022A /* AddPostViewController.swift in Sources */,
 				31BE5CBC289AFA36005D7392 /* MainTapeAssembly.swift in Sources */,
+				31379192291ADF91006ACAAE /* ProfileViewController.swift in Sources */,
 				31FFDC9628BD3933005E022A /* AddPostAssembly.swift in Sources */,
 				31BE5CBE289AFB79005D7392 /* MainTapeService.swift in Sources */,
 				316DB83E28EE04660026FE73 /* Spinner.swift in Sources */,
+				31379199291C3EAB006ACAAE /* ProfileService.swift in Sources */,
 				EA91F1DF287DF39200C11BC3 /* MainTapeViewController.swift in Sources */,
 				31A7BF6228CA8BAD0077D2C0 /* BigPhotoHeader.swift in Sources */,
 				3120F60B28A28F4B00A6453B /* SearchCellItem.swift in Sources */,
@@ -850,10 +879,12 @@
 				31B6DCD828ECD56600C9ACE7 /* OrView.swift in Sources */,
 				EA91F1CB287DE0ED00C11BC3 /* AuthViewController.swift in Sources */,
 				EA91F1C4287DE0ED00C11BC3 /* BaseLoadingVeiw.swift in Sources */,
-				31EF695F28F3628300D5A6E8 /* ProfileViewController.swift in Sources */,
+				31EF695F28F3628300D5A6E8 /* ProfileSettingsViewController.swift in Sources */,
 				314D882728969B700037696E /* PostCellItem.swift in Sources */,
 				3120F60928A28B0900A6453B /* SearchScreenCellView.swift in Sources */,
+				3137919029155366006ACAAE /* AuthRequest.swift in Sources */,
 				EA91F1C8287DE0ED00C11BC3 /* BaseTextField.swift in Sources */,
+				31379197291C3D99006ACAAE /* ProfileInteractor.swift in Sources */,
 				EA91F1C5287DE0ED00C11BC3 /* SuccessFailView.swift in Sources */,
 				EA91F170287DDD7A00C11BC3 /* AppDelegate.swift in Sources */,
 				EA91F1AE287DE0D900C11BC3 /* UIConstants.swift in Sources */,
@@ -865,6 +896,7 @@
 				3120F61328A29D4A00A6453B /* SearchScreenInteractor.swift in Sources */,
 				31EF695D28F343FE00D5A6E8 /* SnackBar.swift in Sources */,
 				31794EA428BE92E100E77C49 /* AddPostDataSource.swift in Sources */,
+				3137919B291C4254006ACAAE /* ProfilePresenter.swift in Sources */,
 				EA91F172287DDD7A00C11BC3 /* SceneDelegate.swift in Sources */,
 				31B6DCDC28ECD77F00C9ACE7 /* CommonButton.swift in Sources */,
 				31EF696128F3EA3200D5A6E8 /* PostViewController.swift in Sources */,

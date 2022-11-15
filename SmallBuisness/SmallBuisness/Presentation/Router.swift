@@ -93,6 +93,11 @@ extension Router {
 		vc.items = items
 		vc.modalPresentationStyle = .overCurrentContext
 		vc.modalTransitionStyle = .crossDissolve
-		currentNC?.present(vc, animated: true)
+		currentNC?.present(vc, animated: false)
+	}
+
+	func showProfileSettings() {
+		let vc = ProfileSettingsViewController()
+		currentNC?.pushViewController(vc, animated: true)
 	}
 }

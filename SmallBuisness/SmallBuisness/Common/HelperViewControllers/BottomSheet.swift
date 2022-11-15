@@ -53,6 +53,9 @@ final class BottomSheet: UIViewController {
 		let safeAreaHeight = view.safeAreaInsets.bottom
 		let totalHeight = baseHeight + itemsHeight + safeAreaHeight
 		bottomView.heightAnchor.constraint(equalToConstant: totalHeight).isActive = true
+		UIView.animate(withDuration: 0.15) {
+			self.view.layoutSubviews()
+		}
 	}
 }
 
@@ -132,7 +135,7 @@ final class BottomSheetCell: UIView {
 
 	func configure(with item: BottomSheetItem) {
 		title.text = item.title
-		imageView.image = item.image
+		imageView.image = item.image.withTintColor(item.tintColor)
 		title.textColor = item.tintColor
 		tapped = { [weak item] in item?.action?() }
 	}

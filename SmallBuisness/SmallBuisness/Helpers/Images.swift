@@ -8,6 +8,9 @@
 import UIKit
 
 extension UIImage {
+
+	static let baseImage = UIImage(named: "BaseIcon") ?? UIImage()
+
 	static let threeDots = UIImage(named: "DotsVertical") ?? UIImage()
 	static let authImage = UIImage(named: "authImage") ?? UIImage()
 	static let ban = UIImage(named: "ban") ?? UIImage()

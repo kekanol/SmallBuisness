@@ -115,7 +115,9 @@ final class PostCellView: UIView {
 	func setItem(_ item: PostCellItem) {
 		self.item = item
 		imageView.loadWithCache(item.post.imageUrl)
-		accountImage.loadWithCache(item.post.account.imageUrl)
+		if let url = item.post.account.imageUrl {
+			accountImage.loadWithCache(url)
+		}
 		accountLabel.text = item.post.account.name
 		descriptionView.configure(with: item.post)
 		likeButton.isSelected = item.post.isLiked

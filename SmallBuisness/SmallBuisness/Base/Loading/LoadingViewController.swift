@@ -11,10 +11,20 @@ class LoadingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		let image = UIImageView(image: UIImage.heartFilled.withTintColor(.primary))
-		image.frame.size = CGSize(width: 216, height: 216)
-		image.center = view.center
+		let image = UIImageView(image: UIImage.baseImage)
 		view.addSubview(image)
+		image.snp.makeConstraints { make in
+			make.center.width.equalTo(view.safeAreaLayoutGuide)
+			make.height.equalTo(image.snp.width)
+		}
+		let title = UILabel()
+		title.text = "СИСЬКИ"
+		title.font = .standart(style: .medium, of: 30)
+		view.addSubview(title)
+		title.snp.makeConstraints { make in
+			make.top.equalTo(image.snp.bottom).offset(24)
+			make.centerX.equalToSuperview()
+		}
 		DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
 			self?.setLoadConfig()
 		}
