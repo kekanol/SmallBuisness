@@ -11,11 +11,7 @@ final class ProfileViewController: UIViewController {
 
 	var interactor: ProfileInteractor?
 
-	private var isCurrentLong = false {
-		didSet {
-			updateCollection()
-		}
-	}
+	private var isCurrentLong = false
 
 	private lazy var accountLabel: UILabel = {
 		let label = UILabel()
@@ -59,22 +55,26 @@ final class ProfileViewController: UIViewController {
 		return button
 	}()
 
+	private(set) lazy var collection: UICollectionView = {
+		let layout = UICollectionViewFlowLayout()
+		layout.scrollDirection = .vertical
+		let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+		view.showsVerticalScrollIndicator = false
+		return view
+	}()
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupView()
 		let account = CurrentUser.shared.asAccount()
 		header.configure(with: account)
 		accountLabel.text = account.nickName
-		interactor?.fetchPosts()
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		navigationController?.isNavigationBarHidden = true
-	}
-
-	func presentPosts(_ posts: [Post]) {
-		
+		interactor?.fetchPosts()
 	}
 }
 
@@ -87,14 +87,12 @@ private extension ProfileViewController {
 		longFormButton.isSelected.toggle()
 		shortFormButton.isSelected.toggle()
 		isCurrentLong.toggle()
-	}
-
-	func updateCollection() {
-
+		updateCollectionWidth()
+		interactor?.didUpdateForm(isLongForm: isCurrentLong)
 	}
 
 	func setupView() {
-		[accountLabel, settingsButton, header, publicationsLabel, longFormButton, shortFormButton].forEach {
+		[accountLabel, settingsButton, header, publicationsLabel, longFormButton, shortFormButton, collection].forEach {
 			$0.translatesAutoresizingMaskIntoConstraints = false
 			view.addSubview($0)
 		}
@@ -129,6 +127,23 @@ private extension ProfileViewController {
 			make.trailing.equalToSuperview().inset(24)
 			make.height.width.equalTo(24)
 			make.top.equalTo(publicationsLabel)
+		}
+
+		updateCollectionWidth()
+	}
+
+	func updateCollectionWidth() {
+		if isCurrentLong {
+			collection.snp.remakeConstraints { make in
+				make.leading.trailing.bottom.equalToSuperview()
+				make.top.equalTo(publicationsLabel.snp.bottom).offset(8)
+			}
+		} else {
+			collection.snp.remakeConstraints { make in
+				make.leading.trailing.equalToSuperview().inset(24)
+				make.bottom.equalToSuperview()
+				make.top.equalTo(publicationsLabel.snp.bottom).offset(8)
+			}
 		}
 	}
 }

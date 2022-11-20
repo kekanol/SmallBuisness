@@ -8,7 +8,7 @@
 import UIKit
 
 final class PostViewController: UIViewController {
-	private let cellView = PostCellView()
+	private let cellView = PostCellView(isFromVC: true)
 	private let post: Post
 
 	init(item: PostCellItem) {
@@ -27,7 +27,13 @@ final class PostViewController: UIViewController {
 		view.backgroundColor = .secondaryDisabled
 		view.addSubview(cellView)
 		cellView.snp.makeConstraints { make in
-			make.leading.trailing.top.equalToSuperview()
+			make.top.equalTo(view.safeAreaLayoutGuide)
+			make.leading.trailing.equalToSuperview().inset(25)
 		}
+	}
+
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		navigationController?.isNavigationBarHidden = false
 	}
 }

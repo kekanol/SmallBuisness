@@ -1,18 +1,16 @@
 //
-//  PostCell.swift
+//  ShortPostCell.swift
 //  SmallBuisness
 //
-//  Created by Константин Емельянов on 31.07.2022.
+//  Created by Константин on 15.11.2022.
 //
 
 import UIKit
 
-final class PostCell: UICollectionViewCell {
-	static let reuseIdentifier: String = "\(PostCell.self)"
+final class ShortPostCell: UICollectionViewCell {
+	static let reuseIdentifier: String = "\(ShortPostCell.self)"
 
-	var updateHeight: (() -> Void)?
-
-	private let view = PostCellView(isFromVC: false)
+	private let view = ShortPostCellView()
 
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -24,11 +22,8 @@ final class PostCell: UICollectionViewCell {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	func configure(with item: PostCellItem, indexPath: IndexPath) {
+	func configure(with item: PostCellItem) {
 		view.setItem(item)
-		view.updateHeight = { [weak self] in
-			self?.updateHeight?()
-		}
 	}
 
 	override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
@@ -42,7 +37,7 @@ final class PostCell: UICollectionViewCell {
 
 // MARK: - Private methods
 
-private extension PostCell {
+private extension ShortPostCell {
 	func setupUI() {
 		addSubview(view)
 

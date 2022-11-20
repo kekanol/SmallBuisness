@@ -24,6 +24,10 @@
 		31379197291C3D99006ACAAE /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31379196291C3D99006ACAAE /* ProfileInteractor.swift */; };
 		31379199291C3EAB006ACAAE /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31379198291C3EAB006ACAAE /* ProfileService.swift */; };
 		3137919B291C4254006ACAAE /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3137919A291C4254006ACAAE /* ProfilePresenter.swift */; };
+		31461A1829240CFC00E6154C /* ProfileAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31461A1729240CFC00E6154C /* ProfileAssembly.swift */; };
+		31461A1A29240D6F00E6154C /* ProfileDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31461A1929240D6F00E6154C /* ProfileDataSource.swift */; };
+		31461A1C292413C200E6154C /* ShortPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31461A1B292413C200E6154C /* ShortPostCell.swift */; };
+		31461A1E292413E700E6154C /* ShortPostCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31461A1D292413E700E6154C /* ShortPostCellView.swift */; };
 		314B3862289D800A00D5A7F4 /* PostCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314B3861289D800A00D5A7F4 /* PostCellView.swift */; };
 		314B3864289D818A00D5A7F4 /* ProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314B3863289D818A00D5A7F4 /* ProgressRing.swift */; };
 		314D88232896914A0037696E /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314D88222896914A0037696E /* PostCell.swift */; };
@@ -158,6 +162,10 @@
 		31379196291C3D99006ACAAE /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
 		31379198291C3EAB006ACAAE /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		3137919A291C4254006ACAAE /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		31461A1729240CFC00E6154C /* ProfileAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAssembly.swift; sourceTree = "<group>"; };
+		31461A1929240D6F00E6154C /* ProfileDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataSource.swift; sourceTree = "<group>"; };
+		31461A1B292413C200E6154C /* ShortPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortPostCell.swift; sourceTree = "<group>"; };
+		31461A1D292413E700E6154C /* ShortPostCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortPostCellView.swift; sourceTree = "<group>"; };
 		314B3861289D800A00D5A7F4 /* PostCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellView.swift; sourceTree = "<group>"; };
 		314B3863289D818A00D5A7F4 /* ProgressRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRing.swift; sourceTree = "<group>"; };
 		314D88222896914A0037696E /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
@@ -301,11 +309,15 @@
 		31379193291AE3C3006ACAAE /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				31461A1729240CFC00E6154C /* ProfileAssembly.swift */,
 				31379191291ADF91006ACAAE /* ProfileViewController.swift */,
 				31379196291C3D99006ACAAE /* ProfileInteractor.swift */,
 				3137919A291C4254006ACAAE /* ProfilePresenter.swift */,
 				31379198291C3EAB006ACAAE /* ProfileService.swift */,
+				31461A1929240D6F00E6154C /* ProfileDataSource.swift */,
 				31379194291AE3DF006ACAAE /* ProfileHeaderView.swift */,
+				31461A1B292413C200E6154C /* ShortPostCell.swift */,
+				31461A1D292413E700E6154C /* ShortPostCellView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -880,6 +892,7 @@
 				EA91F1CB287DE0ED00C11BC3 /* AuthViewController.swift in Sources */,
 				EA91F1C4287DE0ED00C11BC3 /* BaseLoadingVeiw.swift in Sources */,
 				31EF695F28F3628300D5A6E8 /* ProfileSettingsViewController.swift in Sources */,
+				31461A1C292413C200E6154C /* ShortPostCell.swift in Sources */,
 				314D882728969B700037696E /* PostCellItem.swift in Sources */,
 				3120F60928A28B0900A6453B /* SearchScreenCellView.swift in Sources */,
 				3137919029155366006ACAAE /* AuthRequest.swift in Sources */,
@@ -888,6 +901,7 @@
 				EA91F1C5287DE0ED00C11BC3 /* SuccessFailView.swift in Sources */,
 				EA91F170287DDD7A00C11BC3 /* AppDelegate.swift in Sources */,
 				EA91F1AE287DE0D900C11BC3 /* UIConstants.swift in Sources */,
+				31461A1E292413E700E6154C /* ShortPostCellView.swift in Sources */,
 				31BE5CC0289AFD12005D7392 /* Post.swift in Sources */,
 				316DB84328EE265F0026FE73 /* RegistrationModel.swift in Sources */,
 				31B6DCDA28ECD6C400C9ACE7 /* CommonTextField.swift in Sources */,
@@ -900,6 +914,7 @@
 				EA91F172287DDD7A00C11BC3 /* SceneDelegate.swift in Sources */,
 				31B6DCDC28ECD77F00C9ACE7 /* CommonButton.swift in Sources */,
 				31EF696128F3EA3200D5A6E8 /* PostViewController.swift in Sources */,
+				31461A1A29240D6F00E6154C /* ProfileDataSource.swift in Sources */,
 				EA91F1DB287DE7C500C11BC3 /* UIImage+Extensions.swift in Sources */,
 				31A7BF6828CE95450077D2C0 /* FilterView.swift in Sources */,
 				EA91F1D2287DE0ED00C11BC3 /* Router.swift in Sources */,
@@ -923,6 +938,7 @@
 				3123C1AD28EF406D004840CD /* NetworkClient.swift in Sources */,
 				316DB84928EE26EC0026FE73 /* RegistrationPhoneViewController.swift in Sources */,
 				316DB84128EE263B0026FE73 /* RegistrationNameViewController.swift in Sources */,
+				31461A1829240CFC00E6154C /* ProfileAssembly.swift in Sources */,
 				316DB84528EE26B40026FE73 /* RegistrationPasswordViewController.swift in Sources */,
 				31BE5CBA289AF905005D7392 /* MainTapeInteractor.swift in Sources */,
 				31EF696628F4A98A00D5A6E8 /* DescriptionPostView.swift in Sources */,

@@ -100,4 +100,9 @@ extension Router {
 		let vc = ProfileSettingsViewController()
 		currentNC?.pushViewController(vc, animated: true)
 	}
+
+	func openPostInFullScreen(with item: PostCellItem) {
+		let viewController = PostViewController(item: item)
+		currentNC?.pushViewController(viewController, animated: true)
+	}
 }

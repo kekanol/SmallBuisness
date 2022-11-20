@@ -22,4 +22,8 @@ final class ProfileInteractor {
 			self?.presenter.present(result)
 		}
 	}
+
+	func didUpdateForm(isLongForm: Bool) {
+		presenter.updateForm(isLongForm: isLongForm)
+	}
 }

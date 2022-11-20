@@ -14,6 +14,7 @@ final class PostCellView: UIView {
 	var didTapFavourites: ((Bool) -> Void)?
 	var didTapThreeDots: (() -> Void)?
 	var updateHeight: (() -> Void)?
+	private let isFromVC: Bool
 
 	private var item: PostCellItem!
 
@@ -56,7 +57,6 @@ final class PostCellView: UIView {
 		button.layer.shadowOpacity = 1
 		button.layer.shadowOffset = CGSize(width: -10, height: 2)
 		button.layer.shadowRadius = 5
-
 		return button
 	}()
 
@@ -101,7 +101,8 @@ final class PostCellView: UIView {
 
 	private var descriptionView: DescriptionPostView
 
-	init() {
+	init(isFromVC: Bool) {
+		self.isFromVC = isFromVC
 		descriptionView = DescriptionPostView(fromPost: true)
 		super.init(frame: .zero)
 		setupUI()
@@ -221,7 +222,9 @@ private extension PostCellView {
 			make.leading.equalTo(likeButton)
 			make.top.equalTo(likeButton.snp.bottom).offset(16)
 			make.trailing.equalTo(favouriteButton)
-			make.bottom.equalToSuperview().inset(8)
+			if !isFromVC {
+				make.bottom.equalToSuperview().inset(8)
+			}
 		}
 
 		readMoreButton.snp.makeConstraints { make in
@@ -269,6 +272,7 @@ private extension PostCellView {
 	}
 
 	func isReadMoreHidden() -> Bool {
+		guard !isFromVC else { return true }
 		guard !item.readMoreTapped else { return true }
 		return descriptionView.descriptionView.calculateMaxLines(for: UIConstants.screenWidth - 48) < 2
 	}
