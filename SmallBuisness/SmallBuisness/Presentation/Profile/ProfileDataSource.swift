@@ -8,6 +8,16 @@
 import UIKit
 
 final class ProfileDataSource: DataSource {
+
+	private let placeHolderImage = UIImageView(image: UIImage.cameraOutline)
+	private let placeHolderLabel: UILabel = {
+		let label = UILabel()
+		label.text = "Нет публикаций"
+		label.font = .standart(style: .medium, of: 16)
+		label.textColor = .textTertiary
+		return label
+	}()
+
 	private var items: [PostCellItem] = []
 	var isLongForm: Bool = false {
 		didSet {
@@ -17,12 +27,39 @@ final class ProfileDataSource: DataSource {
 
 	func setItems(_ posts: [PostCellItem]) {
 		items = posts
+		placeHolderLabel.isHidden = !items.isEmpty
+		placeHolderImage.isHidden = !items.isEmpty
 		collectionView?.reloadData()
 	}
 
 	override func registerCells() {
 		collectionView?.register(PostCell.self, forCellWithReuseIdentifier: PostCell.reuseIdentifier)
 		collectionView?.register(ShortPostCell.self, forCellWithReuseIdentifier: ShortPostCell.reuseIdentifier)
+	}
+
+	required init(collectionView: UICollectionView) {
+		super.init(collectionView: collectionView)
+
+		[placeHolderLabel, placeHolderImage].forEach {
+			$0.translatesAutoresizingMaskIntoConstraints = false
+			collectionView.addSubview($0)
+		}
+
+		placeHolderImage.snp.makeConstraints { make in
+			make.centerX.equalToSuperview()
+			make.bottom.equalTo(collectionView.snp.centerY)
+			make.height.width.equalTo(64)
+		}
+
+		placeHolderLabel.snp.makeConstraints { make in
+			make.centerX.equalToSuperview()
+			make.top.equalTo(placeHolderImage.snp.bottom)
+		}
+	}
+
+	@available(*, unavailable)
+	required init(tableView: UITableView) {
+		fatalError("init(tableView:) has not been implemented")
 	}
 
 	override func configurator(_ indexPath: IndexPath) -> ElementConfigurator {

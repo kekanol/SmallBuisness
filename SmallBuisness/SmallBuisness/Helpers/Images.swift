@@ -58,4 +58,6 @@ extension UIImage {
 	static let xCircle16 = UIImage(named: "XCircle16") ?? UIImage()
 	static let xOutline = UIImage(named: "XOutline") ?? UIImage()
 	static let xOutline16 = UIImage(named: "XOutline16") ?? UIImage()
+
+	static let cameraOutline = UIImage(named: "CameraOutline") ?? UIImage()
 }
