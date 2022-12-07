@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProgressRing: CALayer {
+final class ProgressRing: CALayer {
 
 	override init () {
 		super.init()

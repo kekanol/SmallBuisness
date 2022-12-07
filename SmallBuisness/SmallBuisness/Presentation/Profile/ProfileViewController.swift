@@ -80,7 +80,7 @@ final class ProfileViewController: UIViewController {
 
 private extension ProfileViewController {
 	@objc func settingsButtonTapped() {
-		Router.shared.showProfileSettings()
+		interactor?.settingsButtonDidTap()
 	}
 
 	@objc func formButtonTapped() {

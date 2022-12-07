@@ -26,8 +26,8 @@ final class Spinner: UIView {
 	}
 
 	func startAnimating() {
-		UIView.animate(withDuration: 0.15) { [weak self] in
-			self?.alpha = 1
+		UIView.animate(withDuration: 0.15) { [unowned self] in
+			alpha = 1
 		}
 		let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
 		rotationAnimation.fromValue = 0.0
@@ -38,8 +38,8 @@ final class Spinner: UIView {
 	}
 
 	func endAnimating() {
-		UIView.animate(withDuration: 0.15) { [weak self] in
-			self?.alpha = 0
+		UIView.animate(withDuration: 0.15) { [unowned self] in
+			alpha = 0
 		} completion: { [weak self] isFinished in
 			guard isFinished else { return }
 			self?.spinLayer.removeAllAnimations()

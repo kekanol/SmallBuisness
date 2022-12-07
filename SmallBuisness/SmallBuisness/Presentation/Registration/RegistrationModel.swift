@@ -38,8 +38,8 @@ struct RegistrationModel {
 
 	private func checkPassword() -> Bool {
 		// минимум 8 символов, 1 заглавная буква, 1 цифра
-		let passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
-		return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: self)
+		let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$"
+		return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: password)
 	}
 }
 

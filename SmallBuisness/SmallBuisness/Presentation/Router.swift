@@ -97,7 +97,7 @@ extension Router {
 	}
 
 	func showProfileSettings() {
-		let vc = ProfileSettingsViewController()
+		let vc = ProfileSettingsAssembly().build()
 		currentNC?.pushViewController(vc, animated: true)
 	}
 

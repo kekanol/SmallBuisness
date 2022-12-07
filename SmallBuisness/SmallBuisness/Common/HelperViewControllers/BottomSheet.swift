@@ -106,7 +106,11 @@ final class BottomSheetItem {
 		self.title = title
 		self.image = image
 		self.tintColor = tintColor
-		self.action = action
+		self.action = {
+			Router.shared.currentNC?.viewControllers.last?.dismiss(animated: true) {
+				action?()
+			}
+		}
 	}
 }
 

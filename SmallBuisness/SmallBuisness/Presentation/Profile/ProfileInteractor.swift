@@ -26,4 +26,28 @@ final class ProfileInteractor {
 	func didUpdateForm(isLongForm: Bool) {
 		presenter.updateForm(isLongForm: isLongForm)
 	}
+
+	func settingsButtonDidTap() {
+		let items = createSettingsItems()
+		Router.shared.presentBottomSheet(with: items)
+	}
+}
+
+private extension ProfileInteractor {
+	func createSettingsItems() -> [BottomSheetItem] {
+		let settingsItem = BottomSheetItem(title: "Настройки аккаунта", image: .adjustmentsOutline) {
+			Router.shared.showProfileSettings()
+		}
+		let editProfileItem = BottomSheetItem(title: "Редактировать профиль", image: .edit3) {
+			print("edit screen")
+		}
+		let favouritesItem = BottomSheetItem(title: "Избранное", image: .bookmarkOutline) {
+			print("favourites screen")
+		}
+		let logOutItem = BottomSheetItem(title: "Выйти из аккаунта", image: .ban, tintColor: .error) {
+			AccountProvider.shared.setState(.none)
+			Router.shared.openAuthorization()
+		}
+		return [settingsItem, editProfileItem, favouritesItem, logOutItem]
+	}
 }
