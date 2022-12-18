@@ -52,7 +52,7 @@ final class ProfileSettingsFactory {
 			view.configure(with: item, isLast: index == documents.count - 1)
 			views.append(view)
 		}
-		return []
+		return views
 	}
 
 	enum PushType {

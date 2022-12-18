@@ -10,12 +10,12 @@ import UIKit
 final class ProfileSettingsViewController: UIViewController {
 
 	private let interactor: ProfileSettingsInteractor
-
-	private(set) lazy var table: UITableView = {
-		let table = UITableView(frame: view.frame, style: .insetGrouped)
-		table.translatesAutoresizingMaskIntoConstraints = false
-		return table
+	private let stackView: UIStackView = {
+		let stack = UIStackView()
+		stack.axis = .vertical
+		return stack
 	}()
+	private let scroll = UIScrollView()
 
 	init(interactor: ProfileSettingsInteractor) {
 		self.interactor = interactor
@@ -29,21 +29,34 @@ final class ProfileSettingsViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		view.backgroundColor = .white
 		setupView()
+		interactor.viewDidLoad()
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		navigationController?.isNavigationBarHidden = false
 	}
+
+	func setViews(_ views: [UIView]) {
+		views.forEach {
+			stackView.addArrangedSubview($0)
+		}
+	}
 }
 
 private extension ProfileSettingsViewController {
 	func setupView() {
-		view.addSubview(table)
-		table.snp.makeConstraints { make in
+		scroll.addSubview(stackView)
+		view.addSubview(scroll)
+		scroll.snp.makeConstraints { make in
 			make.leading.trailing.top.equalTo(view.safeAreaLayoutGuide)
 			make.bottom.equalToSuperview()
+		}
+		stackView.snp.makeConstraints { make in
+			make.leading.trailing.top.bottom.equalTo(scroll.contentLayoutGuide)
+			make.width.equalTo(scroll.frameLayoutGuide)
 		}
 	}
 }

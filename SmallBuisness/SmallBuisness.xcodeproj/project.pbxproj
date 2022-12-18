@@ -45,7 +45,6 @@
 		316DB85028EE274B0026FE73 /* RegistrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316DB84F28EE274B0026FE73 /* RegistrationService.swift */; };
 		316F8D3E289FD72000E38FBB /* SearchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316F8D3D289FD72000E38FBB /* SearchScreenViewController.swift */; };
 		317589482936B2E0008D3D3D /* ProfileSettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317589472936B2E0008D3D3D /* ProfileSettingsInteractor.swift */; };
-		3175894A2936B4B3008D3D3D /* ProfileSettingsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317589492936B4B3008D3D3D /* ProfileSettingsDataSource.swift */; };
 		3175894C2936B513008D3D3D /* ProfileSettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175894B2936B513008D3D3D /* ProfileSettingsPresenter.swift */; };
 		3175894E2936B7FB008D3D3D /* ProfileSettingsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175894D2936B7FB008D3D3D /* ProfileSettingsAssembly.swift */; };
 		317589502936BAC8008D3D3D /* ProfileSettingsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175894F2936BAC8008D3D3D /* ProfileSettingsFactory.swift */; };
@@ -189,7 +188,6 @@
 		316DB84F28EE274B0026FE73 /* RegistrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationService.swift; sourceTree = "<group>"; };
 		316F8D3D289FD72000E38FBB /* SearchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenViewController.swift; sourceTree = "<group>"; };
 		317589472936B2E0008D3D3D /* ProfileSettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsInteractor.swift; sourceTree = "<group>"; };
-		317589492936B4B3008D3D3D /* ProfileSettingsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsDataSource.swift; sourceTree = "<group>"; };
 		3175894B2936B513008D3D3D /* ProfileSettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsPresenter.swift; sourceTree = "<group>"; };
 		3175894D2936B7FB008D3D3D /* ProfileSettingsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsAssembly.swift; sourceTree = "<group>"; };
 		3175894F2936BAC8008D3D3D /* ProfileSettingsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsFactory.swift; sourceTree = "<group>"; };
@@ -400,7 +398,6 @@
 			children = (
 				31EF695E28F3628300D5A6E8 /* ProfileSettingsViewController.swift */,
 				317589472936B2E0008D3D3D /* ProfileSettingsInteractor.swift */,
-				317589492936B4B3008D3D3D /* ProfileSettingsDataSource.swift */,
 				3175894B2936B513008D3D3D /* ProfileSettingsPresenter.swift */,
 				3175894D2936B7FB008D3D3D /* ProfileSettingsAssembly.swift */,
 				3175894F2936BAC8008D3D3D /* ProfileSettingsFactory.swift */,
@@ -906,7 +903,6 @@
 				3120F61528A29D9800A6453B /* SearchScreenAssembly.swift in Sources */,
 				31A7BF6028CA801A0077D2C0 /* PhotoCell.swift in Sources */,
 				EA91F1CD287DE0ED00C11BC3 /* AuthAssembly.swift in Sources */,
-				3175894A2936B4B3008D3D3D /* ProfileSettingsDataSource.swift in Sources */,
 				31BE5CB5289AC139005D7392 /* DataSource.swift in Sources */,
 				31FFDC9328BD38FF005E022A /* AddPostPresenter.swift in Sources */,
 				EA91F1CC287DE0ED00C11BC3 /* AuthCredensial.swift in Sources */,

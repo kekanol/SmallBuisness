@@ -93,6 +93,7 @@ final class SettingsTitleView: UIView {
 	private lazy var label: UILabel = {
 		let label = UILabel()
 		label.font = .standart(style: .medium, of: 12)
+		label.numberOfLines = 1
 		label.textColor = .textTertiary
 		return label
 	}()

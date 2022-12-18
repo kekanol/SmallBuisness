@@ -13,4 +13,8 @@ final class ProfileSettingsInteractor {
 	init(presenter: ProfileSettingsPresenter) {
 		self.presenter = presenter
 	}
+
+	func viewDidLoad() {
+		presenter.loadItems()
+	}
 }

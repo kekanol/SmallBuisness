@@ -13,8 +13,6 @@ final class ProfileSettingsAssembly {
 		let interactor = ProfileSettingsInteractor(presenter: presenter)
 		let viewController = ProfileSettingsViewController(interactor: interactor)
 
-		let dataSource = ProfileSettingsDataSource(tableView: viewController.table)
-		presenter.dataSource = dataSource
 		presenter.viewController = viewController
 
 		return viewController

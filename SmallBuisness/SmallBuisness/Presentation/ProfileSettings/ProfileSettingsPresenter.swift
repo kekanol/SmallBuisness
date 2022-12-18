@@ -10,11 +10,14 @@ import Foundation
 final class ProfileSettingsPresenter {
 
 	weak var viewController: ProfileSettingsViewController?
-	var dataSource: ProfileSettingsDataSource?
 	private let factory: ProfileSettingsFactory
 
 	init(factory: ProfileSettingsFactory) {
 		self.factory = factory
 	}
 
+	func loadItems() {
+		let views = factory.generateItems()
+		viewController?.setViews(views)
+	}
 }

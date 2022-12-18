@@ -18,7 +18,7 @@ extension UILabel {
 	func calculateTextSize(for width: CGFloat) -> CGSize {
 		let maxSize = CGSize(width: width, height: CGFloat(Float.infinity))
 		let text = (self.text ?? "") as NSString
-		let textSize = text.boundingRect(with: maxSize, options: .usesLineFragmentOrigin, attributes: [.font: self.font], context: nil)
+		let textSize = text.boundingRect(with: maxSize, options: .usesLineFragmentOrigin, attributes: [.font: font], context: nil)
 		return textSize.size
 	}
 }
